@@ -1,0 +1,7 @@
+RewriteEngine On
+
+# Default to index
+RewriteRule ^$ views/page-index.php [NC,L]
+
+# Error page
+ErrorDocument 404 /views/page-404.php
