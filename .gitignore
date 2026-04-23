@@ -1,0 +1,33 @@
+# Generated with Claude
+# Dependencies
+/vendor/
+/node_modules/
+
+# Environment
+.env
+.env.local
+
+# Composer
+composer.phar
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs & cache
+*.log
+/storage/logs/
+/storage/cache/
+
+# Tailwind CLI binary
+tailwindcss
+tailwindcss-*
+
+# Build
+/public/build/
+/dist/
