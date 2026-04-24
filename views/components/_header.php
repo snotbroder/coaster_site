@@ -8,3 +8,5 @@
 </head>
 <body>
     <header class="text-blue-400">Head</header>
+    
+    <?php require_once __DIR__."../../../config/_.php"; ?>
