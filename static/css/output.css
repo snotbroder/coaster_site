@@ -161,6 +161,9 @@
   }
 }
 @layer utilities {
+  .hidden {
+    display: none;
+  }
   .text-blue-400 {
     color: var(--color-blue-400);
   }

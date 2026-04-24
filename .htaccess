@@ -1,7 +1,5 @@
 RewriteEngine On
 
-# Default to index
-RewriteRule ^$ views/page-index.php [NC,L]
+# Let the router take care of routes
+RewriteRule (.*) routes.php [QSA,L]
 
-# Error page
-ErrorDocument 404 /views/page-404.php
