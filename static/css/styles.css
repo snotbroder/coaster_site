@@ -1,0 +1,7 @@
+.head-link {
+  padding: 0.5rem 1rem;
+  border-radius: 1.25rem;
+  &.header-link-active {
+    outline: 1px solid var(--accent-color);
+  }
+}
