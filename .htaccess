@@ -1,7 +1,7 @@
 RewriteEngine On
 
-# Default to index
-RewriteRule ^$ views/page-index.php [NC,L]
+# Serve real files directly, route everything else
+RewriteCond %{REQUEST_FILENAME} !-f
 
-# Error page
-ErrorDocument 404 /views/page-404.php
+# Let the router take care of routes
+RewriteRule (.*) routes.php [QSA,L]

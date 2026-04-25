@@ -1,6 +1,8 @@
 <?php
-$title = "Home";
-$active = "index";
+$title = "Parks";
+$active = "parks";
+
 require_once __DIR__ . '/components/_header.php';
-_("ok");
+_("parks");
+
 require_once __DIR__ . '/components/_footer.php';
