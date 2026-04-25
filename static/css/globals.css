@@ -1,6 +1,14 @@
 :root {
-  --primary-color: #f1f1f1;
-  --secondary-color: #2d3748;
-  --accent-color: #4a55684c;
-  --accent: #05ee14;
+  --darkened-indigo: #1b1e24;
+  --pure-indigo: #2d3748;
+  --light-indigo: #6c7180;
+
+  --darkened-eggshell: #e5e6ea;
+  --pure-eggshell: #f9fafb;
+  --light-eggshell: #ffffff;
+
+  --system-failure: #f36751;
+  --system-success: #8ff24e;
+  --system-warning: #f2c94c;
+  --system-inform: #5c9cfc;
 }
