@@ -78,3 +78,28 @@ form {
   cursor: pointer;
   font-size: clamp(var(--s-sm), var(--body-pref), var(--s-2sm));
 }
+
+.breadcrumb-list {
+  .breadcrumb {
+    color: var(--light-indigo);
+    &::after {
+      content: "";
+      margin: 0 1rem;
+      position: relative;
+      top: 1.5px;
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+      mask-image: url(../assets/icons/chevron-right-solid.svg);
+      mask-repeat: no-repeat;
+      mask-size: contain;
+      background-color: var(--light-indigo);
+    }
+    &:last-child {
+      color: var(--darkened-indigo);
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
