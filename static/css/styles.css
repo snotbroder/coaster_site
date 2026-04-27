@@ -80,6 +80,7 @@ form {
 }
 
 .breadcrumb-list {
+  margin-bottom: 2rem;
   .breadcrumb {
     color: var(--light-indigo);
     &::after {
