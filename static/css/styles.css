@@ -1,10 +1,4 @@
-.head-link {
-  padding: 0.5rem 1rem;
-  color: var(--darkened-indigo);
-  &.header-link-active {
-    border-bottom: 1px solid var(--darkened-eggshell);
-  }
-}
+/* HEADER */
 
 header {
   padding: 1rem 2rem;
@@ -17,6 +11,16 @@ header {
     height: 64px;
   }
 }
+
+.head-link {
+  padding: 0.5rem 1rem;
+  color: var(--darkened-indigo);
+  &.header-link-active {
+    border-bottom: 1px solid var(--darkened-eggshell);
+  }
+}
+
+/* MAIN */
 
 main {
   max-width: 1280px;
@@ -49,6 +53,8 @@ main {
   }
 }
 
+/* FORM */
+
 form {
   display: flex;
   flex-direction: column;
@@ -70,6 +76,8 @@ form {
   }
 }
 
+/* CTA */
+
 .btn-primary {
   background-color: var(--pure-indigo);
   color: var(--pure-eggshell);
@@ -79,8 +87,9 @@ form {
   font-size: clamp(var(--s-sm), var(--body-pref), var(--s-2sm));
 }
 
+/* BREADCRUMB */
+
 .breadcrumb-list {
-  margin-bottom: 2rem;
   .breadcrumb {
     color: var(--light-indigo);
     &::after {
@@ -103,4 +112,26 @@ form {
       }
     }
   }
+}
+
+/* MAP */
+#map {
+  margin-top: 2rem;
+  height: 800px;
+  width: 100%;
+  border-radius: 12px;
+  z-index: 0;
+  background-color: var(--light-eggshell);
+
+  .map-marker {
+    background-color: var(--darkened-eggshell);
+
+    border-radius: 3px;
+    border: 2px solid var(--pure-indigo);
+  }
+
+  /* Grayscaled map */
+  /* .leaflet-tile-pane {
+    filter: grayscale(80%) brightness(80%);
+  } */
 }
