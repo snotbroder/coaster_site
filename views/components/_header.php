@@ -12,21 +12,34 @@
 </head>
 
 <body>
-    <header class="w-full flex justify-between items-center p-4">
-        <a href="/" class="<?= $active == 'index' ? '' : '' ?>">Home</a>
-        <ul class="flex flex-row gap-4 justify-between">
-            <li><a href="/parks" class="head-link <?= $active == 'parks' ? 'header-link-active' : '' ?>">Parks</a></li>
-            <li><a href="/attractions" class="head-link <?= $active == 'attractions' ? 'header-link-active' : '' ?>">Attractions</a></li>
-            <li><a href="/map" class="head-link <?= $active == 'map' ? 'header-link-active' : '' ?>">Map</a></li>
-        </ul>
-        <ul>
-            <li>
-                <?php if ($active !== 'login') : ?>
-                    <a href="/login" class="<?= $active == 'login' ? '' : '' ?>">Login</a>
-                <?php endif; ?>
-            </li>
-        </ul>
-    </header>
-    <div class="absolute top-12 left-2" id="toast-container">TOAST</div>
+    <header class="w-full  p-4 max-h-4 ">
+        <nav class="flex justify-between items-center">
+            <a href="/"><img class="logo" src="../../static/assets/logo.svg" alt="Logo"></a>
+            <ul class="flex flex-row gap-4 justify-between">
+                <li><a href="/parks" class="head-link <?= $active == 'parks' ? 'header-link-active' : '' ?>">Parks</a></li>
+                <li><a href="/attractions" class="head-link <?= $active == 'attractions' ? 'header-link-active' : '' ?>">Attractions</a></li>
+                <li><a href="/map" class="head-link <?= $active == 'map' ? 'header-link-active' : '' ?>">Map</a></li>
+            </ul>
+            <ul>
+                <li>
+                    <?php if ($_SESSION['user_pk'] ?? false) : ?>
+                        <a href="/profile" class="<?= $active == 'profile' ? '' : '' ?>">Profile</a>
+                    <?php else : ?>
+                        <?php if ($active == 'login') : ?>
+                            <a href="/sign-up" class="btn-primary <?= $active == 'sign-up' ? '' : '' ?>">Sign Up</a>
+                        <?php endif; ?>
+                        <?php if ($active !== 'login') : ?>
+                            <a href="/login" class="btn-primary <?= $active == 'login' ? '' : '' ?>">Login</a>
 
-    <?php require_once __DIR__ . "../../../config/_.php"; ?>
+                        <?php endif; ?>
+
+                    <?php endif; ?>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <?php require_once __DIR__ . "/__breadcrumb.php"; ?>
+
+        <!-- <div class="absolute top-12 right-2" id="toast-container"></div> -->
+        <?php require_once __DIR__ . "../../../config/_.php"; ?>

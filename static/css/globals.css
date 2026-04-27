@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Sora:wght@100..800&display=swap");
+
 :root {
   --darkened-indigo: #1b1e24;
   --pure-indigo: #2d3748;
@@ -11,4 +13,68 @@
   --system-success: #8ff24e;
   --system-warning: #f2c94c;
   --system-inform: #5c9cfc;
+
+  /* Screen sizes */
+  /* Prefereable font sizes */
+  --h1-pref: calc(1.82px + 5.18vw);
+  --h2-pref: calc(0.59px + 3.05vw);
+  --h3-pref: calc(9.82px + 0.83vw);
+  --body-pref: calc(7.45px + 0.85vw);
+  --body-small-pref: calc(10.25px + 0.85vw);
+
+  --product-title-size: calc(5.205px + 1.3vw);
+  --cart-button-size: calc(0.59px + 4vw);
+  --logo-size: calc(1.82px + 3.8vw);
+
+  /* Line height */
+  --lh-tight: 1.1;
+  --lh-default: 1.4;
+  --lh-loose: 1.6;
+  /* Spacing & Sizing */
+  /* Small */
+  --s-4xs: 1px;
+  --s-3xs: 0.125rem;
+  --s-2xs: 0.25rem;
+  --s-xs: 0.5rem;
+  --s-sm: 1rem;
+  --s-2sm: 1.25rem;
+  --s-3sm: 1.5rem;
+
+  /* Medium */
+  --s-md: 1.75rem;
+  --s-2md: 2rem;
+  --s-3md: 2.25rem;
+
+  /* Large */
+  --s-lg: 3rem;
+  --s-xl: 4rem;
+  --s-2xl: 6rem;
+  --s-3xl: 8rem;
+  --s-4xl: 10rem;
+  --s-30: 30%;
+  --s-50: 50%;
+  --s-60: 60%;
+  --s-80: 80%;
+  --s-full: 100%;
+}
+
+body {
+  font-family: "Sora", sans-serif;
+  background-color: var(--light-eggshell);
+}
+
+h1 {
+  font-family: "Noto Serif", serif;
+  font-size: clamp(var(--s-3md), var(--h1-pref), var(--s-lg));
+  font-weight: 600;
+  /* line-height: var(--h1-pref); */
+  color: var(--darkened-indigo);
+}
+
+p {
+  font-family: "Sora", sans-serif;
+  font-size: clamp(var(--s-sm), var(--body-pref), var(--s-2sm));
+  font-weight: 400;
+  /* line-height: var(--body-pref); */
+  color: var(--darkened-indigo);
 }
