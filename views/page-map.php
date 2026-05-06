@@ -3,7 +3,10 @@ $title = "Map";
 $active = "map";
 
 require_once __DIR__ . '/components/_header.php';
+require_once __DIR__ . '../../apis/api-get-parks.php';
 ?>
+
+
 <h1>Map</h1>
 <?php echo uuidv4_nodash() ?>
 <section id="map"></section>
@@ -24,13 +27,34 @@ require_once __DIR__ . '/components/_header.php';
     });
 
     // Test marker
-    var marker = L.marker([55.67960020013266, 12.56464935119663], {
-        icon: L.divIcon({
-            className: 'map-marker',
-            html: `
-            <button></button>
-            `,
-        }),
-    }).addTo(map);
+    // var marker = L.marker([48.26612642549017, 7.72245819844865], {
+    //     icon: L.divIcon({
+    //         className: 'map-marker',
+    //         html: `
+    //         <button></button>
+    //         `,
+    //     }),
+    // }).addTo(map);
+
+    // Encode data from php database fetch
+    const parks = <?= json_encode($parks) ?>;
+    console.log(parks)
+
+    parks.forEach(park => {
+        var marker = L.marker([park.park_lon, park.park_lat], {
+            icon: L.divIcon({
+                className: 'map-marker',
+                html: `<button></button>`,
+            }),
+            park_pk: park.park_pk
+        }).addTo(map);
+
+        // Event listener for marker click
+        marker.bindPopup(`<b>${park.park_title}</b>`);
+        marker.on('click', function() {
+            console.log('Marker clicked', park.park_title);
+        });
+        markers.addLayer(marker);
+    })
 </script>
 <?php require_once __DIR__ . '/components/_footer.php'; ?>

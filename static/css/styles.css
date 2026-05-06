@@ -124,12 +124,24 @@ form {
   background-color: var(--light-eggshell);
 
   .map-marker {
-    background-color: var(--darkened-eggshell);
+    height: 12px;
+    width: 12px;
+    background-color: var(--pure-seagreen);
 
     border-radius: 3px;
-    border: 2px solid var(--pure-indigo);
-  }
+    border: 2px solid var(--pure-eggshell);
 
+    button {
+      display: block;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    &:hover {
+      border-color: var(--pure-seagreen);
+    }
+  }
   /* Grayscaled map */
   /* .leaflet-tile-pane {
     filter: grayscale(80%) brightness(80%);
