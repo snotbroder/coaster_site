@@ -6,6 +6,7 @@ require_once __DIR__ . '/components/_header.php';
 require_once ROOT . '/apis/api-get-parks.php';
 
 $slug = $_GET['park'] ?? null;
+$offset = 0;
 
 // if (!$slug) {
 //     header('Location: /');
@@ -16,6 +17,9 @@ $stmt = $_db->prepare("SELECT * FROM parks WHERE park_slug = ?");
 $stmt->execute([$slug]);
 $park = $stmt->fetch();
 
+//Get total of rows in parks
+$total_parks = $_db->query("SELECT COUNT(*) FROM parks")->fetchColumn();
+
 
 // Display all parks, default view when no park is selected
 if (!$park) {
@@ -24,21 +28,27 @@ if (!$park) {
 
 ?>
     <section class="border-t-2 border-(--darkened-eggshell) my-10 py-5 grid md:grid-cols-3 gap-8">
-        <aside class="flex flex-col gap-6 ">
+        <aside class="flex flex-col gap-6 col-start-1">
             search
         </aside>
-        <section id="parks_container" class="col-span-2">
+
+        <section id="parks_container" class="col-start-2 col-span-2">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 slide-in">
                 <?php
                 foreach ($parks as $park) {
                     require ROOT . '/views/components/__park-card.php';
                 }
-                ?></div>
+                ?>
+                <p>Showing <?php _(count($parks)) ?> of <?php _($total_parks) ?> parks</p>
+            </div>
+
         </section>
+        <div class="col-start-2 col-span-2 flex gap-4 justify-center my-6">
+            <form mix-get="/apis/api-getprev-parks.php?offset=<?php _(max(0, $offset - 6)) ?>" method="GET"><button class="btn-secondary">Prev.</button></form>
+            <form mix-get="/apis/api-getnext-parks.php?offset=<?php _($offset + 6) ?>" method="GET"><button class="btn-secondary">Next</button></form>
+        </div>
+
     </section>
-    <div>
-        <form mix-get="/apis/api-getnext-parks.php?offset=6" method="GET"><button>Next</button></form>
-    </div>
 <?php
 
     exit;

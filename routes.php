@@ -12,6 +12,10 @@ get('/login', 'views/page-login.php');
 get('/sign-up', 'views/page-sign-up.php');
 get('/404', 'views/page-404.php');
 
+// Admin views
+get('/admin/configure-coasters', 'views/page-admin-configure-coasters.php');
+
+
 // Apis
 post('/api-login', 'apis/api-login.php');
 post('/api-sign-up', 'apis/api-sign-up.php');

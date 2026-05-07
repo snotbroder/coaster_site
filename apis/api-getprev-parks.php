@@ -1,5 +1,5 @@
 <?php
-// Fetch next parks from DB
+// Fetch previous parks from DB
 
 require_once __DIR__ . "../../config/db.php";
 require_once __DIR__ . "../../config/_.php";
@@ -8,6 +8,7 @@ $sql = "SELECT * FROM parks ORDER BY park_title ASC LIMIT 6 OFFSET $offset";
 $stmt = $_db->prepare($sql);
 $stmt->execute();
 $parks = $stmt->fetchAll();
+
 //Get total of rows in parks
 $total_parks = $_db->query("SELECT COUNT(*) FROM parks")->fetchColumn();
 

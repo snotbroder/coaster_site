@@ -83,9 +83,23 @@ form {
   background-color: var(--pure-indigo);
   color: var(--pure-eggshell);
   padding: 0.25rem 1.5rem;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   cursor: pointer;
   font-size: clamp(var(--s-sm), var(--body-pref), var(--s-2sm));
+}
+
+.btn-secondary {
+  background-color: var(--pure-seagreen);
+  color: var(--darkened-eggshell);
+  padding: 0.25rem 1.5rem;
+  border-radius: 0.5rem;
+  border: solid 1px var(--pure-seagreen);
+  cursor: pointer;
+  font-size: clamp(var(--s-sm), var(--body-pref), var(--s-2sm));
+  &:hover {
+    background: transparent;
+    color: var(--pure-indigo);
+  }
 }
 
 /* BREADCRUMB */
