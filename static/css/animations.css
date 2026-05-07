@@ -1,0 +1,13 @@
+.slide-in {
+  animation: slidein_kf 0.25s ease-out;
+}
+@keyframes slidein_kf {
+  from {
+    transform: translateX(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

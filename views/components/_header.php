@@ -8,6 +8,7 @@
     <link href="/static/css/output.css" rel="stylesheet">
     <link href="/static/css/styles.css" rel="stylesheet">
     <link href="/static/css/globals.css" rel="stylesheet">
+    <link href="/static/css/animations.css" rel="stylesheet">
     <script src="/static/js/mixhtml.js" defer></script>
 
     <!-- LEaflet map -->
@@ -24,7 +25,7 @@
             <a href="/"><img class="logo" src="../../static/assets/logo.svg" alt="Logo"></a>
             <ul class="flex flex-row gap-4 justify-between">
                 <li><a href="/parks" class="head-link <?= $active == 'parks' ? 'header-link-active' : '' ?>">Parks</a></li>
-                <li><a href="/attractions" class="head-link <?= $active == 'attractions' ? 'header-link-active' : '' ?>">Attractions</a></li>
+                <li><a href="/coasters" class="head-link <?= $active == 'coasters' ? 'header-link-active' : '' ?>">Coasters</a></li>
                 <li><a href="/map" class="head-link <?= $active == 'map' ? 'header-link-active' : '' ?>">Map</a></li>
             </ul>
             <ul>

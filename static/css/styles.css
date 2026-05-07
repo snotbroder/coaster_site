@@ -2,7 +2,7 @@
 
 header {
   padding: 1rem 2rem;
-  overflow: hidden;
+  margin-bottom: 1rem;
   nav {
     max-width: 1280px;
     margin-inline: auto;
@@ -26,6 +26,7 @@ main {
   max-width: 1280px;
   margin: 0 auto;
   padding: 4rem 0.5rem;
+  overflow: hidden;
   @media (min-width: 768px) {
     padding: 4rem 1rem;
   }
@@ -146,4 +147,10 @@ form {
   /* .leaflet-tile-pane {
     filter: grayscale(80%) brightness(80%);
   } */
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: fit-content;
 }

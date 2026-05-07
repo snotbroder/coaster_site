@@ -1,6 +1,6 @@
 <?php
-$title = "Attractions";
-$active = "attractions";
+$title = "Coasters";
+$active = "coasters";
 
 require_once __DIR__ . '/components/_header.php';
 

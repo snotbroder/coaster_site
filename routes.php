@@ -6,7 +6,7 @@ require_once __DIR__ . '/router.php';
 get('/', 'views/page-index.php');
 get('/map', 'views/page-map.php');
 get('/parks', 'views/page-parks.php');
-get('/attractions', 'views/page-attractions.php');
+get('/coasters', 'views/page-coasters.php');
 get('/login', 'views/page-login.php');
 get('/sign-up', 'views/page-sign-up.php');
 get('/404', 'views/page-404.php');

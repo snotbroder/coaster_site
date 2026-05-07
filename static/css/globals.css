@@ -81,4 +81,24 @@ p {
   font-weight: 400;
   /* line-height: var(--body-pref); */
   color: var(--darkened-indigo);
+  &.small {
+    font-size: clamp(var(--s-xs), var(--body-small-pref), var(--s-sm));
+  }
+}
+
+h3 {
+  font-family: "Sora", serif;
+  font-size: clamp(var(--s-2md), var(--h3-pref), var(--s-md));
+  font-weight: 500;
+  color: var(--light-indigo);
+  /* line-height: var(--h3-pref); */
+  color: var(--darkened-indigo);
+}
+h4 {
+  font-family: "Sora", serif;
+  font-size: clamp(var(--s-sm), var(--body-pref), var(--s-2sm));
+  font-weight: 500;
+  color: var(--light-indigo);
+  /* line-height: var(--h3-pref); */
+  color: var(--darkened-indigo);
 }
