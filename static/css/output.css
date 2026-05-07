@@ -205,6 +205,18 @@
   .hidden {
     display: none;
   }
+  .h-54 {
+    height: calc(var(--spacing) * 54);
+  }
+  .h-64 {
+    height: calc(var(--spacing) * 64);
+  }
+  .h-164 {
+    height: calc(var(--spacing) * 164);
+  }
+  .h-fit {
+    height: fit-content;
+  }
   .h-full {
     height: 100%;
   }
@@ -308,6 +320,15 @@
       background-color: color-mix(in oklab, var(--system-success) 60%, transparent);
     }
   }
+  .object-cover {
+    object-fit: cover;
+  }
+  .object-fill {
+    object-fit: fill;
+  }
+  .object-center {
+    object-position: center;
+  }
   .p-4 {
     padding: calc(var(--spacing) * 4);
   }
@@ -365,6 +386,11 @@
   .md\:grid-cols-3 {
     @media (width >= 48rem) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  .lg\:grid-cols-2 {
+    @media (width >= 64rem) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
   .lg\:grid-cols-3 {

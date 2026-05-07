@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/router.php';
+define('ROOT', __DIR__);
 
 // Views
 get('/', 'views/page-index.php');
