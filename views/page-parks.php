@@ -63,7 +63,7 @@ $coasters = $stmt->fetchAll();
 <h1 class=""><?= _($park['park_title']) ?> </h1>
 <section class="border-t-2 border-(--darkened-eggshell) my-10 py-5 grid md:grid-cols-3 gap-8">
     <aside class="flex flex-col gap-6 ">
-        <img class="rounded-sm" src="<?= _($park['park_image_path']) ?>" alt="Park">
+        <img class="rounded-sm w-full object-cover" src="<?= _($park['park_image_path']) ?>" alt="Park">
         <div class="flex flex-col gap-4">
             <?php if ($park["park_is_operational"] == '1'): ?>
                 <div class="bg-(--system-success)/60 border-2 border-(--system-success) w-fit px-4 rounded-2xl">

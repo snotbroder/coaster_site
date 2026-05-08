@@ -9,7 +9,7 @@ try {
     $user_password = _validate_user_password();
     $user_confirm_password = $_POST['user_confirm_password'] ?? null;
     $hashed_password = password_hash($user_password, PASSWORD_DEFAULT);
-    $user_pk = bin2hex(random_bytes(25)); // Returns 50 characters
+    $user_pk = uuidv4_nodash(); // uuid without dashes
     $user_created_at = time();
     $user_deleted_at = 0;
 
