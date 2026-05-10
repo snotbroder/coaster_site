@@ -2,10 +2,10 @@
 $title = "Parks";
 $active = "parks";
 
-require_once __DIR__ . '/components/_header.php';
-require_once ROOT . '/apis/api-get-parks.php';
+require_once __DIR__ . "/components/_header.php";
+require_once ROOT . "/apis/api-get-parks.php";
 
-$slug = $_GET['park'] ?? null;
+$slug = $_GET["park"] ?? null;
 $offset = 0;
 
 // if (!$slug) {
@@ -55,16 +55,21 @@ if (!$park) {
 }
 
 // render selected park coasters 
-$stmt = $_db->prepare("SELECT * FROM coasters WHERE park_fk = ?");
+$sql = "SELECT * FROM coasters WHERE park_fk = ? ORDER BY coaster_is_operational DESC";
+$stmt = $_db->prepare($sql);
 $stmt->execute([$park["park_pk"]]);
 $coasters = $stmt->fetchAll();
 ?>
 
-<h1 class=""><?= _($park['park_title']) ?> </h1>
-<section class="border-t-2 border-(--darkened-eggshell) my-10 py-5 grid md:grid-cols-3 gap-8">
-    <aside class="flex flex-col gap-6 ">
-        <img class="rounded-sm w-full object-cover" src="<?= _($park['park_image_path']) ?>" alt="Park">
-        <div class="flex flex-col gap-4">
+
+
+<section class="border-t-2 border-(--darkened-eggshell) my-10 py-5 md:grid md:grid-cols-3 gap-8 relative top-0">
+    <aside class="grid grid-cols-2 gap-6 md:flex md:flex-col md:sticky md:top-20 md:self-start anim-slide-up">
+        <div class="h-24">
+            <img class="rounded-sm w-full h-full object-cover" src="<?= _($park["park_image_path"]) ?>" alt="Park">
+        </div>
+        <div class="flex flex-col justify-between gap-2 lg:gap-4">
+            <h1 class=""><?= _($park["park_title"]) ?> </h1>
             <?php if ($park["park_is_operational"] == '1'): ?>
                 <div class="bg-(--system-success)/60 border-2 border-(--system-success) w-fit px-4 rounded-2xl">
                     <p class="small">In operation</p>
@@ -74,25 +79,38 @@ $coasters = $stmt->fetchAll();
                     <p class="small">Not in operation</p>
                 </div>
             <?php endif; ?>
-            <p><?php _($park["park_city"]) ?>, <?php _($park['park_country']) ?></p>
+            <p><?php _($park["park_city"]) ?>, <?php _($park["park_country"]) ?></p>
 
-            <a href="<?= _($park['park_website']) ?>" target="_blank">Visit website</a>
-            <p class="small text-(--pure-eggshell)! "><?= _($park['park_pk']) ?></p>
+            <a href="<?= _($park["park_website"]) ?>" target="_blank">Visit website</a>
+            <a class="btn-secondary" href="/">See park on map</a>
         </div>
     </aside>
     <section class="col-span-2">
-        <h3 class="mb-4">Coaster at <?php _($park['park_title']) ?></h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 slide-in">
+        <div class="flex justify-between">
+            <h4 class="mb-4">Coaster at <?php _($park["park_title"]) ?></h4>
+            <div class="flex gap-2">
+                <span>Sort by:</span>
+                <form mix-post="/">
+                    <select name="" id="">
+                        <option value="tea">A-Z</option>
+                        <option value="tea">Z-A</option>
+                        <option value="tea">Defunct</option>
+                    </select>
+
+                </form>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 anim-slide-in">
             <?php
             if ($coasters == []) {
                 _("No coasters found for this park");
                 exit;
             }
             foreach ($coasters as $coaster) {
-                require ROOT . '/views/components/__coaster-card.php';
+                require ROOT . "/views/components/__coaster-card.php";
             }
             ?></div>
     </section>
 </section>
 <?php
-require_once ROOT . '/views/components/_footer.php';
+// require_once ROOT . "/views/components/_footer.php";

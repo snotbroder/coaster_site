@@ -50,7 +50,7 @@ require_once __DIR__ . '../../apis/api-get-parks.php';
         }).addTo(map);
 
         // Event listener for marker click
-        marker.bindPopup(`<b>${park.park_title}</b>`);
+        marker.bindPopup(`<a href="/parks?park=${park.park_slug}" class="hyperlink-mini">${park.park_title}</a>`);
         marker.on('click', function() {
             console.log('Marker clicked', park.park_title);
         });

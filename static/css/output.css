@@ -7,10 +7,6 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-red-400: oklch(70.4% 0.191 22.216);
-    --color-blue-400: oklch(70.7% 0.165 254.624);
-    --color-gray-800: oklch(27.8% 0.033 256.848);
-    --color-white: #fff;
     --spacing: 0.25rem;
     --text-lg: 1.125rem;
     --text-lg--line-height: calc(1.75 / 1.125);
@@ -176,6 +172,12 @@
   .absolute {
     position: absolute;
   }
+  .relative {
+    position: relative;
+  }
+  .top-0 {
+    top: calc(var(--spacing) * 0);
+  }
   .top-12 {
     top: calc(var(--spacing) * 12);
   }
@@ -212,9 +214,6 @@
   .hidden {
     display: none;
   }
-  .table {
-    display: table;
-  }
   .h-54 {
     height: calc(var(--spacing) * 54);
   }
@@ -224,17 +223,14 @@
   .max-h-4 {
     max-height: calc(var(--spacing) * 4);
   }
+  .max-h-60 {
+    max-height: calc(var(--spacing) * 60);
+  }
   .w-fit {
     width: fit-content;
   }
   .w-full {
     width: 100%;
-  }
-  .border-collapse {
-    border-collapse: collapse;
-  }
-  .resize {
-    resize: both;
   }
   .grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -272,6 +268,9 @@
   .gap-8 {
     gap: calc(var(--spacing) * 8);
   }
+  .self-start {
+    align-self: flex-start;
+  }
   .overflow-hidden {
     overflow: hidden;
   }
@@ -287,10 +286,6 @@
   .rounded-t-md {
     border-top-left-radius: var(--radius-md);
     border-top-right-radius: var(--radius-md);
-  }
-  .border {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
   }
   .border-2 {
     border-style: var(--tw-border-style);
@@ -324,9 +319,6 @@
       background-color: color-mix(in oklab, var(--system-success) 60%, transparent);
     }
   }
-  .mask-repeat {
-    mask-repeat: repeat;
-  }
   .object-cover {
     object-fit: cover;
   }
@@ -357,8 +349,8 @@
   .text-\(--light-indigo\)\! {
     color: var(--light-indigo) !important;
   }
-  .text-\(--pure-eggshell\)\! {
-    color: var(--pure-eggshell) !important;
+  .text-\(--system-failure\) {
+    color: var(--system-failure);
   }
   .underline {
     text-decoration-line: underline;
@@ -367,51 +359,9 @@
     --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
-  }
-  .duration-100 {
-    --tw-duration: 100ms;
-    transition-duration: 100ms;
-  }
   .duration-200 {
     --tw-duration: 200ms;
     transition-duration: 200ms;
-  }
-  .duration-300 {
-    --tw-duration: 300ms;
-    transition-duration: 300ms;
-  }
-  .group-hover\:scale-90 {
-    &:is(:where(.group):hover *) {
-      @media (hover: hover) {
-        --tw-scale-x: 90%;
-        --tw-scale-y: 90%;
-        --tw-scale-z: 90%;
-        scale: var(--tw-scale-x) var(--tw-scale-y);
-      }
-    }
-  }
-  .group-hover\:scale-100 {
-    &:is(:where(.group):hover *) {
-      @media (hover: hover) {
-        --tw-scale-x: 100%;
-        --tw-scale-y: 100%;
-        --tw-scale-z: 100%;
-        scale: var(--tw-scale-x) var(--tw-scale-y);
-      }
-    }
-  }
-  .group-hover\:scale-101 {
-    &:is(:where(.group):hover *) {
-      @media (hover: hover) {
-        --tw-scale-x: 101%;
-        --tw-scale-y: 101%;
-        --tw-scale-z: 101%;
-        scale: var(--tw-scale-x) var(--tw-scale-y);
-      }
-    }
   }
   .group-hover\:scale-103 {
     &:is(:where(.group):hover *) {
@@ -423,34 +373,24 @@
       }
     }
   }
-  .group-hover\:scale-105 {
-    &:is(:where(.group):hover *) {
-      @media (hover: hover) {
-        --tw-scale-x: 105%;
-        --tw-scale-y: 105%;
-        --tw-scale-z: 105%;
-        scale: var(--tw-scale-x) var(--tw-scale-y);
-      }
-    }
-  }
-  .group-hover\:scale-110 {
-    &:is(:where(.group):hover *) {
-      @media (hover: hover) {
-        --tw-scale-x: 110%;
-        --tw-scale-y: 110%;
-        --tw-scale-z: 110%;
-        scale: var(--tw-scale-x) var(--tw-scale-y);
-      }
-    }
-  }
-  .sm\:grid {
-    @media (width >= 40rem) {
-      display: grid;
-    }
-  }
   .sm\:grid-cols-2 {
     @media (width >= 40rem) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .md\:sticky {
+    @media (width >= 48rem) {
+      position: sticky;
+    }
+  }
+  .md\:top-20 {
+    @media (width >= 48rem) {
+      top: calc(var(--spacing) * 20);
+    }
+  }
+  .md\:flex {
+    @media (width >= 48rem) {
+      display: flex;
     }
   }
   .md\:grid {
@@ -463,14 +403,19 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
+  .md\:flex-col {
+    @media (width >= 48rem) {
+      flex-direction: column;
+    }
+  }
   .lg\:grid-cols-2 {
     @media (width >= 64rem) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
-  .lg\:grid-cols-3 {
+  .lg\:gap-4 {
     @media (width >= 64rem) {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: calc(var(--spacing) * 4);
     }
   }
 }
@@ -576,7 +521,7 @@ main {
   max-width: 1280px;
   margin: 0 auto;
   padding: 4rem 0.5rem;
-  overflow: hidden;
+  overflow: clip;
   @media (min-width: 768px) {
     padding: 4rem 1rem;
   }
@@ -634,6 +579,7 @@ form {
 .btn-secondary {
   background-color: var(--pure-seagreen);
   color: var(--darkened-eggshell);
+  width: fit-content;
   padding: 0.25rem 1.5rem;
   border-radius: 0.5rem;
   border: solid 1px var(--pure-seagreen);
@@ -641,6 +587,14 @@ form {
   font-size: clamp(var(--s-sm), var(--body-pref), var(--s-2sm));
   &:hover {
     background: transparent;
+    color: var(--pure-indigo);
+  }
+}
+.hyperlink-mini {
+  color: var(--pure-seagreen) !important;
+  font-size: clamp(var(--s-2xs), var(--body-pref), var(--s-sm));
+  &:hover {
+    text-decoration: underline;
     color: var(--pure-indigo);
   }
 }
@@ -693,6 +647,7 @@ form {
   }
 }
 footer {
+  display: none;
   position: absolute;
   bottom: 0;
   width: fit-content;
@@ -771,11 +726,6 @@ footer {
   inherits: false;
   initial-value: 0 0 #0000;
 }
-@property --tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
 @property --tw-duration {
   syntax: "*";
   inherits: false;
@@ -814,7 +764,6 @@ footer {
       --tw-ring-offset-width: 0px;
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
-      --tw-outline-style: solid;
       --tw-duration: initial;
       --tw-scale-x: 1;
       --tw-scale-y: 1;

@@ -73,6 +73,7 @@ h1 {
   font-weight: 600;
   /* line-height: var(--h1-pref); */
   color: var(--darkened-indigo);
+  text-wrap: wrap;
 }
 
 p {

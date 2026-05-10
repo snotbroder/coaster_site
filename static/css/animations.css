@@ -1,4 +1,4 @@
-.slide-in {
+.anim-slide-in {
   animation: slidein_kf 0.25s ease-out;
 }
 @keyframes slidein_kf {
@@ -8,6 +8,20 @@
   }
   to {
     transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.anim-slide-up {
+  animation: slideup_kf 0.25s ease-out;
+}
+@keyframes slideup_kf {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
     opacity: 1;
   }
 }

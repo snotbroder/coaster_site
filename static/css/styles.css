@@ -26,7 +26,7 @@ main {
   max-width: 1280px;
   margin: 0 auto;
   padding: 4rem 0.5rem;
-  overflow: hidden;
+  overflow: clip;
   @media (min-width: 768px) {
     padding: 4rem 1rem;
   }
@@ -91,6 +91,7 @@ form {
 .btn-secondary {
   background-color: var(--pure-seagreen);
   color: var(--darkened-eggshell);
+  width: fit-content;
   padding: 0.25rem 1.5rem;
   border-radius: 0.5rem;
   border: solid 1px var(--pure-seagreen);
@@ -98,6 +99,15 @@ form {
   font-size: clamp(var(--s-sm), var(--body-pref), var(--s-2sm));
   &:hover {
     background: transparent;
+    color: var(--pure-indigo);
+  }
+}
+
+.hyperlink-mini {
+  color: var(--pure-seagreen) !important;
+  font-size: clamp(var(--s-2xs), var(--body-pref), var(--s-sm));
+  &:hover {
+    text-decoration: underline;
     color: var(--pure-indigo);
   }
 }
@@ -164,6 +174,7 @@ form {
 }
 
 footer {
+  display: none;
   position: absolute;
   bottom: 0;
   width: fit-content;
