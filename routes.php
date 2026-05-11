@@ -25,6 +25,7 @@ post('/api-search-coaster', 'apis/api-search-coaster.php');
 post('/api-search-park', 'apis/api-search-park.php');
 post('/api-add-coaster', 'apis/admin/api-add-coaster.php');
 post('/api-get-park-coasters', 'apis/api-get-park-coasters.php');
+post('/api-filter-parks', 'apis/api-filter-parks.php');
 
 
 // Test routes

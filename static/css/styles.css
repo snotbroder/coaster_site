@@ -127,9 +127,7 @@ form {
       option:hover:not(:checked) {
         color: var(--light-seagreen);
         background: var(--light-eggshell);
-
         border-radius: 0.125rem;
-
         padding-left: 0.25rem;
         transition: all 0.2s;
       }
@@ -154,7 +152,7 @@ form {
       color: white;
       border: 0;
       border-radius: 0.5rem;
-      padding: 0.25rem 0.5rem;
+      padding: 0.5rem;
       margin-top: 0.25rem;
     }
   }
@@ -179,6 +177,7 @@ form {
   background-color: var(--pure-seagreen);
   color: var(--darkened-eggshell);
   width: fit-content;
+  height: fit-content;
   padding: 0.25rem 1.5rem;
   border-radius: 0.5rem;
   border: solid 1px var(--pure-seagreen);
@@ -228,6 +227,10 @@ form {
 }
 
 /* MAP */
+section:has(#map_aside.mix-hidden) #map {
+  grid-column: 1 / -1;
+}
+
 #map {
   height: 700px;
   width: 100%;

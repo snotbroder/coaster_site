@@ -11,16 +11,16 @@ $stmt->bindValue(':pk', $park_pk);
 $stmt->execute();
 $coasters = $stmt->fetchAll();
 
-
-
 ?>
 
 
 <?php if (empty($coasters)): ?>
+    <browser mix-show="#map_aside"></browser>
     <browser mix-update="#map_aside">
         <p class="small text-(--light-indigo)! p-2">No coasters at selected park.</p>
     </browser>
 <?php else: ?>
+    <browser mix-show="#map_aside"></browser>
     <browser mix-update="#map_aside">
         <?php foreach ($coasters as $coaster): ?>
             <?php require ROOT . "/views/components/__coaster-card.php"; ?>

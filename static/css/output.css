@@ -208,6 +208,9 @@
   .my-10 {
     margin-block: calc(var(--spacing) * 10);
   }
+  .mb-2 {
+    margin-bottom: calc(var(--spacing) * 2);
+  }
   .mb-4 {
     margin-bottom: calc(var(--spacing) * 4);
   }
@@ -277,8 +280,14 @@
   .flex-row {
     flex-direction: row;
   }
+  .flex-row\! {
+    flex-direction: row !important;
+  }
   .flex-wrap {
     flex-wrap: wrap;
+  }
+  .place-items-start {
+    place-items: start;
   }
   .items-center {
     align-items: center;
@@ -310,8 +319,20 @@
   .gap-8 {
     gap: calc(var(--spacing) * 8);
   }
+  .gap-10 {
+    gap: calc(var(--spacing) * 10);
+  }
+  .gap-10\! {
+    gap: calc(var(--spacing) * 10) !important;
+  }
   .place-self-center {
     place-self: center;
+  }
+  .place-self-end {
+    place-self: end;
+  }
+  .place-self-start {
+    place-self: start;
   }
   .self-start {
     align-self: flex-start;
@@ -344,14 +365,33 @@
     border-top-style: var(--tw-border-style);
     border-top-width: 2px;
   }
+  .border-b {
+    border-bottom-style: var(--tw-border-style);
+    border-bottom-width: 1px;
+  }
   .border-\(--darkened-eggshell\) {
     border-color: var(--darkened-eggshell);
+  }
+  .border-\(--pure-indigo\) {
+    border-color: var(--pure-indigo);
   }
   .border-\(--system-failure\) {
     border-color: var(--system-failure);
   }
   .border-\(--system-success\) {
     border-color: var(--system-success);
+  }
+  .border-b-\(--darkened-eggshell\) {
+    border-bottom-color: var(--darkened-eggshell);
+  }
+  .border-b-\(--light-indigo\) {
+    border-bottom-color: var(--light-indigo);
+  }
+  .border-b-\(--pure-eggshell\) {
+    border-bottom-color: var(--pure-eggshell);
+  }
+  .border-b-\(--pure-indigo\) {
+    border-bottom-color: var(--pure-indigo);
   }
   .bg-\(--pure-eggshell\) {
     background-color: var(--pure-eggshell);
@@ -431,6 +471,9 @@
   .shadow-sm {
     --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .filter {
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
   .duration-200 {
     --tw-duration: 200ms;
@@ -745,7 +788,7 @@ form {
       color: white;
       border: 0;
       border-radius: 0.5rem;
-      padding: 0.25rem 0.5rem;
+      padding: 0.5rem;
       margin-top: 0.25rem;
     }
   }
@@ -766,6 +809,7 @@ form {
   background-color: var(--pure-seagreen);
   color: var(--darkened-eggshell);
   width: fit-content;
+  height: fit-content;
   padding: 0.25rem 1.5rem;
   border-radius: 0.5rem;
   border: solid 1px var(--pure-seagreen);
@@ -808,6 +852,9 @@ form {
       }
     }
   }
+}
+section:has(#map_aside.mix-hidden) #map {
+  grid-column: 1 / -1;
 }
 #map {
   height: 700px;
@@ -945,6 +992,59 @@ footer {
   inherits: false;
   initial-value: 0 0 #0000;
 }
+@property --tw-blur {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-brightness {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-contrast {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-grayscale {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-hue-rotate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-invert {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-opacity {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-saturate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-sepia {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-drop-shadow {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-drop-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-drop-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-drop-shadow-size {
+  syntax: "*";
+  inherits: false;
+}
 @property --tw-duration {
   syntax: "*";
   inherits: false;
@@ -988,6 +1088,19 @@ footer {
       --tw-ring-offset-width: 0px;
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-blur: initial;
+      --tw-brightness: initial;
+      --tw-contrast: initial;
+      --tw-grayscale: initial;
+      --tw-hue-rotate: initial;
+      --tw-invert: initial;
+      --tw-opacity: initial;
+      --tw-saturate: initial;
+      --tw-sepia: initial;
+      --tw-drop-shadow: initial;
+      --tw-drop-shadow-color: initial;
+      --tw-drop-shadow-alpha: 100%;
+      --tw-drop-shadow-size: initial;
       --tw-duration: initial;
       --tw-scale-x: 1;
       --tw-scale-y: 1;
