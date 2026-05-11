@@ -13,12 +13,14 @@ $total_parks = $_db->query("SELECT COUNT(*) FROM parks")->fetchColumn();
 
 ?>
 <browser mix-update="#parks_container">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 slide-in">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 slide-in">
         <?php
         foreach ($parks as $park) {
             require __DIR__ . "../../views/components/__park-card.php";
         }
         ?>
-        <p>Showing <?php _(count($parks)) ?> of <?php _($total_parks) ?> parks</p>
     </div>
+    <browser mix-update="#parks_pagination_count">
+        <p class="my-4 small">Showing <?php _(count($parks)) ?> of <?php _($total_parks) ?> parks</p>
+    </browser>
 </browser>

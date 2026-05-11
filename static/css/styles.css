@@ -51,7 +51,7 @@ header {
   }
   &.header-link-active {
     font-weight: 600;
-    color: var(--light-indigo);
+    color: var(--pure-indigo);
     &:hover {
       cursor: default;
     }
@@ -219,6 +219,7 @@ form {
     }
     &:last-child {
       color: var(--darkened-indigo);
+      font-weight: 600;
       &::after {
         display: none;
       }

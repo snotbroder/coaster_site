@@ -4,6 +4,9 @@ try {
     require_once __DIR__ . "/../config/_.php";
     $q = $_POST["search"] ?? "";
 
+    //Get total of rows in parks
+    $total_parks = $_db->query("SELECT COUNT(*) FROM parks")->fetchColumn();
+
     // Check if the search value is empty, then return all parks, else listen to search
     if ($q === "") {
         $sql = "SELECT * FROM parks ORDER BY park_title ASC LIMIT 6";
@@ -29,9 +32,12 @@ try {
                 exit;
             }
             foreach ($parks as $park) {
-                require __DIR__ . "../../views/components/__park-card.php";
+                require ROOT . "/views/components/__park-card.php";
             }
             ?>
+        </browser>
+        <browser mix-update="#parks_pagination_count">
+            <p class="my-4 small">Showing <?php _(count($parks)) ?> of <?php _($total_parks) ?> parks</p>
         </browser>
         <?php if (count($parks) < 6): ?>
             <browser mix-hide="#parks_pagination"></browser>

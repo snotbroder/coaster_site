@@ -28,15 +28,17 @@ if (!$park) {
         </aside>
 
         <section id="parks_container" class="col-start-2 col-span-2">
-            <div id="parks_search_results" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 slide-in">
+            <div id="parks_search_results" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 slide-in">
                 <?php
                 foreach ($parks as $park) {
                     require ROOT . '/views/components/__park-card.php';
                 }
                 ?>
-                <p>Showing <?php _(count($parks)) ?> of <?php _($total_parks) ?> parks</p>
             </div>
+            <div id="parks_pagination_count">
+                <p class="my-4 small">Showing <?php _(count($parks)) ?> of <?php _($total_parks) ?> parks</p>
 
+            </div>
         </section>
         <div id="parks_pagination" class="col-start-2 col-span-2 flex gap-4 justify-center my-6">
             <form mix-get="/apis/api-getprev-parks.php?offset=<?php _(max(0, $offset - 6)) ?>" method="GET"><button class="btn-secondary">Prev.</button></form>
