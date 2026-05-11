@@ -16,6 +16,8 @@
     --radius-sm: 0.25rem;
     --radius-md: 0.375rem;
     --radius-2xl: 1rem;
+    --default-transition-duration: 150ms;
+    --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
   }
@@ -229,6 +231,9 @@
   .inline {
     display: inline;
   }
+  .table {
+    display: table;
+  }
   .h-42 {
     height: calc(var(--spacing) * 42);
   }
@@ -255,6 +260,9 @@
   }
   .w-full {
     width: 100%;
+  }
+  .border-collapse {
+    border-collapse: collapse;
   }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
@@ -353,6 +361,10 @@
     border-top-left-radius: var(--radius-md);
     border-top-right-radius: var(--radius-md);
   }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
   .border-2 {
     border-style: var(--tw-border-style);
     border-width: 2px;
@@ -372,9 +384,6 @@
   .border-\(--darkened-eggshell\) {
     border-color: var(--darkened-eggshell);
   }
-  .border-\(--pure-indigo\) {
-    border-color: var(--pure-indigo);
-  }
   .border-\(--system-failure\) {
     border-color: var(--system-failure);
   }
@@ -383,15 +392,6 @@
   }
   .border-b-\(--darkened-eggshell\) {
     border-bottom-color: var(--darkened-eggshell);
-  }
-  .border-b-\(--light-indigo\) {
-    border-bottom-color: var(--light-indigo);
-  }
-  .border-b-\(--pure-eggshell\) {
-    border-bottom-color: var(--pure-eggshell);
-  }
-  .border-b-\(--pure-indigo\) {
-    border-bottom-color: var(--pure-indigo);
   }
   .bg-\(--pure-eggshell\) {
     background-color: var(--pure-eggshell);
@@ -410,6 +410,9 @@
   }
   .bg-\(--variable-name\) {
     background-color: var(--variable-name);
+  }
+  .mask-repeat {
+    mask-repeat: repeat;
   }
   .object-cover {
     object-fit: cover;
@@ -456,6 +459,9 @@
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
   }
+  .text-wrap {
+    text-wrap: wrap;
+  }
   .text-\(--accent\) {
     color: var(--accent);
   }
@@ -472,8 +478,17 @@
     --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
+  }
   .filter {
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
+  .transition {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
   .duration-200 {
     --tw-duration: 200ms;
@@ -992,6 +1007,11 @@ footer {
   inherits: false;
   initial-value: 0 0 #0000;
 }
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
 @property --tw-blur {
   syntax: "*";
   inherits: false;
@@ -1088,6 +1108,7 @@ footer {
       --tw-ring-offset-width: 0px;
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-outline-style: solid;
       --tw-blur: initial;
       --tw-brightness: initial;
       --tw-contrast: initial;
