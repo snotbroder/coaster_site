@@ -2,15 +2,14 @@
 $title = "Map";
 $active = "map";
 
-require_once __DIR__ . '/components/_header.php';
-require_once __DIR__ . '../../apis/api-get-park-coasters.php';
-
-// $park = $_GET["park"] ?? null;
+require_once ROOT . '/views/components/_header.php';
+require_once ROOT . "/config/db.php";
 
 $sql = "SELECT * FROM parks";
 $stmt = $_db->prepare($sql);
 $stmt->execute();
 $parks = $stmt->fetchAll();
+
 ?>
 
 
@@ -75,4 +74,4 @@ $parks = $stmt->fetchAll();
         markers.addLayer(marker);
     })
 </script>
-<?php require_once __DIR__ . '/components/_footer.php'; ?>
+<?php require_once ROOT . '/views/components/_footer.php'; ?>
