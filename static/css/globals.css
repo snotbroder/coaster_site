@@ -73,7 +73,6 @@ h1 {
   font-weight: 600;
   /* line-height: var(--h1-pref); */
   color: var(--darkened-indigo);
-  text-wrap: wrap;
 }
 
 p {
@@ -99,7 +98,6 @@ h4 {
   font-family: "Sora", serif;
   font-size: clamp(var(--s-sm), var(--body-pref), var(--s-2sm));
   font-weight: 500;
-  color: var(--light-indigo);
   /* line-height: var(--h3-pref); */
   color: var(--darkened-indigo);
 }

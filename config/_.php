@@ -19,6 +19,23 @@ function uuidv4_nodash()
 }
 
 // ##############################
+define("search_min", 1);
+define("search_max", 40);
+function _validate_search()
+{
+    $search = $_POST["search"] ?? "";
+    $search = trim($search);
+    if (strlen($search) < search_min) {
+        throw new Exception("Search must be at least " . search_min . " characters long", 400);
+    }
+    if (strlen($search) > search_max) {
+        throw new Exception("Search must be max " . search_max . " characters long", 400);
+    }
+    return $search;
+}
+
+
+// ##############################
 define("user_email_min", 5);
 define("user_email_max", 50);
 function _validate_user_email()

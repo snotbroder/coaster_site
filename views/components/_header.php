@@ -9,7 +9,9 @@
     <link href="/static/css/styles.css" rel="stylesheet">
     <link href="/static/css/globals.css" rel="stylesheet">
     <link href="/static/css/animations.css" rel="stylesheet">
+
     <script src="/static/js/mixhtml.js" defer></script>
+    <script src="/static/js/script.js" defer></script>
 
     <!-- LEaflet map -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -59,9 +61,9 @@
         <div id="mobile-menu" class="hidden">
 
             <ul class="flex flex-col gap-1 pt-4 pb-2">
-                <li><a href="/parks" class="head-link block py-2 <?= $active == 'parks' ? 'header-link-active' : '' ?>">Parks</a></li>
-                <li><a href="/coasters" class="head-link block py-2 <?= $active == 'coasters' ? 'header-link-active' : '' ?>">Coasters</a></li>
-                <li><a href="/map" class="head-link block py-2 <?= $active == 'map' ? 'header-link-active' : '' ?>">Map</a></li>
+                <li class="anim-slide-in"><a href="/parks" class="head-link block py-2 <?= $active == 'parks' ? 'header-link-active' : '' ?>">Parks</a></li>
+                <li class="anim-slide-in"><a href="/coasters" class="head-link block py-2 <?= $active == 'coasters' ? 'header-link-active' : '' ?>">Coasters</a></li>
+                <li class="anim-slide-in"><a href="/map" class="head-link block py-2 <?= $active == 'map' ? 'header-link-active' : '' ?>">Map</a></li>
             </ul>
             <div class="pt-3 pb-1 border-t border-(--darkened-eggshell)">
                 <?php if ($_SESSION["user_pk"] ?? false) : ?>
@@ -80,37 +82,7 @@
     </header>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const burgerBtn = document.getElementById("burger-btn");
-            const mobileMenu = document.getElementById("mobile-menu");
-            const lines = burgerBtn.querySelectorAll(".burger-line");
-            let isOpen = false;
 
-            function setOpen(open) {
-                isOpen = open;
-                if (open) {
-                    mobileMenu.classList.remove("hidden");
-                } else {
-                    mobileMenu.classList.add("hidden");
-                }
-                burgerBtn.setAttribute("aria-expanded", String(open));
-                lines[0].style.transform = open ? "translateY(8px) rotate(45deg)" : "";
-                lines[1].style.transform = open ? "scaleX(0)" : "";
-                lines[1].style.opacity = open ? "0" : "";
-                lines[2].style.transform = open ? "translateY(-8px) rotate(-45deg)" : "";
-            }
-
-            burgerBtn.addEventListener("click", function() {
-                setOpen(!isOpen);
-            });
-
-
-            window.addEventListener("resize", function() {
-                if (window.innerWidth >= 768 && isOpen) {
-                    setOpen(false);
-                }
-            });
-        });
     </script>
     <main>
         <?php require_once __DIR__ . "/__breadcrumb.php"; ?>
