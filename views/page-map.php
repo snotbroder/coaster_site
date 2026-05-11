@@ -3,13 +3,32 @@ $title = "Map";
 $active = "map";
 
 require_once __DIR__ . '/components/_header.php';
-require_once __DIR__ . '../../apis/api-get-parks.php';
+require_once __DIR__ . '../../apis/api-get-park-coasters.php';
+
+// $park = $_GET["park"] ?? null;
+
+$sql = "SELECT * FROM parks";
+$stmt = $_db->prepare($sql);
+$stmt->execute();
+$parks = $stmt->fetchAll();
 ?>
 
 
 <h1>Map</h1>
 <?php echo uuidv4_nodash() ?>
-<section id="map"></section>
+<section id="map_container">
+    <!-- <form action="">
+        <div>
+            <input type="text" placeholder="search...">
+        </div>
+    </form> -->
+    <section class="flex flex-col gap-2 md:grid grid-cols-5">
+        <section id="map" class="col-1 md:col-span-3"></section>
+        <aside id="map_aside" class="flex flex-wrap gap-4 p-2 sm:col-span-2">
+            <p class="small text-(--light-indigo)! p-2">Click a marker to see coasters</p>
+        </aside>
+    </section>
+</section>
 <script>
     // initialize the map on the "map" div with a given center and zoom
     const map = L.map('map').setView([49, 12], 4.5);
@@ -44,16 +63,15 @@ require_once __DIR__ . '../../apis/api-get-parks.php';
         var marker = L.marker([park.park_lon, park.park_lat], {
             icon: L.divIcon({
                 className: 'map-marker',
-                html: `<button></button>`,
+                html: `<button
+                onclick="mixhtml(); return false;"
+                mix-post="/api-get-park-coasters?park_pk=${park.park_pk}">
+                </button>`,
             }),
             park_pk: park.park_pk
         }).addTo(map);
 
-        // Event listener for marker click
         marker.bindPopup(`<a href="/parks?park=${park.park_slug}" class="hyperlink-mini">${park.park_title}</a>`);
-        marker.on('click', function() {
-            console.log('Marker clicked', park.park_title);
-        });
         markers.addLayer(marker);
     })
 </script>

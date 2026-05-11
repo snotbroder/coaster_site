@@ -229,8 +229,7 @@ form {
 
 /* MAP */
 #map {
-  margin-top: 2rem;
-  height: 800px;
+  height: 700px;
   width: 100%;
   border-radius: 12px;
   z-index: 0;
@@ -259,6 +258,21 @@ form {
   /* .leaflet-tile-pane {
     filter: grayscale(80%) brightness(80%);
   } */
+}
+#map_aside {
+  overflow-y: scroll;
+  max-height: 700px;
+  border-radius: 0.5rem;
+  background: var(--darkened-eggshell);
+
+  box-shadow: 0px -8px 5px 0px rgba(94, 94, 94, 0.17) inset;
+  -webkit-box-shadow: 0px -8px 5px 0px rgba(94, 94, 94, 0.17) inset;
+  -moz-box-shadow: 0px -8px 5px 0px rgba(94, 94, 94, 0.17) inset;
+
+  .coaster-card {
+    animation: anim-appear ease;
+    animation-timeline: view();
+  }
 }
 
 footer {
