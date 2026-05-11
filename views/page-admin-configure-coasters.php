@@ -21,7 +21,7 @@ require_once __DIR__ . '/components/admin/_admin-header.php';
 <form action="/api-add-coaster" method="POST">
     <section class="grid grid-cols-2 gap-4">
         <div>
-            <select name="park">
+            <select name="park" aria-placeholder="select">
                 <option value="">Select a park</option>
                 <?php foreach ($parks as $park): ?>
                     <option value="<? _($park['park_pk']) ?>"><? _($park['park_title']) ?></option>

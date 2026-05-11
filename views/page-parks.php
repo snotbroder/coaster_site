@@ -27,13 +27,13 @@ if (!$park) {
     echo uuidv4_nodash();
 
 ?>
-    <section class="border-t-2 border-(--darkened-eggshell) my-10 py-5 grid md:grid-cols-3 gap-8">
-        <aside class="flex flex-col gap-6 col-start-1">
-            search
+    <section class="border-t-2 border-(--darkened-eggshell) my-10 py-5 flex flex-col md:grid md:grid-cols-3 gap-8">
+        <aside class="flex flex-col gap-6 md:col-start-1">
+            <?php require ROOT . "/views/components/__search-park.php"; ?>
         </aside>
 
         <section id="parks_container" class="col-start-2 col-span-2">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 slide-in">
+            <div id="parks_search_results" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 slide-in">
                 <?php
                 foreach ($parks as $park) {
                     require ROOT . '/views/components/__park-card.php';
@@ -100,7 +100,7 @@ $coasters = $stmt->fetchAll();
                 </form>
             </div>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 anim-slide-in">
+        <section class="grid grid-cols-1 sm:grid-cols-2 gap-4 anim-slide-in">
             <?php
             if ($coasters == []) {
                 _("No coasters found for this park");
@@ -109,7 +109,7 @@ $coasters = $stmt->fetchAll();
             foreach ($coasters as $coaster) {
                 require ROOT . "/views/components/__coaster-card.php";
             }
-            ?></div>
+            ?></section>
     </section>
 </section>
 <?php

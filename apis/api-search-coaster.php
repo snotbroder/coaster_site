@@ -3,7 +3,7 @@ try {
     require_once __DIR__ . "/../config/db.php";
     require_once __DIR__ . "/../config/_.php";
     $q = $_POST["search"] ?? "";
-    // _validate_search();
+    _validate_search();
 
     $sql = "SELECT * FROM coasters WHERE coaster_title LIKE :q ORDER BY coaster_title ASC LIMIT 3";
     $stmt = $_db->prepare($sql);

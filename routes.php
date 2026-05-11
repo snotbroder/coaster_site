@@ -22,6 +22,7 @@ get('/404', 'views/page-404.php');
 post('/api-login', 'apis/api-login.php');
 post('/api-sign-up', 'apis/api-sign-up.php');
 post('/api-search-coaster', 'apis/api-search-coaster.php');
+post('/api-search-park', 'apis/api-search-park.php');
 post('/api-add-coaster', 'apis/admin/api-add-coaster.php');
 
 
