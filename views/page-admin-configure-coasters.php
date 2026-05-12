@@ -49,6 +49,10 @@ require_once __DIR__ . '/components/admin/_admin-header.php';
             <input type="number" name="inversions" placeholder="Inversions">
             <textarea type="text" name="image_path" placeholder="Image path"></textarea>
 
+
+        </div>
+        <div>
+            <textarea type="text" name="description" placeholder="Description"></textarea>
         </div>
     </section>
     <button class="btn-primary">Add Coaster</button>

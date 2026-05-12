@@ -17,6 +17,7 @@ $gforce = $_POST["gforce"] ?? null;
 $duration = $_POST["duration"] ?? null;
 $inversions = $_POST["inversions"] ?? null;
 $image_path = $_POST["image_path"] ?? null;
+$description = $_POST["description"] ?? null;
 
 // Validate required fields
 if (!$park || !$title) {
@@ -30,8 +31,8 @@ $coaster_created_at = time();
 $coaster_deleted_at = 0;
 
 // Insert coaster into DB
-$sql = "INSERT INTO coasters (coaster_pk, park_fk, coaster_title, coaster_model, coaster_manufacturer, coaster_year, coaster_height, coaster_length, coaster_top_speed, coaster_gforce, coaster_duration, coaster_inversion_count, coaster_image_path, coaster_is_operational, coaster_created_at, coaster_deleted_at) 
-VALUES (:coaster_pk, :park, :title, :model, :manufacturer, :year, :height, :length, :top_speed, :gforce, :duration, :inversions, :image_path, :is_operational, :coaster_created_at, :coaster_deleted_at)";
+$sql = "INSERT INTO coasters (coaster_pk, park_fk, coaster_title, coaster_model, coaster_manufacturer, coaster_year, coaster_height, coaster_length, coaster_top_speed, coaster_gforce, coaster_duration, coaster_inversion_count, coaster_image_path, coaster_is_operational, coaster_description, coaster_created_at, coaster_deleted_at) 
+VALUES (:coaster_pk, :park, :title, :model, :manufacturer, :year, :height, :length, :top_speed, :gforce, :duration, :inversions, :image_path, :is_operational, :coaster_description, :coaster_created_at, :coaster_deleted_at)";
 $stmt = $_db->prepare($sql);
 $stmt->execute([
     ":park" => $park,
@@ -48,6 +49,7 @@ $stmt->execute([
     ":inversions" => $inversions,
     ":image_path" => $image_path ?? null,
     ":is_operational" => $is_operational,
+    ":coaster_description" => $description,
     ":coaster_created_at" => $coaster_created_at,
     ":coaster_deleted_at" => $coaster_deleted_at
 ]);
