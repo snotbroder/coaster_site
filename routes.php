@@ -28,6 +28,7 @@ post('/api-get-park-coasters', 'apis/api-get-park-coasters.php');
 post('/api-filter-parks', 'apis/api-filter-parks.php');
 
 
+
 // Test routes
 get('/items/$category', 'pages/page-items.php');
 get('/items/$category/size/$size', 'pages/page-items.php');

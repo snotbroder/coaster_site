@@ -2,18 +2,23 @@
 $title = "Parks";
 $active = "parks";
 
-require_once __DIR__ . "/components/_header.php";
+require_once ROOT . "/views/components/_header.php";
 require_once ROOT . "/apis/api-get-parks.php";
 
-$slug = $_GET["park"] ?? null;
+
+// dynamic pagination, get all rows
 $offset = 0;
+$total_parks = $_db->query("SELECT COUNT(*) FROM parks")->fetchColumn();
+
+// Get selected park, if any. Im fetching either way, because I want $park to return empty if it isnt used, for making the page dynamic
+$param = $_GET["park"] ?? null;
 
 $stmt = $_db->prepare("SELECT * FROM parks WHERE park_slug = ?");
-$stmt->execute([$slug]);
+$stmt->execute([$param]);
 $park = $stmt->fetch();
 
-//Get total of rows in parks
-$total_parks = $_db->query("SELECT COUNT(*) FROM parks")->fetchColumn();
+
+
 
 
 // Display all parks, default view when no park is selected
@@ -47,7 +52,6 @@ if (!$park) {
 
     </section>
 <?php
-
     exit;
 }
 

@@ -8,10 +8,13 @@ if ($active == "index") {
 
     $current_coaster = $_GET["park"] ?? null;
 ?>
-    <nav>
+    <nav class="my-2 md:my-4 ">
         <ul class="flex flex-row gap-3 breadcrumb-list">
             <li class="breadcrumb"><a href="/">Home</a></li>
             <li class="breadcrumb"><a href="/<?php _($active); ?>"><?php _($breadcrumb_1); ?></a></li>
+            <?php if ($current_coaster): ?>
+                <li class="breadcrumb capitalize"><?php _($current_coaster); ?></a></li>
+            <?php endif ?>
             <?php if ($current_coaster): ?>
                 <li class="breadcrumb capitalize"><?php _($current_coaster); ?></a></li>
             <?php endif ?>
