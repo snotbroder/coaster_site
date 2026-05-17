@@ -57,10 +57,10 @@ require_once __DIR__ . '/components/admin/_admin-header.php';
                     <option value="0">No</option>
                 </select>
             </span>
-            <div class="flex flex-row! gap-1">
-                <input type="text" name="lon" placeholder="Longitude">
-                <input type="text" name="lat" placeholder="Latitude">
-            </div>
+            <span class="flex gap-1">
+                <input class="" type="text" name="lon" placeholder="Longitude">
+                <input class="" type="text" name="lat" placeholder="Latitude">
+            </span>
             <textarea type="text" name="image_path" placeholder="Image path"></textarea>
 
 

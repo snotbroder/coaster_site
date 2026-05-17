@@ -43,6 +43,10 @@ require_once __DIR__ . '/components/admin/_admin-header.php';
                     <option value="0">No</option>
                 </select>
             </span>
+            <span class="flex gap-1">
+                <input class="" type="text" name="lon" placeholder="Longitude">
+                <input class="" type="text" name="lat" placeholder="Latitude">
+            </span>
             <input type="text" name="top_speed" placeholder="Top speed (km/h)">
             <input type="number" step=".01" name="gforce" placeholder="G-Force">
             <input type="text" name="duration" placeholder="Duration (mm:ss)">
@@ -57,7 +61,7 @@ require_once __DIR__ . '/components/admin/_admin-header.php';
     </section>
     <button class="btn-primary">Add Coaster</button>
 </form>
-
+<section id="feedback"></section>
 
 
 

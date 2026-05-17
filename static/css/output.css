@@ -393,11 +393,17 @@
   .bg-\(--pure-eggshell\) {
     background-color: var(--pure-eggshell);
   }
+  .bg-\(--system-failure\) {
+    background-color: var(--system-failure);
+  }
   .bg-\(--system-failure\)\/60 {
     background-color: var(--system-failure);
     @supports (color: color-mix(in lab, red, red)) {
       background-color: color-mix(in oklab, var(--system-failure) 60%, transparent);
     }
+  }
+  .bg-\(--system-success\) {
+    background-color: var(--system-success);
   }
   .bg-\(--system-success\)\/60 {
     background-color: var(--system-success);
@@ -785,12 +791,20 @@ form {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
-    input, textarea {
+    > input, textarea {
       padding: 0.5rem;
       background-color: var(--darkened-eggshell);
       border: 1px solid var(--darkened-eggshell);
       border-radius: 4px;
       outline-color: var(--pure-seagreen);
+    }
+    span > input {
+      padding: 0.5rem;
+      background-color: var(--darkened-eggshell);
+      border: 1px solid var(--darkened-eggshell);
+      border-radius: 4px;
+      outline-color: var(--pure-seagreen);
+      width: 50%;
     }
     select {
       appearance: base-select;

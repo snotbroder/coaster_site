@@ -102,13 +102,21 @@ form {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
-    input,
+    > input,
     textarea {
       padding: 0.5rem;
       background-color: var(--darkened-eggshell);
       border: 1px solid var(--darkened-eggshell);
       border-radius: 4px;
       outline-color: var(--pure-seagreen);
+    }
+    span > input {
+      padding: 0.5rem;
+      background-color: var(--darkened-eggshell);
+      border: 1px solid var(--darkened-eggshell);
+      border-radius: 4px;
+      outline-color: var(--pure-seagreen);
+      width: 50%;
     }
     select {
       appearance: base-select;
