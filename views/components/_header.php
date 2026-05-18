@@ -19,29 +19,35 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
     <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+    <?php require_once ROOT . "/config/_.php"; ?>
+
 </head>
 
 <body>
     <header class="w-full p-4 max-h-4">
-        <nav class="flex justify-between items-center">
+        <nav class="flex justify-between md:grid sm:grid-cols-3 lg:grid-cols-5 items-center">
             <a href="/"><img class="logo" src="../../static/assets/logo.svg" alt="Logo"></a>
 
             <!-- Desktop nav links -->
-            <ul class="hidden md:flex flex-row gap-4 justify-between">
+            <ul class="hidden md:flex flex-row gap-1 justify-between md:col-2 lg:col-3">
                 <li><a href="/parks" class="head-link <?= $active == 'parks' ? 'header-link-active' : '' ?>">Parks</a></li>
                 <li><a href="/coasters" class="head-link <?= $active == 'coasters' ? 'header-link-active' : '' ?>">Coasters</a></li>
                 <li><a href="/map" class="head-link <?= $active == 'map' ? 'header-link-active' : '' ?>">Map</a></li>
             </ul>
 
             <!-- Desktop auth -->
-            <ul class="hidden md:block">
-                <li>
+            <ul class="hidden md:flex md:justify-end md:col-3 lg:col-5">
+                <li class="flex place-items-end">
                     <?php if ($_SESSION["user_email"] ?? false) : ?>
-                        <a href="/profile">Profile</a>
-                        <form mix-post="api-logout">
-                            <button>Logout</button>
-                        </form>
-
+                        <div class="flex gap-2 items-end flex-wrap justify-end">
+                            <p class="small text-(--light-indigo)!">
+                                Hello
+                                <a href="/profile" class="hyperlink-mini items-end"><?php _($_SESSION["user_email"]) ?></a>!
+                            </p>
+                            <form mix-post="api-logout">
+                                <button class="btn-secondary small">Logout</button>
+                            </form>
+                        </div>
                     <?php else : ?>
                         <?php if ($active == "login") : ?>
                             <a href="/sign-up" class="btn-primary">Sign Up</a>
@@ -92,4 +98,3 @@
         <?php require_once __DIR__ . "/__breadcrumb.php"; ?>
 
         <!-- <div class="absolute top-12 right-2" id="toast-container"></div> -->
-        <?php require_once ROOT . "/config/_.php"; ?>

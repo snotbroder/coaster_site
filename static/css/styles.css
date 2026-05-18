@@ -43,7 +43,6 @@ header {
 }
 
 .head-link {
-  padding: 0.5rem 1rem;
   color: var(--darkened-indigo);
   transition: all 0.25s;
   &:hover {
@@ -199,6 +198,10 @@ form {
   &:hover {
     background: transparent;
     color: var(--pure-indigo);
+  }
+  &.small {
+    font-size: clamp(var(--s-xs), var(--body-small-pref), var(--s-sm));
+    padding: 0.125rem 1rem;
   }
 }
 

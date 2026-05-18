@@ -8,10 +8,11 @@ require_once __DIR__ . '/components/_header.php';
 <p>Rate and review coasters, explore and find information about parks around the globe!</p>
 
 <?php if ($_SESSION["user_email"] ?? false) : ?>
-    <img src="<?php _($_SESSION["user_avatar_path"] ?? "/static/assets/avatars/profile_avatar_default.jpg") ?>" alt="Profile image">
+    <div class="w-2">
+        <img class="object-fit rounded-full" src="<?php _($_SESSION["user_avatar_path"] ?? "/static/assets/avatars/profile_avatar_default.jpg") ?>" alt="Profile image">
+    </div>
 
-    <p>Hello <?php _($_SESSION["user_email"]) ?></p>
-    <?php _($_SESSION["user_avatar_path"] ?? "") ?>
+    <p class="small text-(--light-indigo)!">Hello <?php _($_SESSION["user_email"]) ?></p>
 <?php endif; ?>
 <?php require_once __DIR__ . "/components/_index-search.php"; ?>
 
