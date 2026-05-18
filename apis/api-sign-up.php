@@ -31,7 +31,7 @@ try {
     $stmt->execute([":email" => $user_email]);
     if ($stmt->fetch()) {
         http_response_code(409);
-        $message = "Email already exists";
+        $message = "Email already in use";
     ?>
 
         <browser mix-update="#toast-container">
@@ -46,19 +46,24 @@ try {
     VALUES (:user_pk, :email, :password, :created_at, :deleted_at)";
     $stmt = $_db->prepare($sql);
 
-    $stmt->bindValue(":user_pk", $user_pk);
-    $stmt->bindValue(":email", $user_email);
-    $stmt->bindValue(":password", $hashed_password);
-    $stmt->bindValue(":created_at", $user_created_at);
-    $stmt->bindValue(":deleted_at", $user_deleted_at);
-
-    $stmt->execute();
+    // $stmt->bindValue(":user_pk", $user_pk);
+    // $stmt->bindValue(":email", $user_email);
+    // $stmt->bindValue(":password", $hashed_password);
+    // $stmt->bindValue(":created_at", $user_created_at);
+    // $stmt->bindValue(":deleted_at", $user_deleted_at);
+    $stmt->execute([
+        ":user_pk" => $user_pk,
+        ":email" => $user_email,
+        ":password" => $hashed_password,
+        ":created_at" => $user_created_at,
+        ":deleted_at" => $user_deleted_at,
+    ]);
 
     _("ok");
 
     ?>
-    <div mix-redirect="/login">
-    </div>
+    <browser mix-redirect="/login">
+    </browser>
 <?php
 
     exit();

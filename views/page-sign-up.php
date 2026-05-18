@@ -10,7 +10,7 @@ require_once __DIR__ . '/components/_header.php';
     <aside>
         <h1>Sign Up</h1>
         <p>Or you can <a class="underline" href="/login">login</a></p>
-        <div class="relative top-6" id="toast-container">
+        <div class="relative top-6" id="toast-container"></div>
     </aside>
     <form mix-post="/api-sign-up" method="post" class="utility-form">
         <div>
