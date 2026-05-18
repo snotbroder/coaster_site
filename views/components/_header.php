@@ -77,7 +77,15 @@
             </ul>
             <div class="pt-3 pb-1 border-t border-(--darkened-eggshell)">
                 <?php if ($_SESSION["user_email"] ?? false) : ?>
-                    <a href="/profile">Profile</a>
+                    <div class="flex gap-4 justify-between items-center flex-wrap">
+                        <p class="text-(--light-indigo)!">
+                            Hello
+                            <a href="/profile" class="hyperlink"><?php _($_SESSION["user_email"]) ?></a>!
+                        </p>
+                        <form mix-post="api-logout">
+                            <button class="btn-secondary">Logout</button>
+                        </form>
+                    </div>
                 <?php else : ?>
                     <?php if ($active == "login") : ?>
                         <a href="/sign-up" class="btn-primary">Sign Up</a>

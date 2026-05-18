@@ -204,7 +204,14 @@ form {
     padding: 0.125rem 1rem;
   }
 }
-
+.hyperlink {
+  color: var(--pure-seagreen) !important;
+  font-size: clamp(var(--s-sm), var(--body-pref), var(--s-2sm));
+  &:hover {
+    text-decoration: underline;
+    color: var(--pure-indigo);
+  }
+}
 .hyperlink-mini {
   color: var(--pure-seagreen) !important;
   font-size: clamp(var(--s-2xs), var(--body-pref), var(--s-sm));
