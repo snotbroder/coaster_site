@@ -8,7 +8,7 @@ require_once __DIR__ . '/components/_header.php';
 <p>Rate and review coasters, explore and find information about parks around the globe!</p>
 
 <?php if ($_SESSION["user_email"] ?? false) : ?>
-    <div class="w-2">
+    <div class="w-6">
         <img class="object-fit rounded-full" src="<?php _($_SESSION["user_avatar_path"] ?? "/static/assets/avatars/profile_avatar_default.jpg") ?>" alt="Profile image">
     </div>
 
