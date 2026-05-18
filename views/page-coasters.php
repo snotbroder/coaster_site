@@ -50,8 +50,8 @@ if (!$coaster) {
             </div>
         </section>
         <div id="pagination" class="col-start-2 col-span-2 flex gap-4 justify-center my-6">
-            <form mix-get="/apis/api-getprev-parks.php?offset=<?php _(max(0, $offset - 6)) ?>" method="GET"><button class="btn-secondary">Prev.</button></form>
-            <form mix-get="/apis/components/api-pagination-coasters.php?offset=<?php _($offset + 6) ?>" method="GET"><button class="btn-secondary">Next</button></form>
+            <form mix-get="/apis/components/api-pagination-coasters.php?offset=<?php _(max(0, $offset - 6)) ?>"><button class="btn-secondary">Prev.</button></form>
+            <form mix-get="/apis/components/api-pagination-coasters.php?offset=<?php _($offset + 6) ?>"><button class="btn-secondary">Next</button></form>
         </div>
 
     </section>

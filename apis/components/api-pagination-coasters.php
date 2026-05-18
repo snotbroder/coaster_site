@@ -24,6 +24,7 @@ $total_coasters = $_db->query("SELECT COUNT(*) FROM coasters")->fetchColumn();
         <p class="my-4 small">Showing <?php _(count($coasters)) ?> of <?php _($total_coasters) ?> coasters</p>
     </browser>
 </browser>
+
 <browser mix-update="#pagination">
     <form mix-get="/apis/components/api-pagination-coasters.php?offset=<?php _($offset - 6) ?>" method="GET"><button class="btn-secondary">Prev.</button></form>
     <form mix-get="/apis/components/api-pagination-coasters.php?offset=<?php _($offset + 6) ?>" method="GET"><button class="btn-secondary">Next</button></form>
