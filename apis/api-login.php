@@ -45,6 +45,7 @@ try {
 
     // Initialize session, store user email
     $_SESSION["user_email"] = $user["user_email"];
+    $_SESSION["user_avatar_path"] = $user["user_avatar_path"];
 
     // redirect to index
     ?>
