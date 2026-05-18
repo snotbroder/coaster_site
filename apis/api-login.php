@@ -29,13 +29,27 @@ try {
         exit;
     }
 
+    // Check if user is deactivated
+    $stmt = $_db->prepare("SELECT 1 FROM users WHERE user_email = :email AND user_deleted_at > 0");
+    $stmt->execute([":email" => $user_email]);
+    if ($stmt->fetch()) {
+        http_response_code(409);
+        $message = "User inactive, contact moderator";
+    ?>
+        <browser mix-update="#toast-container">
+            <?php require_once ROOT . "/views/components/__toast_error.php" ?>
+        </browser>
+    <?php
+        exit;
+    }
+
     // Initialize session, store user email
     $_SESSION["user_email"] = $user["user_email"];
 
     // redirect to index
     ?>
     <browser mix-redirect="/"></browser>
-    <?php
+<?php
 } catch (Exception $e) {
     http_response_code($e->getCode());
     $message = $e->getMessage();

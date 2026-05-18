@@ -5,11 +5,11 @@ try {
     require_once ROOT . "/config/db.php";
 
     //Prepare data
+    $user_pk = uuidv4_nodash(); // uuid without dashes
     $user_email = _validate_user_email();
     $user_password = _validate_user_password();
     $user_confirm_password = $_POST['user_confirm_password'] ?? null;
     $hashed_password = password_hash($user_password, PASSWORD_DEFAULT);
-    $user_pk = uuidv4_nodash(); // uuid without dashes
     $user_created_at = time();
     $user_deleted_at = 0;
 
@@ -46,11 +46,6 @@ try {
     VALUES (:user_pk, :email, :password, :created_at, :deleted_at)";
     $stmt = $_db->prepare($sql);
 
-    // $stmt->bindValue(":user_pk", $user_pk);
-    // $stmt->bindValue(":email", $user_email);
-    // $stmt->bindValue(":password", $hashed_password);
-    // $stmt->bindValue(":created_at", $user_created_at);
-    // $stmt->bindValue(":deleted_at", $user_deleted_at);
     $stmt->execute([
         ":user_pk" => $user_pk,
         ":email" => $user_email,
