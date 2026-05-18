@@ -14,7 +14,7 @@ $coasters = $stmt->fetchAll();
 ?>
 <section class="bg-(--pure-eggshell) mx-4 p-8 flex flex-col gap-4">
     <h4>Search for a coaster</h4>
-    <form id="searchForm" mix-post="/api-search-coaster">
+    <form id="searchForm" mix-post="/api-index-search-coaster">
         <div>
             <input id="searchInput" name="search" type="text" placeholder="Search among <?= $entries_count ?> entries, eg. Mælkevejen">
         </div>
@@ -30,7 +30,7 @@ $coasters = $stmt->fetchAll();
         }
 
         ?>
-        <article class="place-self-center"><a class="btn-secondary " href="/parks">Browse parks</a></article>
+        <article class="place-self-center"><a class="btn-secondary " href="/coasters">Browse coasters</a></article>
     </section>
 </section>
 <script>

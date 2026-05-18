@@ -33,11 +33,11 @@ if (!$coaster) {
 
     <section class="border-t-2 border-(--darkened-eggshell) my-10 py-5 flex flex-col md:grid md:grid-cols-3 gap-8">
         <aside class="flex flex-col gap-6 md:col-start-1">
-            <?php require ROOT . "/views/components/__search-park.php"; ?>
+            <?php require ROOT . "/views/components/__search-coaster.php"; ?>
         </aside>
 
         <section id="coasters_container" class="col-start-2 col-span-2">
-            <div id="parks_search_results" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 slide-in">
+            <div id="coasters_search_results" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 slide-in">
                 <?php
                 foreach ($coasters as $coaster) {
                     require ROOT . '/views/components/__coaster-card.php';

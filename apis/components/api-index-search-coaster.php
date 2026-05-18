@@ -1,7 +1,7 @@
 <?php
 try {
-    require_once __DIR__ . "/../config/db.php";
-    require_once __DIR__ . "/../config/_.php";
+    require_once ROOT . "/config/db.php";
+    require_once ROOT . "/config/_.php";
     $q = $_POST["search"] ?? "";
     _validate_search();
 
@@ -21,10 +21,10 @@ try {
                 exit;
             }
             foreach ($coasters as $coaster) {
-                require __DIR__ . "../../views/components/__coaster-card.php";
+                require ROOT . "/views/components/__coaster-card.php";
             }
             ?>
-            <article class="place-self-center"><a class="btn-secondary " href="/parks">Browse parks</a></article>
+            <article class="place-self-center"><a class="btn-secondary " href="/parks">Browse coasters</a></article>
         </browser>
 
 
