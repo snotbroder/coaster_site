@@ -30,12 +30,13 @@ if (!$coaster) {
 
         </form>
     </section>
+
     <section class="border-t-2 border-(--darkened-eggshell) my-10 py-5 flex flex-col md:grid md:grid-cols-3 gap-8">
         <aside class="flex flex-col gap-6 md:col-start-1">
             <?php require ROOT . "/views/components/__search-park.php"; ?>
         </aside>
 
-        <section id="parks_container" class="col-start-2 col-span-2">
+        <section id="coasters_container" class="col-start-2 col-span-2">
             <div id="parks_search_results" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 slide-in">
                 <?php
                 foreach ($coasters as $coaster) {
@@ -43,14 +44,14 @@ if (!$coaster) {
                 }
                 ?>
             </div>
-            <div id="parks_pagination_count">
+            <div id="pagination_count">
                 <p class="my-4 small">Showing <?php _(count($coasters)) ?> of <?php _($total_coasters) ?> coasters</p>
 
             </div>
         </section>
-        <div id="parks_pagination" class="col-start-2 col-span-2 flex gap-4 justify-center my-6">
+        <div id="pagination" class="col-start-2 col-span-2 flex gap-4 justify-center my-6">
             <form mix-get="/apis/api-getprev-parks.php?offset=<?php _(max(0, $offset - 6)) ?>" method="GET"><button class="btn-secondary">Prev.</button></form>
-            <form mix-get="/apis/api-getnext-parks.php?offset=<?php _($offset + 6) ?>" method="GET"><button class="btn-secondary">Next</button></form>
+            <form mix-get="/apis/components/api-pagination-coasters.php?offset=<?php _($offset + 6) ?>" method="GET"><button class="btn-secondary">Next</button></form>
         </div>
 
     </section>
