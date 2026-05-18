@@ -3,6 +3,9 @@
 require_once __DIR__ . '/router.php';
 define('ROOT', __DIR__);
 
+//always check if session is alive
+session_start();
+
 // Views
 get('/', 'views/page-index.php');
 get('/map', 'views/page-map.php');
@@ -21,6 +24,7 @@ get('/404', 'views/page-404.php');
 
 // Apis
 post('/api-login', 'apis/api-login.php');
+post('/api-logout', 'apis/api-logout.php');
 post('/api-sign-up', 'apis/api-sign-up.php');
 post('/api-search-coaster', 'apis/api-search-coaster.php');
 post('/api-search-park', 'apis/api-search-park.php');

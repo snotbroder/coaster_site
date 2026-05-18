@@ -118,6 +118,10 @@ form {
       outline-color: var(--pure-seagreen);
       width: 50%;
     }
+    &:has(input[required]) label::after {
+      content: " *";
+      color: red;
+    }
     select {
       appearance: base-select;
       padding: 0.5rem;

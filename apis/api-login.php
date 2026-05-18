@@ -1,17 +1,48 @@
 <?php
-require_once __DIR__ . '/../config/_.php';
-$user_email = $_POST['user_email'] ?? '';
-$user_password = $_POST['user_password'] ?? '';
+try {
+    session_start();
+    require_once ROOT . "/config/_.php";
+    require_once ROOT . "/config/db.php";
 
-// _validate_user_email($user_email);
-// _validate_user_password($user_password);
+    //Get data from form
+    $user_email = $_POST["user_email"] ?? "";
+    $user_password = $_POST["user_password"] ?? "";
 
-// Initialize session, store user email
-// session_start();
-// $_SESSION["user_email"] = $user_email;
+    //Validate
+    $user_email = _validate_user_email();
+    $user_password = _validate_user_password();
 
+    //fetch data from db
+    $stmt = $_db->prepare("SELECT * FROM users WHERE user_email = :email");
+    $stmt->execute([":email" => $user_email]);
+    $user = $stmt->fetch();
+
+    // If user isnt found, display error toast
+    if (!$user || !password_verify($user_password, $user["user_password"])) {
+        http_response_code(401);
+        $message = "Invalid email or password.";
 ?>
+        <browser mix-update="#toast-container">
+            <?php require_once ROOT . "/views/components/__toast_error.php" ?>
+        </browser>
+    <?php
+        exit;
+    }
 
-<div mix-redirect="/">
-    <p>User Email: <?= _($user_email) ?>, User Password: <?= _($user_password) ?></p>
-</div>
+    // Initialize session, store user email
+    $_SESSION["user_email"] = $user["user_email"];
+
+    // redirect to index
+    ?>
+    <browser mix-redirect="/"></browser>
+    <?php
+} catch (Exception $e) {
+    http_response_code($e->getCode());
+    $message = $e->getMessage();
+?>
+    <browser mix-update="#toast-container">
+        <?php require_once ROOT . "/views/components/__toast_error.php" ?>
+    </browser>
+<?php
+}
+?>

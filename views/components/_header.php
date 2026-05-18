@@ -36,8 +36,12 @@
             <!-- Desktop auth -->
             <ul class="hidden md:block">
                 <li>
-                    <?php if ($_SESSION["user_pk"] ?? false) : ?>
+                    <?php if ($_SESSION["user_email"] ?? false) : ?>
                         <a href="/profile">Profile</a>
+                        <form mix-post="api-logout">
+                            <button>Logout</button>
+                        </form>
+
                     <?php else : ?>
                         <?php if ($active == "login") : ?>
                             <a href="/sign-up" class="btn-primary">Sign Up</a>
@@ -66,7 +70,7 @@
                 <li class="anim-slide-in"><a href="/map" class="head-link block py-2 <?= $active == 'map' ? 'header-link-active' : '' ?>">Map</a></li>
             </ul>
             <div class="pt-3 pb-1 border-t border-(--darkened-eggshell)">
-                <?php if ($_SESSION["user_pk"] ?? false) : ?>
+                <?php if ($_SESSION["user_email"] ?? false) : ?>
                     <a href="/profile">Profile</a>
                 <?php else : ?>
                     <?php if ($active == "login") : ?>
@@ -88,4 +92,4 @@
         <?php require_once __DIR__ . "/__breadcrumb.php"; ?>
 
         <!-- <div class="absolute top-12 right-2" id="toast-container"></div> -->
-        <?php require_once __DIR__ . "../../../config/_.php"; ?>
+        <?php require_once ROOT . "/config/_.php"; ?>
