@@ -64,7 +64,10 @@ if (!$coaster) {
 
 <section class="my-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 md:h-78 lg:h-128">
     <p class=""><?php _($coaster["coaster_description"]) ?></p>
-    <img class="rounded-md w-full h-48 md:h-full object-cover row-1 md:col-2 lg:col-span-2 lg:col-start-2" src="<?php if ($coaster['coaster_image_path'] !== ""): ?><?php _($coaster["coaster_image_path"]) ?> <?php else: ?><?php _("static/assets/images/coaster-placeholder.webp") ?> <?php endif; ?>" alt="Coaster" srcset="">
+    <img class="rounded-md w-full h-48 md:h-full object-cover row-1 md:col-2 lg:col-span-2 lg:col-start-2"
+        src="<?php _($coaster["coaster_image_path"] ?: "/static/assets/images/coaster-placeholder.webp") ?>"
+        onerror="this.onerror=null; this.src='/static/assets/images/coaster-placeholder.webp'"
+        alt="Coaster">
 </section>
 
 <?= $coaster["coaster_title"]; ?>
