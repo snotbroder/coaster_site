@@ -75,6 +75,46 @@ function _validate_user_password()
     return $user_password;
 }
 
+
+// ##############################
+define("review_body_min", 5);
+define("review_body_max", 500);
+function _validate_review_body()
+{
+    $review_body = $_POST["review_body"] ?? "";
+    $review_body = trim($review_body);
+    if (strlen($review_body) < review_body_min) {
+        throw new Exception("Review must be at least " . review_body_min . " characters long", 400);
+    }
+    if (strlen($review_body) > review_body_max) {
+        throw new Exception("Review must be max " . review_body_max . " characters long", 400);
+    }
+    return $review_body;
+}
+
+
+// ############################## Got help from Claude
+function timeago($timestamp): void
+{
+    $seconds = time() - (int)$timestamp;
+    $minutes = intdiv($seconds, 60);
+    $hours   = intdiv($minutes, 60);
+    $days    = intdiv($hours, 24);
+    $weeks   = intdiv($days, 7);
+    $months  = intdiv($days, 30);
+    $years   = intdiv($days, 365);
+
+    if ($seconds < 60)  $result = "just now";
+    elseif ($minutes < 60)  $result = "$minutes minute"  . ($minutes > 1 ? "s" : "") . " ago";
+    elseif ($hours < 24)    $result = "$hours hour"       . ($hours   > 1 ? "s" : "") . " ago";
+    elseif ($days < 7)      $result = "$days day"         . ($days    > 1 ? "s" : "") . " ago";
+    elseif ($weeks < 4)     $result = "$weeks week"       . ($weeks   > 1 ? "s" : "") . " ago";
+    elseif ($months < 12)   $result = "$months month"     . ($months  > 1 ? "s" : "") . " ago";
+    else                    $result = "$years year"       . ($years   > 1 ? "s" : "") . " ago";
+
+    echo htmlspecialchars($result);
+}
+
 // ##############################
 function _no_cache()
 {

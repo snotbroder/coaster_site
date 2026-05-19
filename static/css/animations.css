@@ -36,3 +36,32 @@
     scale: 1;
   }
 }
+.anim-toast {
+  animation: anim-toast 3s ease-in-out;
+}
+@keyframes anim-toast {
+  0% {
+    opacity: 0;
+    transform: translateX(15px);
+  }
+  5% {
+    transform: translateX(5px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  95% {
+    transform: translateX(-5px);
+  }
+  100% {
+    opacity: 0;
+    display: none;
+    transform: translateX(-10px);
+  }
+}

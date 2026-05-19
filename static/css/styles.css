@@ -185,18 +185,18 @@ form {
 }
 
 .btn-secondary {
-  background-color: var(--pure-seagreen);
-  color: var(--darkened-eggshell);
+  background-color: transparent;
+  color: var(--pure-seagreen);
   width: fit-content;
   height: fit-content;
   padding: 0.25rem 1.5rem;
   border-radius: 0.5rem;
-  border: solid 1px var(--pure-seagreen);
+  border: solid 2px var(--pure-seagreen);
   cursor: pointer;
   font-size: clamp(var(--s-sm), var(--body-pref), var(--s-2sm));
   text-wrap: nowrap;
   &:hover {
-    background: transparent;
+    background: var(--pure-seagreen);
     color: var(--pure-indigo);
   }
   &.small {
@@ -218,6 +218,19 @@ form {
   &:hover {
     text-decoration: underline;
     color: var(--pure-indigo);
+  }
+}
+
+.btn-options {
+  cursor: pointer;
+}
+.btn-utility {
+  cursor: pointer;
+  text-align: start;
+  border-radius: 0.25rem;
+  padding: 0.125rem 0.5rem;
+  &:hover {
+    background-color: var(--darkened-eggshell);
   }
 }
 
@@ -324,6 +337,34 @@ table.stats {
     color: var(--pure-indigo);
     &:nth-child(odd) {
       background-color: var(--pure-eggshell);
+    }
+  }
+}
+
+/* REVIEW */
+
+#review-dialog {
+  margin: auto;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--darkened-eggshell);
+  min-width: 80%;
+
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.4);
+  }
+  .review-container {
+    .review-body {
+      border-bottom: solid var(--darkened-eggshell) 2px;
+      border-radius: 0.25rem;
+      resize: none;
+      outline: 0;
+      height: 2rem;
+
+      overflow: auto;
+    }
+    select {
+      color: var(--pure-seagreen);
     }
   }
 }

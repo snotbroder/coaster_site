@@ -70,7 +70,7 @@ if (!$coaster) {
     _($park_title); ?>
 </h4>
 
-<section class="my-8 mb-9 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 md:h-78 lg:h-128 overflow-hidden">
+<section class="my-8 mb-9 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 md:h-78 lg:h-128 md:mb-18 lg:mb-24 overflow-hidden">
     <div class="flex flex-col gap-16 md:gap-4 lg:gap-6 min-h-0">
         <p class="overflow-y-auto"><?php _($coaster["coaster_description"]) ?></p>
 
@@ -83,9 +83,14 @@ if (!$coaster) {
         alt="Coaster">
 </section>
 <section class="my-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 ">
-    <div class=""></div>
+    <div class="row-end-1 md:row-auto md:col-start-2 md:col-span-2">
 
-    <?php require_once ROOT . "/views/components/__coasterstats-table.php" ?>
+        <?php require_once ROOT . "/views/components/__coaster-reviews.php" ?>
+
+    </div>
+    <div class="md:col-1 md:row-start-1">
+        <?php require_once ROOT . "/views/components/__coasterstats-table.php" ?>
+    </div>
 
 </section>
 <?php require_once ROOT . "/views/components/__coaster-see-also.php" ?>

@@ -13,6 +13,10 @@
   --pure-seagreen: #00916e;
   --light-seagreen: #00a97c;
 
+  --darkened-star: #af8e2d;
+  --pure-star: #f4c022;
+  --light-star: #f4dc95;
+
   --system-failure: #f36751;
   --system-success: #73d92f;
   --system-warning: #f2c94c;
@@ -40,6 +44,7 @@
   --s-3xs: 0.125rem;
   --s-2xs: 0.25rem;
   --s-xs: 0.5rem;
+  --s-xs1: 0.75rem;
   --s-sm: 1rem;
   --s-2sm: 1.25rem;
   --s-3sm: 1.5rem;
@@ -83,6 +88,9 @@ p {
   color: var(--darkened-indigo);
   &.small {
     font-size: clamp(var(--s-xs), var(--body-small-pref), var(--s-sm));
+  }
+  &.xsmall {
+    font-size: clamp(var(--s-xs), var(--body-small-pref), var(--s-xs1));
   }
 }
 

@@ -32,6 +32,12 @@ post('/api-search-park', 'apis/api-search-park.php');
 post('/api-get-park-coasters', 'apis/api-get-park-coasters.php');
 post('/api-filter-parks', 'apis/api-filter-parks.php');
 
+// Review apis
+post('/api-create-review', 'apis/components/review/api-create-review.php');
+post('/api-delete-review', 'apis/components/review/api-delete-review.php');
+post('/api-request-delete-review', 'apis/components/review/api-request-delete-review.php');
+
+
 // Admin apis
 post('/api-add-coaster', 'apis/admin/api-add-coaster.php');
 post('/api-add-park', 'apis/admin/api-add-park.php');
