@@ -18,6 +18,8 @@ $stmt->execute([$param]);
 $coaster = $stmt->fetch();
 
 
+
+
 if (!$coaster) {
     echo "<h1>Browse coasters</h1>";
 ?>
@@ -61,14 +63,29 @@ if (!$coaster) {
 ?>
 
 <h1><?php _($coaster["coaster_title"]) ?></h1>
+<h4 class="text-(--light-indigo)! mt-2">At
+    <?php
+    // Get park_title from park table through park_fk value from coaster table, inline. Had help from claude.
+    $park_title = $_db->query("SELECT park_title FROM parks WHERE park_pk = " . $_db->quote($coaster["park_fk"]))->fetchColumn();
+    _($park_title); ?>
+</h4>
 
-<section class="my-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 md:h-78 lg:h-128">
-    <p class=""><?php _($coaster["coaster_description"]) ?></p>
-    <img class="rounded-md w-full h-48 md:h-full object-cover row-1 md:col-2 lg:col-span-2 lg:col-start-2"
+<section class="my-8 mb-9 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 md:h-78 lg:h-128 overflow-hidden">
+    <div class="flex flex-col gap-16 md:gap-4 lg:gap-6 min-h-0">
+        <p class="overflow-y-auto"><?php _($coaster["coaster_description"]) ?></p>
+
+        <?php require_once ROOT . "/views/components/__coastermap.php" ?>
+
+    </div>
+    <img class="rounded-md w-full h-48 md:h-full object-cover row-1 md:col-2 lg:col-span-2 lg:col-start-2 min-h-0"
         src="<?php _($coaster["coaster_image_path"] ?: "/static/assets/images/coaster-placeholder.webp") ?>"
         onerror="this.onerror=null; this.src='/static/assets/images/coaster-placeholder.webp'"
         alt="Coaster">
 </section>
+<section class="my-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 ">
+    <div class=""></div>
 
-<?= $coaster["coaster_title"]; ?>
-<?= $total_coasters; ?>
+    <?php require_once ROOT . "/views/components/__coasterstats-table.php" ?>
+
+</section>
+<?php require_once ROOT . "/views/components/__coaster-see-also.php" ?>

@@ -280,10 +280,6 @@ section:has(#map_aside.mix-hidden) #map {
       border-color: var(--pure-seagreen);
     }
   }
-  /* Grayscaled map */
-  /* .leaflet-tile-pane {
-    filter: grayscale(80%) brightness(80%);
-  } */
 }
 #map_aside {
   overflow-y: scroll;
@@ -306,4 +302,28 @@ footer {
   position: absolute;
   bottom: 0;
   width: fit-content;
+}
+
+/* TABLE */
+
+table.stats {
+  background-color: var(--light-eggshell);
+  border-collapse: separate;
+  border-spacing: 0 0.25rem;
+  font-size: clamp(var(--s-xs), var(--body-small-pref), var(--s-sm));
+  td {
+    padding: 0.5rem;
+    &:first-child {
+      border-radius: 0.5rem 0 0 0.5rem;
+    }
+    &:last-child {
+      border-radius: 0 0.5rem 0.5rem 0;
+    }
+  }
+  tr {
+    color: var(--pure-indigo);
+    &:nth-child(odd) {
+      background-color: var(--pure-eggshell);
+    }
+  }
 }

@@ -66,4 +66,5 @@ echo json_encode(["message" => "Coaster added successfully"]);
 ?>
 <browser mix-update="#feedback">
     <p class="p-4 bg-(--system-success)">Coaster added successfully</p>
+    <a href="/admin/configure-coasters" class="btn-primary">Add another coaster</a>
 </browser>
