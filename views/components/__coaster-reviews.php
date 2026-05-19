@@ -47,7 +47,6 @@ $reviews = $stmt->fetchAll();
 
 <dialog id="review-dialog" class="anim-slide-up">
     <h4>Reviewing <?php _($coaster["coaster_title"]) ?> at <?php _($park_title) ?></h4>
-    <!-- <div class="relative mb-2" id="toast-container"></div> -->
     <form mix-post="/api-create-review?coaster=<?php _($coaster["coaster_pk"]) ?>" class="review-container flex flex-col">
 
         <textarea class="review-body" name="review_body" id="" placeholder="Write a review"></textarea>

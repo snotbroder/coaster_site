@@ -515,6 +515,12 @@
       background-color: color-mix(in oklab, var(--system-failure) 70%, transparent);
     }
   }
+  .bg-\(--system-failure\)\/90 {
+    background-color: var(--system-failure);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--system-failure) 90%, transparent);
+    }
+  }
   .bg-\(--system-success\) {
     background-color: var(--system-success);
   }
