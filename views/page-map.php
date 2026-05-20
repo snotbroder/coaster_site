@@ -28,27 +28,27 @@ $coasters = $stmt->fetchAll();
 
 
 <section id="map_container">
-    <div class="border-b border-b-(--darkened-eggshell) mb-4 pb-6">
-        <form class="form-switch">
+    <div class="border-b border-b-(--darkened-eggshell) mb-4 pb-6 ">
+        <form id="switchForm" class="form-switch">
             <h2>Type</h2>
             <div class="switch-field">
-                <input type="radio" id="radio-one" name="switch-one" value="yes" checked />
-                <label for="radio-one">Yes</label>
-                <input type="radio" id="radio-two" name="switch-one" value="no" />
-                <label for="radio-two">No</label>
+                <input type="radio" id="radio-one" name="switch-one" value="coasters" checked />
+                <label for="radio-one">Coasters</label>
+                <input type="radio" id="radio-two" name="switch-one" value="parks" />
+                <label for="radio-two">Parks</label>
             </div>
     </div>
-    <section class="flex flex-col gap-2 md:grid grid-cols-5">
-        <section id="map" class="col-1 md:col-span-3"></section>
-        <aside id="map_aside" class="mix-hidden flex flex-wrap gap-4 p-2 sm:col-span-2">
-            <p class="small text-(--light-indigo)! p-2">Click a marker to see coasters</p>
+    <section class="relative flex flex-col gap-2 ">
+        <section id="map" class=""></section>
+        <aside id="map_aside" class="anim-slide-in shadow-xl rounded-2xl">
+            <p class="small">Click a marker to interact</p>
         </aside>
     </section>
 </section>
 <!-- Filter section -->
 <section id="map_filter" class="mb-4 py-2 border-b border-b-(--darkened-eggshell) ">
     <h4 class="mb-2">Filter</h4>
-    <form action="" class="w-fit flex flex-row! gap-10!">
+    <form action="" class=" w-fit flex flex-row! gap-10!">
         <div>
             <label for="filter_country_code">Country</label>
             <select name="filter_country_code" id="">
@@ -104,17 +104,17 @@ $coasters = $stmt->fetchAll();
     //     }),
     // }).addTo(map);
 
-    // function addParkMarker(park) {
-    //     const marker = L.marker([park.park_lon, park.park_lat], {
-    //         icon: L.divIcon({
-    //             className: 'map-marker map-marker-park',
-    //             html: `<button onclick="mixhtml(); return false;" mix-post="/api-get-park-coasters?park_pk=${park.park_pk}"></button>`,
-    //         }),
-    //     });
-    //     marker.bindPopup(`<a href="/parks?park=${park.park_slug}" class="hyperlink-mini">${park.park_title}</a>`);
-    //     marker.on("click", () => map.setView([park.park_lon, park.park_lat], 8));
-    //     markers.addLayer(marker);
-    // }
+    function addParkMarker(park) {
+        const marker = L.marker([park.park_lon, park.park_lat], {
+            icon: L.divIcon({
+                className: 'map-marker map-marker-park',
+                html: `<button onclick="mixhtml(); return false;" mix-post="/api-get-park-coasters?park_pk=${park.park_pk}"></button>`,
+            }),
+        });
+        marker.bindPopup(`<a href="/parks?park=${park.park_slug}" class="hyperlink-mini">${park.park_title}</a>`);
+        marker.on("click", () => map.setView([park.park_lon, park.park_lat], 8));
+        markers.addLayer(marker);
+    }
 
     function addCoasterMarker(coaster) {
         const marker = L.marker([coaster.coaster_lon, coaster.coaster_lat], {
@@ -128,12 +128,32 @@ $coasters = $stmt->fetchAll();
         markers.addLayer(marker);
     }
 
+
+
+    // default markers
     const parks = <?= json_encode($parks) ?>;
     const coasters = <?= json_encode($coasters) ?>;
-    // parks.forEach(addParkMarker);
-    coasters.forEach(addCoasterMarker);
 
+    coasters.forEach(addCoasterMarker);
     markers.addTo(map);
+
+    // Switch coasters/parks
+    const switchform = document.querySelector("#switchForm");
+    switchform.addEventListener("change", async (e) => {
+        let value = e.target.value;
+        console.log(value)
+        markers.clearLayers();
+
+        if (value == "coasters") {
+            coasters.forEach(addCoasterMarker);
+        }
+        if (value == "parks") {
+            parks.forEach(addParkMarker);
+        }
+        markers.addTo(map);
+    })
+
+
 
     // Got help from claude
     document.querySelector("#map_filter form").addEventListener("submit", async (e) => {

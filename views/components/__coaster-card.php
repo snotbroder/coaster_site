@@ -4,9 +4,9 @@
 
 ?>
 
-<a class="overflow-hidden shadow-sm rounded-md w-full anim-slide-in min-h-fit coaster-card bg-(--pure-eggshell)" href="/coasters?coaster=<?php _($coaster["coaster_pk"]) ?>">
-    <article class=" w-full group relative">
-        <img class="block rounded-t-md w-full h-54 object-cover group-hover:scale-103 duration-200 bg-(--pure-indigo)"
+<a class="overflow-hidden shadow-sm rounded-md min-w-36 md:min-w-58 lg:w-full anim-slide-in min-h-36 lg:min-h-fit coaster-card bg-(--pure-eggshell)" href="/coasters?coaster=<?php _($coaster["coaster_pk"]) ?>">
+    <article class="w-full group relative">
+        <img class="block rounded-t-md w-full h-36 md:h-54 object-cover group-hover:scale-103 duration-200 bg-(--pure-indigo)"
             src="<?php _($coaster["coaster_image_path"] ?: "/static/assets/images/coaster-placeholder.webp") ?>"
             onerror="this.onerror=null; this.src='/static/assets/images/coaster-placeholder.webp'"
             alt="Coaster">
