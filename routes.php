@@ -5,7 +5,6 @@ define('ROOT', __DIR__);
 
 //always check if session is alive
 session_start();
-
 // Views
 get('/', 'views/page-index.php');
 get('/map', 'views/page-map.php');
@@ -17,10 +16,6 @@ get('/sign-up', 'views/page-sign-up.php');
 // Admin views
 get('/admin/configure-coasters', 'views/page-admin-configure-coasters.php');
 get('/admin/configure-parks', 'views/page-admin-configure-parks.php');
-
-// Fallback route
-get('/404', 'views/page-404.php');
-
 
 // Apis
 post('/api-login', 'apis/api-login.php');
@@ -42,6 +37,12 @@ post('/api-request-delete-review', 'apis/components/review/api-request-delete-re
 post('/api-add-coaster', 'apis/admin/api-add-coaster.php');
 post('/api-add-park', 'apis/admin/api-add-park.php');
 
+// Pagination apis
+get('/api-pagination-coasters', 'apis/components/api-pagination-coasters.php');
+get('/api-pagination-parks', 'apis/components/api-pagination-parks.php');
+
+// Fallback route - must be last, acts as catch-all for unmatched GET routes
+get('/404', 'views/page-404.php');
 
 // Test routes
 get('/items/$category', 'pages/page-items.php');

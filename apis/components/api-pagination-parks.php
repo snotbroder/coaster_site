@@ -1,8 +1,8 @@
 <?php
 // Fetch next parks from DB
 
-require_once __DIR__ . "/../../config/db.php";
-require_once __DIR__ . "/../../config/_.php";
+require_once ROOT . "/config/db.php";
+require_once ROOT . "/config/_.php";
 $offset = (int)($_GET['offset'] ?? 6);
 $sql = "SELECT * FROM parks ORDER BY park_title ASC LIMIT 6 OFFSET $offset";
 $stmt = $_db->prepare($sql);
@@ -16,7 +16,7 @@ $total_parks = $_db->query("SELECT COUNT(*) FROM parks")->fetchColumn();
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 slide-in">
         <?php
         foreach ($parks as $park) {
-            require __DIR__ . "/../../views/components/__park-card.php";
+            require ROOT . "/views/components/__park-card.php";
         }
         ?>
     </div>
@@ -26,6 +26,6 @@ $total_parks = $_db->query("SELECT COUNT(*) FROM parks")->fetchColumn();
 </browser>
 
 <browser mix-update="#pagination">
-    <form mix-get="/apis/components/api-pagination-parks.php?offset=<?php _($offset - 6) ?>" method="GET"><button class="btn-secondary">Prev.</button></form>
-    <form mix-get="/apis/components/api-pagination-parks.php?offset=<?php _($offset + 6) ?>" method="GET"><button class="btn-secondary">Next</button></form>
+    <form mix-get="/api-pagination-parks?offset=<?php _($offset - 6) ?>" method="GET"><button class="btn-secondary">Prev.</button></form>
+    <form mix-get="/api-pagination-parks?offset=<?php _($offset + 6) ?>" method="GET"><button class="btn-secondary">Next</button></form>
 </browser>
