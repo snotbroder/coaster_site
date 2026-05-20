@@ -5,16 +5,21 @@ $active = "map";
 require_once ROOT . '/views/components/_header.php';
 require_once ROOT . "/config/db.php";
 
-// Get park data, also get country_code but only once
+// Get park data, also get country_code but only once for select element
 $sql = "SELECT * FROM parks ORDER BY park_title DESC";
-$sql_countries = "SELECT DISTINCT park_country_code FROM parks ORDER BY park_country_code ASC";
 $stmt = $_db->prepare($sql);
 $stmt->execute();
 $parks = $stmt->fetchAll();
 
+$sql_countries = "SELECT DISTINCT park_country_code FROM parks ORDER BY park_country_code ASC";
 $stmt = $_db->prepare($sql_countries);
 $stmt->execute();
 $countries = $stmt->fetchAll();
+
+$sql = "SELECT * FROM coasters WHERE coaster_is_operational != 0";
+$stmt = $_db->prepare($sql);
+$stmt->execute();
+$coasters = $stmt->fetchAll();
 
 ?>
 
@@ -23,6 +28,16 @@ $countries = $stmt->fetchAll();
 
 
 <section id="map_container">
+    <div class="border-b border-b-(--darkened-eggshell) mb-4 pb-6">
+        <form class="form-switch">
+            <h2>Type</h2>
+            <div class="switch-field">
+                <input type="radio" id="radio-one" name="switch-one" value="yes" checked />
+                <label for="radio-one">Yes</label>
+                <input type="radio" id="radio-two" name="switch-one" value="no" />
+                <label for="radio-two">No</label>
+            </div>
+    </div>
     <section class="flex flex-col gap-2 md:grid grid-cols-5">
         <section id="map" class="col-1 md:col-span-3"></section>
         <aside id="map_aside" class="mix-hidden flex flex-wrap gap-4 p-2 sm:col-span-2">
@@ -89,22 +104,35 @@ $countries = $stmt->fetchAll();
     //     }),
     // }).addTo(map);
 
-    function addMarker(park) {
-        const marker = L.marker([park.park_lon, park.park_lat], {
+    // function addParkMarker(park) {
+    //     const marker = L.marker([park.park_lon, park.park_lat], {
+    //         icon: L.divIcon({
+    //             className: 'map-marker map-marker-park',
+    //             html: `<button onclick="mixhtml(); return false;" mix-post="/api-get-park-coasters?park_pk=${park.park_pk}"></button>`,
+    //         }),
+    //     });
+    //     marker.bindPopup(`<a href="/parks?park=${park.park_slug}" class="hyperlink-mini">${park.park_title}</a>`);
+    //     marker.on("click", () => map.setView([park.park_lon, park.park_lat], 8));
+    //     markers.addLayer(marker);
+    // }
+
+    function addCoasterMarker(coaster) {
+        const marker = L.marker([coaster.coaster_lon, coaster.coaster_lat], {
             icon: L.divIcon({
-                className: 'map-marker',
-                html: `<button onclick="mixhtml(); return false;" mix-post="/api-get-park-coasters?park_pk=${park.park_pk}"></button>`,
+                className: 'map-marker map-marker-coaster',
+                html: `<button onclick="mixhtml(); return false;" mix-get="/coasters?coaster=${coaster.coaster_pk}"></button>`,
             }),
-            park_pk: park.park_pk
         });
-        marker.bindPopup(`<a href="/parks?park=${park.park_slug}" class="hyperlink-mini">${park.park_title}</a>`);
-        // Center map to clicked marker
-        marker.on("click", () => map.setView([park.park_lon, park.park_lat], 8));
+        marker.bindPopup(`<a href="/coasters?coaster=${coaster.coaster_pk}" class="hyperlink-mini">${coaster.coaster_title}</a>`);
+        marker.on("click", () => map.setView([coaster.coaster_lon, coaster.coaster_lat], 16));
         markers.addLayer(marker);
     }
 
     const parks = <?= json_encode($parks) ?>;
-    parks.forEach(addMarker);
+    const coasters = <?= json_encode($coasters) ?>;
+    // parks.forEach(addParkMarker);
+    coasters.forEach(addCoasterMarker);
+
     markers.addTo(map);
 
     // Got help from claude
