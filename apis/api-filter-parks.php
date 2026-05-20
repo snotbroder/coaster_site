@@ -5,7 +5,7 @@ $country_code = $_POST["filter_country_code"] ?? "";
 $operational_only = isset($_POST["filter_is_operational"]) && $_POST["filter_is_operational"] === "on";
 $min_coasters = $_POST["filter_min_coasters"] ?? "";
 
-$sql = "SELECT parks.* FROM parks LEFT JOIN coasters ON parks.park_pk = coasters.park_fk WHERE 1=1";
+$sql = "SELECT parks.* FROM parks LEFT JOIN coasters ON parks.park_pk = coasters.coaster_park_fk WHERE 1=1";
 $params = [];
 
 if ($country_code !== "" && $country_code !== "all") {

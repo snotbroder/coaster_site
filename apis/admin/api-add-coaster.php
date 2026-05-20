@@ -37,7 +37,7 @@ $coaster_created_at = time();
 $coaster_deleted_at = 0;
 
 // Insert coaster into DB
-$sql = "INSERT INTO coasters (coaster_pk, park_fk, coaster_title, coaster_model, coaster_manufacturer, coaster_year, coaster_height, coaster_length, coaster_top_speed, coaster_gforce, coaster_duration, coaster_inversion_count, coaster_image_path, coaster_is_operational, coaster_description, coaster_lon, coaster_lat, coaster_created_at, coaster_deleted_at) 
+$sql = "INSERT INTO coasters (coaster_pk, coaster_park_fk, coaster_title, coaster_model, coaster_manufacturer, coaster_year, coaster_height, coaster_length, coaster_top_speed, coaster_gforce, coaster_duration, coaster_inversion_count, coaster_image_path, coaster_is_operational, coaster_description, coaster_lon, coaster_lat, coaster_created_at, coaster_deleted_at) 
 VALUES (:coaster_pk, :park, :title, :model, :manufacturer, :year, :height, :length, :top_speed, :gforce, :duration, :inversions, :image_path, :is_operational, :coaster_description, :coaster_lon, :coaster_lat, :coaster_created_at, :coaster_deleted_at)";
 $stmt = $_db->prepare($sql);
 $stmt->execute([

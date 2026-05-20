@@ -4,7 +4,7 @@ require_once ROOT . "/config/_.php";
 
 $park_pk = $_GET["park_pk"] ?? null;
 
-$sql = "SELECT * FROM coasters WHERE park_fk = :pk ORDER BY coaster_title ASC";
+$sql = "SELECT * FROM coasters WHERE coaster_park_fk = :pk ORDER BY coaster_title ASC";
 $stmt = $_db->prepare($sql);
 
 $stmt->bindValue(':pk', $park_pk);

@@ -66,7 +66,7 @@ if (!$coaster) {
 <h4 class="text-(--light-indigo)! mt-2">At
     <?php
     // Get park_title from park table through park_fk value from coaster table, inline. Had help from claude.
-    $park_title = $_db->query("SELECT park_title FROM parks WHERE park_pk = " . $_db->quote($coaster["park_fk"]))->fetchColumn();
+    $park_title = $_db->query("SELECT park_title FROM parks WHERE park_pk = " . $_db->quote($coaster["coaster_park_fk"]))->fetchColumn();
     _($park_title); ?>
 </h4>
 

@@ -1,6 +1,8 @@
 <?php
 
-/** @var array $coaster */ ?>
+/** @var array $coaster */
+$stmt = "SELECT park_country_code FROM park WHERE :park_";
+?>
 
 <a class="overflow-hidden shadow-sm rounded-md w-full anim-slide-in min-h-fit coaster-card bg-(--pure-eggshell)" href="/coasters?coaster=<?php _($coaster["coaster_pk"]) ?>">
     <article class=" w-full group">

@@ -56,7 +56,7 @@ if (!$park) {
 }
 
 // render selected park coasters 
-$sql = "SELECT * FROM coasters WHERE park_fk = ? ORDER BY coaster_is_operational DESC";
+$sql = "SELECT * FROM coasters WHERE coaster_park_fk = ? ORDER BY coaster_is_operational DESC";
 $stmt = $_db->prepare($sql);
 $stmt->execute([$park["park_pk"]]);
 $coasters = $stmt->fetchAll();
