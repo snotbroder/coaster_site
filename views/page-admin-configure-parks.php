@@ -26,7 +26,7 @@ require_once __DIR__ . '/components/admin/_admin-header.php';
 ?>
 
 <h1>Add park</h1>
-<form action="/api-add-park" method="POST">
+<form action="/api-add-park" method="POST" class="default">
     <section class="grid grid-cols-2 gap-4">
         <div>
             <input type="text" name="title" placeholder="Park title">

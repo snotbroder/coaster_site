@@ -60,7 +60,7 @@ $total_reviews = $_db->query("SELECT COUNT(*) FROM reviews WHERE review_coaster_
             <p class="small text-(--light-indigo)!"><?php _($_SESSION["user_email"]); ?></p>
         </div>
     </div>
-    <form mix-post="/api-create-review?coaster=<?php _($coaster["coaster_pk"]) ?>" class="review-container my-4">
+    <form mix-post="/api-create-review?coaster=<?php _($coaster["coaster_pk"]) ?>" class="default review-container my-4">
 
         <textarea class="review-body" name="review_body" id="" placeholder="Write a review"></textarea>
         <div class="">

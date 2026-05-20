@@ -18,7 +18,7 @@ require_once __DIR__ . '/components/admin/_admin-header.php';
 ?>
 
 <h1>Add coaster</h1>
-<form action="/api-add-coaster" method="POST">
+<form action="/api-add-coaster" method="POST" class="default">
     <section class="grid grid-cols-2 gap-4">
         <div>
             <select name="park" aria-placeholder="select">
