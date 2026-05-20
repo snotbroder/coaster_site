@@ -40,7 +40,7 @@ $coasters = $stmt->fetchAll();
     </div>
     <section class="relative flex flex-col gap-2 ">
         <section id="map" class=""></section>
-        <aside id="map_aside" class="anim-slide-in shadow-xl rounded-2xl">
+        <aside id="map_aside" class="shadow-xl rounded-2xl">
             <p class="small">Click a marker to interact</p>
         </aside>
     </section>
@@ -113,6 +113,7 @@ $coasters = $stmt->fetchAll();
         });
         marker.bindPopup(`<a href="/parks?park=${park.park_slug}" class="hyperlink-mini">${park.park_title}</a>`);
         marker.on("click", () => map.setView([park.park_lon, park.park_lat], 8));
+
         markers.addLayer(marker);
     }
 
