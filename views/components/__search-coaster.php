@@ -10,7 +10,7 @@ require_once ROOT . "/config/_.php";
 ?>
 <section class="bg-(--pure-eggshell) p-8 flex flex-col gap-4">
     <h4>Search coasters</h4>
-    <form id="searchForm" mix-post="/api-search-coaster">
+    <form id="searchForm" mix-post="/api-search-coaster" class="default">
         <div>
             <input id="searchInput" name="search" type="text" placeholder="search...">
         </div>

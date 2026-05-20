@@ -14,7 +14,7 @@ $coasters = $stmt->fetchAll();
 ?>
 <section class="bg-(--pure-eggshell) mx-4 p-8 flex flex-col gap-4">
     <h4>Search for a coaster</h4>
-    <form id="searchForm" mix-post="/api-index-search-coaster">
+    <form id="searchForm" mix-post="/api-index-search-coaster" class="default">
         <div>
             <input id="searchInput" name="search" type="text" placeholder="Search among <?= $entries_count ?> entries, eg. Mælkevejen">
         </div>
