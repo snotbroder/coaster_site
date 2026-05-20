@@ -2,6 +2,11 @@
 $title = "Login";
 $active = "login";
 
+if ($_SESSION) {
+    header("Location: /");
+    exit;
+}
+
 require_once __DIR__ . '/components/_header.php';
 
 ?>

@@ -16,12 +16,15 @@ $stmt = $_db->prepare("SELECT * FROM reviews WHERE review_coaster_fk = :review_c
 $stmt->execute([":review_coaster_fk" => $_GET["coaster"] ?? ""]);
 $reviews = $stmt->fetchAll();
 
+//Get total of rows in relevant reviews
+$total_reviews = $_db->query("SELECT COUNT(*) FROM reviews WHERE review_coaster_fk = " . $_db->quote($coaster_pk))->fetchColumn();
+
 ?>
 <div id="toast_container" class="fixed top-0 left-0"></div>
 <section class="my-12 md:my-0">
 
     <div class="flex justify-between border-b border-b-(--darkened-eggshell) mb-4 pb-4">
-        <h4>User reviews</h4>
+        <h4>User reviews <span class="text-(--light-indigo)">(<?php _($total_reviews) ?>)</span></h4>
 
         <?php
         if (!$user) {
@@ -30,7 +33,7 @@ $reviews = $stmt->fetchAll();
         <?php
         } else {
         ?>
-            <button command="show-modal" commandfor="review-dialog" class="btn-primary">Write a reivew!</button>
+            <button command="show-modal" commandfor="review-dialog" class="btn-primary">Write a review!</button>
         <?php
         }
         ?>
@@ -38,6 +41,9 @@ $reviews = $stmt->fetchAll();
     </div>
 
     <section class="flex flex-col gap-2">
+        <?php if ($total_reviews == 0): ?>
+            <p class="text-(--light-indigo)!">It's so empty in here...</p>
+        <?php endif; ?>
         <?php foreach ($reviews as $review) {
             require ROOT . "/views/components/__review-card.php";
         } ?>
@@ -47,10 +53,17 @@ $reviews = $stmt->fetchAll();
 
 <dialog id="review-dialog" class="anim-slide-up">
     <h4>Reviewing <?php _($coaster["coaster_title"]) ?> at <?php _($park_title) ?></h4>
-    <form mix-post="/api-create-review?coaster=<?php _($coaster["coaster_pk"]) ?>" class="review-container flex flex-col">
+    <div class="mt-6 mb-4">
+        <p class="xsmall mb-2">Logged in as</p>
+        <div class="w-5  h-auto flex gap-3 items-center">
+            <img class="object-fit rounded-full" src="<?php _($_SESSION["user_avatar_path"] ?? "/static/assets/avatars/profile_avatar_default.jpg") ?>" alt="Profile image">
+            <p class="small text-(--light-indigo)!"><?php _($_SESSION["user_email"]); ?></p>
+        </div>
+    </div>
+    <form mix-post="/api-create-review?coaster=<?php _($coaster["coaster_pk"]) ?>" class="review-container my-4">
 
         <textarea class="review-body" name="review_body" id="" placeholder="Write a review"></textarea>
-        <div>
+        <div class="">
             <select name="review_rating" id="">
                 <option value="5">&#x2605;&#x2605;&#x2605;&#x2605;&#x2605; (5)</option>
                 <option value="4">&#x2605;&#x2605;&#x2605;&#x2605;&#x2606; (4)</option>
