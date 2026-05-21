@@ -24,23 +24,36 @@ $coasters = $stmt->fetchAll();
 ?>
 
 
-<h1>Map</h1>
-
-
 <section id="map_container">
-    <div class="border-b border-b-(--darkened-eggshell) mb-4 pb-6 ">
-        <form id="switchForm" class="form-switch">
-            <h2>Type</h2>
-            <div class="switch-field">
-                <input type="radio" id="radio-one" name="switch-one" value="coasters" checked />
-                <label for="radio-one">Coasters</label>
-                <input type="radio" id="radio-two" name="switch-one" value="parks" />
-                <label for="radio-two">Parks</label>
-            </div>
-    </div>
+
     <section class="relative flex flex-col gap-2 ">
+        <aside id="map_filters" class="shadow-lg">
+            <form id="filterForm" class="form-switch flex gap-2 items-center">
+                <div class="switch-field">
+                    <input type="radio" id="radio-one" name="switch-one" value="coasters" checked />
+                    <label for="radio-one">Coasters</label>
+                    <input type="radio" id="radio-two" name="switch-one" value="parks" />
+                    <label for="radio-two">Parks</label>
+                </div>
+                <div class="filter-search-wrapper flex gap-1">
+                    <input name="filter_search" type="text" placeholder="Search parks, coasters">
+                </div>
+                <div>
+                    <!-- <label for="filter_country_code">Country</label> -->
+                    <select name="filter_country_code" class="">
+                        <option value="all">Country</option>
+                        <?php foreach ($countries as $country):  ?>
+                            <option value="<?php _($country["park_country_code"]) ?>">
+                                <?php _($country["park_country_code"]) ?>
+                            </option>
+                        <?php endforeach;  ?>
+                    </select>
+                </div>
+            </form>
+
+        </aside>
         <section id="map" class=""></section>
-        <aside id="map_aside" class="shadow-xl rounded-2xl">
+        <aside id="map_aside" class="shadow-xl">
             <p class="small">Click a marker to interact</p>
         </aside>
     </section>
@@ -80,7 +93,9 @@ $coasters = $stmt->fetchAll();
 </section>
 <script>
     // initialize the map on the "map" div with a given center and zoom
-    const map = L.map('map').setView([52, 9], 4.5);
+    const map = L.map('map', {
+        gestureHandling: true
+    }).setView([52, 9], 4.5);
 
     L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
         maxZoom: 19,
@@ -90,8 +105,7 @@ $coasters = $stmt->fetchAll();
     var markers = L.markerClusterGroup({
         disableClusteringAtZoom: 15, // <- key option
         spiderfyOnMaxZoom: true,
-        // showCoverageOnHover: false,
-        maxClusterRadius: 100 // default is 100 pixels
+        maxClusterRadius: 50 // default is 100 pixels
     });
 
     // Test marker
@@ -111,7 +125,7 @@ $coasters = $stmt->fetchAll();
                 html: `<button onclick="mixhtml(); return false;" mix-post="/api-get-park-coasters?park_pk=${park.park_pk}"></button>`,
             }),
         });
-        marker.bindPopup(`<a href="/parks?park=${park.park_slug}" class="hyperlink-mini">${park.park_title}</a>`);
+        marker.bindTooltip(park.park_title);
         marker.on("click", () => map.setView([park.park_lon, park.park_lat], 8));
 
         markers.addLayer(marker);
@@ -124,6 +138,7 @@ $coasters = $stmt->fetchAll();
                 html: `<button onclick="mixhtml(); return false;" mix-get="/coasters?coaster=${coaster.coaster_pk}"></button>`,
             }),
         });
+        marker.bindTooltip(coaster.coaster_title);
         marker.bindPopup(`<a href="/coasters?coaster=${coaster.coaster_pk}" class="hyperlink-mini">${coaster.coaster_title}</a>`);
         marker.on("click", () => map.setView([coaster.coaster_lon, coaster.coaster_lat], 16));
         markers.addLayer(marker);
@@ -139,8 +154,8 @@ $coasters = $stmt->fetchAll();
     markers.addTo(map);
 
     // Switch coasters/parks
-    const switchform = document.querySelector("#switchForm");
-    switchform.addEventListener("change", async (e) => {
+    const filterForm = document.querySelector("#filterForm");
+    filterForm.addEventListener("change", async (e) => {
         let value = e.target.value;
         console.log(value)
         markers.clearLayers();
@@ -152,12 +167,15 @@ $coasters = $stmt->fetchAll();
             parks.forEach(addParkMarker);
         }
         markers.addTo(map);
+        let markerCount = markers.getLayers().length;
+        console.log(markerCount)
+
     })
 
 
 
     // Got help from claude
-    document.querySelector("#map_filter form").addEventListener("submit", async (e) => {
+    document.querySelector("#map_filter form").addEventListener("change", async (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
         history.replaceState(null, "", "?" + new URLSearchParams(formData).toString());

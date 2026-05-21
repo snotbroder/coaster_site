@@ -174,8 +174,6 @@ form.default {
 
 .switch-field {
   display: flex;
-  margin-bottom: 36px;
-
   overflow: hidden;
   & input {
     position: absolute !important;
@@ -342,6 +340,7 @@ form.default {
     }
   }
 }
+
 #map_aside {
   overflow-x: scroll;
   scrollbar-color: var(--pure-indigo) var(--pure-eggshell);
@@ -351,18 +350,52 @@ form.default {
   padding: 1rem;
   margin: 1rem;
   max-width: 100%;
+  border-radius: 0.5rem;
 
   display: flex;
   gap: 10px;
   @media (width >= 48rem) {
     position: absolute;
-    top: 0.25rem;
-    right: 0.25rem;
+    top: 0.6rem;
+    right: 0.6rem;
     margin: 0;
     flex-direction: column;
     max-width: 22rem;
   }
   @media (width >= 64rem) {
+  }
+}
+#map_filters {
+  position: absolute;
+  z-index: 50;
+  background-color: var(--pure-eggshell);
+  padding: 1rem;
+  top: 0.6rem;
+  left: 3.5rem;
+  border-radius: 0.25rem;
+  .filter-search-wrapper {
+    position: relative;
+    padding-left: 0.5rem;
+    &::before {
+      content: "";
+      position: relative;
+      top: 4px;
+      width: 12px;
+      height: 12px;
+      background-image: url(../assets/icons/magnifying-glass-solid.svg);
+      /* position the icon inside */
+    }
+  }
+
+  form input {
+    height: 100%;
+    padding-inline: 0.25rem;
+
+    outline-color: var(--pure-seagreen);
+    outline-offset: -2rem;
+    &::placeholder {
+      font-size: 0.75rem;
+    }
   }
 }
 
