@@ -501,14 +501,8 @@
   .border-\(--system-success\) {
     border-color: var(--system-success);
   }
-  .border-t-\(--darkened-eggsell\) {
-    border-top-color: var(--darkened-eggsell);
-  }
   .border-t-\(--darkened-eggshell\) {
     border-top-color: var(--darkened-eggshell);
-  }
-  .border-t-\(--light-indigo\) {
-    border-top-color: var(--light-indigo);
   }
   .border-b-\(--darkened-eggshell\) {
     border-bottom-color: var(--darkened-eggshell);
@@ -1097,7 +1091,6 @@ h5 {
 header {
   position: relative;
   padding: 1rem 2rem;
-  margin-bottom: 1rem;
   nav {
     max-width: 1280px;
     margin-inline: auto;
@@ -1148,13 +1141,13 @@ header {
 main {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 4rem 0.5rem;
+  padding: 0rem 0.5rem;
   overflow: clip;
   @media (min-width: 768px) {
-    padding: 4rem 1rem;
+    padding: 0.5rem 1rem;
   }
   @media (min-width: 1024px) {
-    padding: 4rem 2rem;
+    padding: 0.75rem 2rem;
   }
   h1 + p {
     margin-top: 2rem;
@@ -1399,9 +1392,9 @@ form.default {
     &:hover {
       border-color: var(--pure-seagreen);
     }
-    &.map-marker-coaster {
+    &.map-marker-park {
       border-radius: 10rem;
-      background-color: var(--pure-indigo);
+      background-color: var(--pure-star);
     }
   }
 }
