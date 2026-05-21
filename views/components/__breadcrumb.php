@@ -9,7 +9,14 @@ if ($active == "index") {
 
     $current_subpage = $_GET["park"] ?? $_GET["coaster"] ?? NULL;
 
-    // Get coaster title
+    if (isset($_GET["park"])) {
+        $sql = "SELECT park_title FROM parks WHERE :park_slug = park_slug";
+        $stmt = $_db->prepare($sql);
+        $stmt->execute([":park_slug" => $current_subpage]);
+        $current_subpage = $stmt->fetchColumn();
+    }
+
+    // Get coaster title based on param uuid
     if (isset($_GET["coaster"])) {
         $sql = "SELECT coaster_title FROM coasters WHERE :coaster_pk = coaster_pk";
         $stmt = $_db->prepare($sql);
