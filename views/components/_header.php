@@ -24,7 +24,7 @@
 </head>
 
 <body>
-    <header class="w-full p-4 max-h-4">
+    <header class="w-full ">
         <nav class="flex justify-between md:grid sm:grid-cols-3 lg:grid-cols-5 items-center">
             <a href="/"><img class="logo" src="../../static/assets/logo.svg" alt="Logo"></a>
 

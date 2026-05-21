@@ -267,6 +267,9 @@
   .mt-6 {
     margin-top: calc(var(--spacing) * 6);
   }
+  .mt-24 {
+    margin-top: calc(var(--spacing) * 24);
+  }
   .mb-2 {
     margin-bottom: calc(var(--spacing) * 2);
   }
@@ -275,6 +278,9 @@
   }
   .mb-6 {
     margin-bottom: calc(var(--spacing) * 6);
+  }
+  .mb-8 {
+    margin-bottom: calc(var(--spacing) * 8);
   }
   .mb-9 {
     margin-bottom: calc(var(--spacing) * 9);
@@ -320,9 +326,6 @@
   }
   .h-full {
     height: 100%;
-  }
-  .max-h-4 {
-    max-height: calc(var(--spacing) * 4);
   }
   .min-h-0 {
     min-height: calc(var(--spacing) * 0);
@@ -432,6 +435,9 @@
   .gap-10\! {
     gap: calc(var(--spacing) * 10) !important;
   }
+  .gap-12 {
+    gap: calc(var(--spacing) * 12);
+  }
   .gap-16 {
     gap: calc(var(--spacing) * 16);
   }
@@ -494,6 +500,15 @@
   }
   .border-\(--system-success\) {
     border-color: var(--system-success);
+  }
+  .border-t-\(--darkened-eggsell\) {
+    border-top-color: var(--darkened-eggsell);
+  }
+  .border-t-\(--darkened-eggshell\) {
+    border-top-color: var(--darkened-eggshell);
+  }
+  .border-t-\(--light-indigo\) {
+    border-top-color: var(--light-indigo);
   }
   .border-b-\(--darkened-eggshell\) {
     border-bottom-color: var(--darkened-eggshell);
@@ -576,6 +591,9 @@
   .py-5 {
     padding-block: calc(var(--spacing) * 5);
   }
+  .py-6 {
+    padding-block: calc(var(--spacing) * 6);
+  }
   .pt-3 {
     padding-top: calc(var(--spacing) * 3);
   }
@@ -596,6 +614,9 @@
   }
   .pb-8 {
     padding-bottom: calc(var(--spacing) * 8);
+  }
+  .pb-24 {
+    padding-bottom: calc(var(--spacing) * 24);
   }
   .text-center\! {
     text-align: center !important;
@@ -860,6 +881,11 @@
       flex-direction: row;
     }
   }
+  .md\:flex-wrap {
+    @media (width >= 48rem) {
+      flex-wrap: wrap;
+    }
+  }
   .md\:justify-end {
     @media (width >= 48rem) {
       justify-content: flex-end;
@@ -878,6 +904,11 @@
   .md\:gap-8 {
     @media (width >= 48rem) {
       gap: calc(var(--spacing) * 8);
+    }
+  }
+  .md\:gap-24 {
+    @media (width >= 48rem) {
+      gap: calc(var(--spacing) * 24);
     }
   }
   .md\:self-start {
@@ -965,6 +996,11 @@
       gap: calc(var(--spacing) * 6);
     }
   }
+  .lg\:gap-40 {
+    @media (width >= 64rem) {
+      gap: calc(var(--spacing) * 40);
+    }
+  }
 }
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Sora:wght@100..800&display=swap");
 :root {
@@ -1030,7 +1066,7 @@ h1 {
 p {
   font-family: "Sora", sans-serif;
   font-size: clamp(var(--s-sm), var(--body-pref), var(--s-2sm));
-  font-weight: 400;
+  font-weight: 350;
   color: var(--darkened-indigo);
   &.small {
     font-size: clamp(var(--s-xs), var(--body-small-pref), var(--s-sm));
@@ -1040,7 +1076,7 @@ p {
   }
 }
 h3 {
-  font-family: "Sora", serif;
+  font-family: "Noto Serif", serif;
   font-size: clamp(var(--s-2md), var(--h3-pref), var(--s-md));
   font-weight: 500;
   color: var(--light-indigo);
@@ -1050,6 +1086,12 @@ h4 {
   font-family: "Sora", serif;
   font-size: clamp(var(--s-sm), var(--body-pref), var(--s-2sm));
   font-weight: 500;
+  color: var(--darkened-indigo);
+}
+h5 {
+  font-family: "Noto Serif", serif;
+  font-size: clamp(var(--s-sm), var(--body-pref), var(--s-2sm));
+  font-weight: 400;
   color: var(--darkened-indigo);
 }
 header {
@@ -1383,10 +1425,17 @@ form.default {
   }
 }
 footer {
-  display: none;
-  position: absolute;
-  bottom: 0;
+  max-width: 1280px;
+  margin-inline: auto;
+}
+.foot-link {
+  color: var(--pure-indigo);
   width: fit-content;
+  font-weight: 400;
+  transition: all 0.25s;
+  &:hover {
+    font-weight: 600;
+  }
 }
 table.stats {
   background-color: var(--light-eggshell);

@@ -86,7 +86,7 @@ $coasters = $stmt->fetchAll();
     </aside>
     <section class="col-span-2">
         <div class="flex justify-between">
-            <h4 class="mb-4">Coaster at <?php _($park["park_title"]) ?></h4>
+            <h3 class="mb-4">Coasters at <?php _($park["park_title"]) ?></h3>
             <div class="flex gap-2">
                 <span>Sort by:</span>
                 <form mix-post="/">

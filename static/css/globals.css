@@ -83,7 +83,7 @@ h1 {
 p {
   font-family: "Sora", sans-serif;
   font-size: clamp(var(--s-sm), var(--body-pref), var(--s-2sm));
-  font-weight: 400;
+  font-weight: 350;
   /* line-height: var(--body-pref); */
   color: var(--darkened-indigo);
   &.small {
@@ -95,7 +95,7 @@ p {
 }
 
 h3 {
-  font-family: "Sora", serif;
+  font-family: "Noto Serif", serif;
   font-size: clamp(var(--s-2md), var(--h3-pref), var(--s-md));
   font-weight: 500;
   color: var(--light-indigo);
@@ -106,6 +106,13 @@ h4 {
   font-family: "Sora", serif;
   font-size: clamp(var(--s-sm), var(--body-pref), var(--s-2sm));
   font-weight: 500;
+  /* line-height: var(--h3-pref); */
+  color: var(--darkened-indigo);
+}
+h5 {
+  font-family: "Noto Serif", serif;
+  font-size: clamp(var(--s-sm), var(--body-pref), var(--s-2sm));
+  font-weight: 400;
   /* line-height: var(--h3-pref); */
   color: var(--darkened-indigo);
 }

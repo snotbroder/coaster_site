@@ -369,10 +369,18 @@ form.default {
 }
 
 footer {
-  display: none;
-  position: absolute;
-  bottom: 0;
+  max-width: 1280px;
+  margin-inline: auto;
+}
+
+.foot-link {
+  color: var(--pure-indigo);
   width: fit-content;
+  font-weight: 400;
+  transition: all 0.25s;
+  &:hover {
+    font-weight: 600;
+  }
 }
 
 /* TABLE */
