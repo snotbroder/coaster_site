@@ -1,7 +1,7 @@
 </main>
 <?php $user = $_SESSION["user_email"] ?? NULL ?>
 <footer class="w-full mt-24 mb-8 px-4">
-    <section class="border-t border-t-(--darkened-eggshell) py-6 pb-24 flex flex-col md:flex-wrap md:flex-row gap-12 md:gap-24 lg:gap-40">
+    <section class="border-t border-t-(--darkened-eggshell) py-6 pb-24 flex flex-col md:grid md:grid-cols-4 gap-12 md:gap-24 lg:gap-40">
         <div class="flex flex-col gap-4">
             <h5>Popular parks</h5>
             <ul class="flex flex-col gap-2">
