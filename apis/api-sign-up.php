@@ -12,6 +12,7 @@ try {
     $user_confirm_password = $_POST['user_confirm_password'] ?? null;
     $hashed_password = password_hash($user_password, PASSWORD_DEFAULT);
     $user_avatar_path = "profile_avatar_default.jpg";
+    $user_authority = 0;
     $user_created_at = time();
     $user_deleted_at = 0;
 
@@ -44,8 +45,8 @@ try {
     }
 
     // Insert user data into database
-    $sql = "INSERT INTO users (user_pk, user_username, user_email, user_password, user_avatar_path, user_created_at, user_deleted_at) 
-    VALUES (:user_pk, :username, :email, :password, :avatar_path, :created_at, :deleted_at)";
+    $sql = "INSERT INTO users (user_pk, user_username, user_email, user_password, user_avatar_path, user_authority, user_created_at, user_deleted_at) 
+    VALUES (:user_pk, :username, :email, :password, :avatar_path, :authority, :created_at, :deleted_at)";
     $stmt = $_db->prepare($sql);
 
     $stmt->execute([
@@ -54,6 +55,7 @@ try {
         ":email" => $user_email,
         ":password" => $hashed_password,
         ":avatar_path" => $user_avatar_path,
+        ":authority" => $user_authority,
         ":created_at" => $user_created_at,
         ":deleted_at" => $user_deleted_at,
     ]);

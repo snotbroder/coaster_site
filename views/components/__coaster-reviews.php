@@ -17,7 +17,7 @@ $stmt->execute([":review_coaster_fk" => $_GET["coaster"] ?? ""]);
 $reviews = $stmt->fetchAll();
 
 //Get total of rows in relevant reviews
-$total_reviews = $_db->query("SELECT COUNT(*) FROM reviews WHERE review_coaster_fk = " . $_db->quote($coaster_pk))->fetchColumn();
+$total_reviews = $_db->query("SELECT COUNT(*) FROM reviews WHERE review_coaster_fk = " . $_db->quote($coaster_pk) . "AND review_deleted_at = 0")->fetchColumn();
 
 ?>
 <div id="toast_container" class="fixed top-0 left-0"></div>
@@ -52,14 +52,16 @@ $total_reviews = $_db->query("SELECT COUNT(*) FROM reviews WHERE review_coaster_
 </section>
 
 <dialog id="review-dialog" class="anim-slide-up">
-
+    <div class="absolute top-7 right-7 rounded-full cursor-pointer hover:bg-(--darkened-eggshell) py-0.75 px-2">
+        <button class="cursor-pointer" commandfor="review-dialog" command="close">&#x2715;</button>
+    </div>
     <h4>Reviewing <?php _($coaster["coaster_title"]) ?> at <?php _($park_title) ?></h4>
     <div class="fixed top-12 right-2 z-100" id="toast-container"></div>
     <div class="mt-6 mb-4">
         <p class="xsmall mb-2">Logged in as</p>
-        <div class="w-5  h-auto flex gap-3 items-center">
-            <img class="object-fit rounded-full" src="<?php _($_SESSION["user_avatar_path"] ?? "/static/assets/avatars/profile_avatar_default.jpg") ?>" alt="Profile image">
-            <p class="small text-(--light-indigo)!"><?php _($_SESSION["user_email"]); ?></p>
+        <div class="w-full flex gap-3 items-center">
+            <img class="w-6 object-fit rounded-full" src="/static/assets/avatars/<?php _($_SESSION["user_avatar_path"] ?? "/static/assets/avatars/profile_avatar_default.jpg") ?>" alt="Profile image">
+            <p class="small text-(--light-indigo)!"><?php _($_SESSION["user_username"]); ?> (<?php _($_SESSION["user_email"]); ?>)</p>
         </div>
     </div>
     <form mix-post="/api-create-review?coaster=<?php _($coaster["coaster_pk"]) ?>" class="default review-container my-8">

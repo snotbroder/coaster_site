@@ -64,10 +64,10 @@ $user = $stmt->fetch();
         </section>
         <section>
             <h3 class="mb-2">Danger zone</h3>
-            <article class="w-full flex flex-col gap-6 bg-(--system-failure)/40 border-2 border-(--system-failure)/60 rounded-md p-8">
+            <article class="w-full flex flex-col gap-6 bg-(--system-failure)/5 border-2 border-(--system-failure)/30 rounded-md p-8">
                 <p>When you delete your account, your reviews will be removed from the website.</p>
                 <p class="small">If you have questions regarding your data, feel free to <a class="hyperlink-mini" href="#">contact us</a>.</p>
-                <button class="btn-primary w-fit">Delete profile</button>
+                <button class="btn-primary danger">Delete profile</button>
             </article>
         </section>
     </section>

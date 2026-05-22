@@ -41,23 +41,31 @@
             <ul class="hidden md:flex md:justify-end md:col-3 lg:col-5">
                 <li class="flex place-items-end">
                     <?php if ($_SESSION["user_email"] ?? false) : ?>
-                        <details class="relative">
-                            <summary class="small text-(--light-indigo)! cursor-pointer list-none flex gap-2 place-items-center z-100">
-
+                        <div class="relative">
+                            <input type="checkbox" id="user_dropdown" class="hidden peer">
+                            <label for="user_dropdown" class="small text-(--light-indigo)! cursor-pointer flex gap-2 place-items-center">
                                 <?php _($_SESSION["user_username"]) ?>
+                                <?php if ($_SESSION["user_authority"] == 1): ?>
+                                    <span>(admin)</span>
+                                <?php endif; ?>
                                 <div class="w-6">
                                     <img class="object-fit rounded-full" src="/static/assets/avatars/<?php _($_SESSION["user_avatar_path"] ?? "profile_avatar_default.jpg") ?>" alt="Profile image">
                                 </div>
-                            </summary>
-                            <div class="absolute right-0 top-full mt-1 z-100 min-w-48 flex flex-col gap-4 rounded-md border border-(--darkened-eggshell) bg-(--eggshell) p-4 shadow-lg">
+                            </label>
+                            <div class="hidden peer-checked:flex absolute right-0 top-full mt-1 z-100 min-w-48 flex-col gap-4 rounded-md border border-(--darkened-eggshell) bg-(--pure-eggshell) p-4 shadow-lg">
+                                <?php if ($_SESSION["user_authority"] == 1): ?>
+                                    <div class="border-b border-(--darkened-eggshell) py-4">
+                                        <a class="btn-secondary" href="/admin/panel">Admin panel</a>
+                                    </div>
+                                <?php endif; ?>
                                 <a href="/account" class="hyperlink">Account</a>
                                 <a href="/account#reviews" class="hyperlink">My reviews</a>
                                 <a href="/contact" class="hyperlink">Contact us</a>
-                                <form mix-post="api-logout">
-                                    <button class="btn-primary">Logout</button>
+                                <form mix-post="api-logout ">
+                                    <button class="btn-primary w-full">Logout</button>
                                 </form>
                             </div>
-                        </details>
+                        </div>
                     <?php else : ?>
                         <?php if ($active == "login") : ?>
                             <a href="/sign-up" class="btn-primary">Sign Up</a>
@@ -92,12 +100,18 @@
                             <div class="w-6">
                                 <img class="object-fit rounded-full" src="/static/assets/avatars/<?php _($_SESSION["user_avatar_path"] ?? "profile_avatar_default.jpg") ?>" alt="Profile image">
                             </div>
+
                             <?php _($_SESSION["user_username"]) ?>
                         </a>
-                        <form mix-post="api-logout">
+                        <form mix-post="/api-logout">
                             <button class="btn-primary">Logout</button>
                         </form>
                     </div>
+                    <?php if ($_SESSION["user_authority"] == 1): ?>
+                        <div class="border-y border-(--darkened-eggshell) py-4 my-6">
+                            <a class="btn-secondary" href="/admin/panel">Admin panel</a>
+                        </div>
+                    <?php endif; ?>
                     <ul class="my-4 mt-8 flex flex-col gap-4">
                         <li><a class="hyperlink" href="/account">Account</a></li>
                         <li><a class="hyperlink" href="/">My reviews</a></li>

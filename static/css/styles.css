@@ -230,6 +230,11 @@ form.default {
   cursor: pointer;
   font-size: clamp(var(--s-sm), var(--body-pref), var(--s-sm));
   transition: background-color 0.1s ease-in;
+  &.danger {
+    background-color: var(--system-failure);
+    color: var(--pure-indigo);
+    width: fit-content;
+  }
   &:hover {
     background: var(--darkened-eggshell);
     color: var(--light-indigo);
@@ -288,6 +293,7 @@ form.default {
   text-align: start;
   border-radius: 0.25rem;
   padding: 0.125rem 0.5rem;
+  width: 100%;
   &:hover {
     background-color: var(--darkened-eggshell);
   }
@@ -460,16 +466,22 @@ table.stats {
   border-radius: 0.5rem;
   border: 1px solid var(--darkened-eggshell);
   min-width: 80%;
+  @media (min-width: 768px) {
+    min-width: 628px;
+    max-width: 780px;
+  }
 
   &::backdrop {
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.474);
   }
   .review-container {
     .review-body {
-      border-bottom: solid var(--darkened-eggshell) 2px;
+      background-color: var(--light-eggshell);
+      border: 1px solid var(--darkened-eggshell);
+      padding: 0.5rem;
       border-radius: 0.25rem;
       resize: none;
-      outline: 0;
+
       min-height: 3rem;
       height: auto;
 

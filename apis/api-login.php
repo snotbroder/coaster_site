@@ -55,6 +55,7 @@ try {
     $_SESSION["user_username"] = $user["user_username"];
     $_SESSION["user_email"] = $user["user_email"];
     $_SESSION["user_avatar_path"] = $user["user_avatar_path"];
+    $_SESSION["user_authority"] = $user["user_authority"];
 
     // redirect to index
     ?>
