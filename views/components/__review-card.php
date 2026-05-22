@@ -21,16 +21,23 @@ $review_user = $stmt->fetch();
 
                     <div class="relative z-50">
                         <input type="checkbox" id="review_dropdown_<?php _($review['review_pk']) ?>" class="hidden peer">
-                        <label for="review_dropdown_<?php _($review['review_pk']) ?>" class="cursor-pointer">
-                            <span aria-label="button" class="btn-utility text-xl">&#x2807;</span>
+                        <label for="review_dropdown_<?php _($review["review_pk"]) ?>" class="cursor-pointer">
+                            <span aria-label="button" class="btn-utility text-xl pl-3.5! py-1! rounded-full!">&#x2807;</span>
                         </label>
                         <div class="hidden peer-checked:flex absolute right-0 top-full mt-1 z-100 min-w-36 flex-col gap-2 rounded-md border border-(--darkened-eggshell) bg-(--pure-eggshell) p-2 px-4 shadow-lg">
-                            <form action="">
-                                <button class="btn-utility">Edit</button>
-                            </form>
-                            <form id="review_delete_btn_<?php _($review['review_pk']) ?>" mix-post="/api-request-delete-review?review_pk=<?php _($review['review_pk']) ?>">
-                                <button class="btn-utility text-(--system-failure)!">Delete</button>
-                            </form>
+                            <?php if ($review_user_fk === $_SESSION["user_pk"]): ?>
+                                <form action="">
+                                    <button class="btn-utility">Edit</button>
+                                </form>
+                                <form id="review_delete_btn_<?php _($review['review_pk']) ?>" mix-post="/api-request-delete-review?review_pk=<?php _($review['review_pk']) ?>">
+                                    <button class="btn-utility text-(--system-failure)!">Delete</button>
+                                </form>
+                            <?php else: ?>
+                                <form mix-post="/api-report-review">
+                                    <button class="btn-utility text-(--system-failure)!">Report</button>
+                                </form>
+                            <?php endif; ?>
+
                         </div>
                     </div>
                 </div>

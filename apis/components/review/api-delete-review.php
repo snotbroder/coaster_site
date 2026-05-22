@@ -6,9 +6,9 @@ try {
     $review_pk = $_GET["review_pk"] ?? "";
     if (!$review_pk) throw new Exception("Missing review", 400);
 
-    $stmt = $_db->prepare("UPDATE reviews SET review_deleted_at = :now WHERE review_pk = :review_pk");
+    $stmt = $_db->prepare("UPDATE reviews SET review_deleted_at = :time WHERE review_pk = :review_pk");
     $stmt->execute([
-        ":now" => time(),
+        ":time" => time(),
         ":review_pk" => $review_pk,
     ]);
     $message = "Review deleted successfully";

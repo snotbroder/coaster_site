@@ -528,6 +528,9 @@
   .rounded-full {
     border-radius: calc(infinity * 1px);
   }
+  .rounded-full\! {
+    border-radius: calc(infinity * 1px) !important;
+  }
   .rounded-lg {
     border-radius: var(--radius-lg);
   }
@@ -676,6 +679,12 @@
   .py-0\.75 {
     padding-block: calc(var(--spacing) * 0.75);
   }
+  .py-1 {
+    padding-block: calc(var(--spacing) * 1);
+  }
+  .py-1\! {
+    padding-block: calc(var(--spacing) * 1) !important;
+  }
   .py-1\.5 {
     padding-block: calc(var(--spacing) * 1.5);
   }
@@ -697,6 +706,12 @@
   .pt-4 {
     padding-top: calc(var(--spacing) * 4);
   }
+  .pr-1\! {
+    padding-right: calc(var(--spacing) * 1) !important;
+  }
+  .pr-2\! {
+    padding-right: calc(var(--spacing) * 2) !important;
+  }
   .pb-1 {
     padding-bottom: calc(var(--spacing) * 1);
   }
@@ -711,6 +726,30 @@
   }
   .pb-24 {
     padding-bottom: calc(var(--spacing) * 24);
+  }
+  .pl-1\! {
+    padding-left: calc(var(--spacing) * 1) !important;
+  }
+  .pl-2 {
+    padding-left: calc(var(--spacing) * 2);
+  }
+  .pl-2\! {
+    padding-left: calc(var(--spacing) * 2) !important;
+  }
+  .pl-3\! {
+    padding-left: calc(var(--spacing) * 3) !important;
+  }
+  .pl-3\.5\! {
+    padding-left: calc(var(--spacing) * 3.5) !important;
+  }
+  .pl-4\! {
+    padding-left: calc(var(--spacing) * 4) !important;
+  }
+  .pl-10 {
+    padding-left: calc(var(--spacing) * 10);
+  }
+  .pl-10\! {
+    padding-left: calc(var(--spacing) * 10) !important;
   }
   .text-center\! {
     text-align: center !important;

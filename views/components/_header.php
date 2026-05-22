@@ -135,3 +135,4 @@
     </script>
     <main>
         <?php require_once __DIR__ . "/__breadcrumb.php"; ?>
+        <div class="fixed top-12 right-2 z-100" id="toast-container-header"></div>
