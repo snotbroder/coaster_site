@@ -12,7 +12,7 @@ $stmt = $_db->prepare($sql);
 $stmt->execute();
 $coasters = $stmt->fetchAll();
 ?>
-<section class="bg-(--pure-eggshell) mx-4 p-8 flex flex-col gap-4">
+<section class="mb-8 bg-(--pure-eggshell) mx-4 p-8 flex flex-col gap-4 rounded-lg shadow-md">
     <h4>Search for a coaster</h4>
     <form id="searchForm" mix-post="/api-index-search-coaster" class="default">
         <div>

@@ -3,7 +3,7 @@
 /** @var array $coaster */
 /** @var string $park_title */
 
-// Check if user is in session
+// Get user data from db, based on session stored email
 $stmt = $_db->prepare("SELECT user_pk FROM users WHERE user_email = :email");
 $stmt->execute([":email" => $_SESSION["user_email"] ?? ""]);
 $user = $stmt->fetch();
@@ -23,7 +23,7 @@ $total_reviews = $_db->query("SELECT COUNT(*) FROM reviews WHERE review_coaster_
 <div id="toast_container" class="fixed top-0 left-0"></div>
 <section class="my-12 md:my-0">
 
-    <div class="flex justify-between border-b border-b-(--darkened-eggshell) mb-4 pb-4">
+    <div class="flex justify-between border-b border-b-(--darkened-eggshell) mb-4 md:pb-4 lg:pb-5.5">
         <h4>User reviews <span class="text-(--light-indigo)">(<?php _($total_reviews) ?>)</span></h4>
 
         <?php

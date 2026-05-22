@@ -1,6 +1,13 @@
 <?php
 
-/** @var array $coaster */ ?>
+/** @var array $coaster */
+
+$sql = "SELECT park_country FROM parks WHERE park_pk = :park_pk";
+$stmt = $_db->prepare($sql);
+$stmt->execute([":park_pk" => $coaster["coaster_park_fk"]]);
+$coaster_country = $stmt->fetchColumn();
+?>
+
 
 <div>
     <div class="border-b border-b-(--darkened-eggshell) mb-4 pb-6">
@@ -18,6 +25,15 @@
         <tr>
             <td>Opening year</td>
             <td><?php _($coaster["coaster_year"]) ?></td>
+        </tr>
+        <tr>
+            <td>Country</td>
+            <td class="flex gap-2 items-center">
+                <?php _($coaster_country) ?>
+                <div class="w-3 sm:w-4 lg:w-5 opacity-70 my-auto">
+                    <?php require_once ROOT . "/views/components/___flag.php"; ?>
+                </div>
+            </td>
         </tr>
         <tr>
             <td>Height</td>

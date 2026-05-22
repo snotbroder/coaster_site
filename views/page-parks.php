@@ -24,7 +24,6 @@ $park = $stmt->fetch();
 // Display all parks, default view when no park is selected
 if (!$park) {
     echo "<h1>Browse parks</h1>";
-    echo uuidv4_nodash();
 
 ?>
     <section class="border-t-2 border-(--darkened-eggshell) my-10 py-5 flex flex-col md:grid md:grid-cols-3 gap-8">
@@ -52,6 +51,7 @@ if (!$park) {
 
     </section>
 <?php
+    require_once ROOT . '/views/components/_footer.php';
     exit;
 }
 
@@ -62,26 +62,34 @@ $stmt->execute([$park["park_pk"]]);
 $coasters = $stmt->fetchAll();
 ?>
 
-<section class="border-t-2 border-(--darkened-eggshell) my-10 py-5 md:grid md:grid-cols-3 gap-8 relative top-0">
+<section class="border-t-2 border-(--darkened-eggshell) flex flex-col gap-8 my-10 py-5 md:grid md:grid-cols-3 relative top-0">
     <aside class="grid grid-cols-2 gap-6 md:flex md:flex-col md:sticky md:top-20 md:self-start anim-slide-up">
-        <div class="h-42 w-auto">
+        <div class="h-full md:h-48 w-auto">
             <img class="rounded-sm w-full h-full object-cover" src="<?= _($park["park_image_path"]) ?>" alt="Park">
         </div>
-        <div class="flex flex-col justify-between gap-2 lg:gap-4">
-            <h1 class=""><?= _($park["park_title"]) ?> </h1>
-            <?php if ($park["park_is_operational"] == "1"): ?>
-                <div class="bg-(--system-success)/60 border-2 border-(--system-success) w-fit px-4 rounded-2xl">
-                    <p class="small">In operation</p>
-                </div>
-            <?php else: ?>
-                <div class="bg-(--system-failure)/60 border-2 border-(--system-failure) w-fit px-4 rounded-2xl">
-                    <p class="small">Not in operation</p>
-                </div>
-            <?php endif; ?>
-            <p><?php _($park["park_city"]) ?>, <?php _($park["park_country"]) ?></p>
+        <div class="flex flex-col gap-6">
+            <div>
+                <h1 class="hyphens-auto wrap-anywhere"><?= _($park["park_title"]) ?> </h1>
+                <p class="m-0!">Established 1974</p>
+            </div>
+            <div class="flex flex-col gap-2 md:gap-4">
+                <span>
+                    <p class="small">
+                        <?php if ($park["park_is_operational"] == "1"): ?>
+                    <div class="bg-(--system-success)/60 border-2 border-(--system-success) w-fit px-4 rounded-2xl">
+                        In operation
+                    </div>
+                <?php else: ?>
+                    <div class="bg-(--system-failure)/60 border-2 border-(--system-failure) w-fit px-4 rounded-2xl">
+                        Not in operation
+                    </div>
+                <?php endif; ?>
+                </p>
+                </span>
+                <p><?php _($park["park_city"]) ?>, <?php _($park["park_country"]) ?></p>
 
-            <a href="<?= _($park["park_website"]) ?>" target="_blank">Visit website</a>
-            <a class="btn-secondary" href="/">See park on map</a>
+                <a href="<?= _($park["park_website"]) ?>" target="_blank" class="hyperlink">Visit website</a>
+            </div>
         </div>
     </aside>
     <section class="col-span-2">
@@ -112,4 +120,4 @@ $coasters = $stmt->fetchAll();
     </section>
 </section>
 <?php
-// require_once ROOT . "/views/components/_footer.php";
+require_once ROOT . '/views/components/_footer.php';

@@ -1,7 +1,7 @@
 </main>
 <?php $user = $_SESSION["user_email"] ?? NULL ?>
-<footer class="w-full mt-24 mb-8 px-4">
-    <section class="border-t border-t-(--darkened-eggshell) py-6 pb-24 flex flex-col md:grid md:grid-cols-4 gap-12 md:gap-24 lg:gap-40">
+<footer class="w-full mt-24 mb-8 px-4 ">
+    <section class="relative border-t border-t-(--darkened-eggshell) py-6 pb-24 flex flex-col md:grid md:grid-cols-4 gap-12 md:gap-24 lg:gap-40">
         <div class="flex flex-col gap-4">
             <h5>Popular parks</h5>
             <ul class="flex flex-col gap-2">
@@ -37,8 +37,14 @@
                 <li><a href="/map" class="foot-link">View map</a></li>
             </ul>
         </div>
+        <div class="absolute h-20 bottom-22 right-0 opacity-40">
+            <img src="/static/assets/logo.svg" alt="Logo">
+        </div>
     </section>
-    <p class="xsmall">This is a school project</p>
+    <p class="small mb-4">Voorde.dk <?php _(date("Y")) ?>&#x00A9;</p>
+    <p class="xsmall">This is a school project - I do not own any copyright or any other property rights regarding imagery, names or bodytext.</p>
+    <p class="xsmall">I will not be held liable for anything LMAOO.</p>
+
 </footer>
 </body>
 

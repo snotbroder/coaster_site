@@ -103,14 +103,14 @@ form.default {
     > input,
     textarea {
       padding: 0.5rem;
-      background-color: var(--darkened-eggshell);
+      background-color: var(--light-eggshell);
       border: 1px solid var(--darkened-eggshell);
       border-radius: 4px;
       outline-color: var(--pure-seagreen);
     }
     span > input {
       padding: 0.5rem;
-      background-color: var(--darkened-eggshell);
+      background-color: var(--light-eggshell);
       border: 1px solid var(--darkened-eggshell);
       border-radius: 4px;
       outline-color: var(--pure-seagreen);
@@ -123,7 +123,7 @@ form.default {
     select {
       appearance: base-select;
       padding: 0.5rem;
-      background-color: var(--darkened-eggshell);
+      background-color: var(--light-eggshell);
       border: 1px solid var(--darkened-eggshell);
       border-radius: 4px;
       cursor: pointer;
@@ -133,6 +133,7 @@ form.default {
         background: var(--darkened-eggshell);
         color: var(--pure-seagreen);
         cursor: default;
+        font-weight: 600;
       }
       option:hover:not(:checked) {
         color: var(--light-seagreen);
@@ -158,12 +159,13 @@ form.default {
     /* Dropdown container */
     ::picker(select) {
       appearance: base-select;
-      background-color: var(--light-indigo);
-      color: white;
+      background-color: var(--darkened-eggshell);
+      color: var(--pure-indigo);
       border: 0;
       border-radius: 0.5rem;
       padding: 0.5rem;
       margin-top: 0.25rem;
+      max-height: 12rem;
     }
   }
   &.utility-form {
@@ -226,7 +228,17 @@ form.default {
   padding: 0.25rem 1.5rem;
   border-radius: 0.5rem;
   cursor: pointer;
-  font-size: clamp(var(--s-sm), var(--body-pref), var(--s-2sm));
+  font-size: clamp(var(--s-sm), var(--body-pref), var(--s-sm));
+  transition: background-color 0.1s ease-in;
+  &:hover {
+    background: var(--darkened-eggshell);
+    color: var(--light-indigo);
+    transition: background-color 0.1s ease-in;
+  }
+  &.small {
+    font-size: clamp(var(--s-xs), var(--body-small-pref), var(--s-sm));
+    padding: 0.125rem 1rem;
+  }
 }
 
 .btn-secondary {
@@ -236,13 +248,15 @@ form.default {
   height: fit-content;
   padding: 0.25rem 1.5rem;
   border-radius: 0.5rem;
-  border: solid 2px var(--pure-seagreen);
+  /* border: solid 2px var(--pure-seagreen); */
   cursor: pointer;
-  font-size: clamp(var(--s-sm), var(--body-pref), var(--s-2sm));
+  font-size: clamp(var(--s-sm), var(--body-pref), var(--s-sm));
   text-wrap: nowrap;
+  transition: background-color 0.1s ease-in;
   &:hover {
     background: var(--pure-seagreen);
-    color: var(--pure-indigo);
+    color: var(--pure-eggshell);
+    transition: background-color 0.1s ease-in;
   }
   &.small {
     font-size: clamp(var(--s-xs), var(--body-small-pref), var(--s-sm));

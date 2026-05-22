@@ -23,15 +23,6 @@ $coaster = $stmt->fetch();
 if (!$coaster) {
     echo "<h1>Browse coasters</h1>";
 ?>
-    <section class="w-fit grid">
-        <form action="" class="place-self-end">
-
-            <select name="filter_coaster" id="">
-                <option value="filter_az">A - Z</option>
-            </select>
-
-        </form>
-    </section>
 
     <section class="border-t-2 border-(--darkened-eggshell) my-10 py-5 flex flex-col md:grid md:grid-cols-3 gap-8">
         <aside class="flex flex-col gap-6 md:col-start-1">
@@ -58,6 +49,7 @@ if (!$coaster) {
 
     </section>
 <?php
+    require_once ROOT . '/views/components/_footer.php';
     exit;
 }
 ?>
@@ -70,7 +62,7 @@ if (!$coaster) {
     _($park_title); ?>
 </h4>
 
-<section class="my-8 mb-9 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 md:h-78 lg:h-128 md:mb-18 lg:mb-24 overflow-hidden">
+<section class="my-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 md:h-78 lg:h-128 md:mb-18 lg:mb-24 overflow-hidden">
     <div class="flex flex-col gap-16 md:gap-4 lg:gap-6 min-h-0">
         <p class="overflow-y-auto"><?php _($coaster["coaster_description"]) ?></p>
 
@@ -93,4 +85,6 @@ if (!$coaster) {
     </div>
 
 </section>
-<?php require_once ROOT . "/views/components/__coaster-see-also.php" ?>
+<?php require_once ROOT . "/views/components/__coaster-see-also.php";
+require_once ROOT . '/views/components/_footer.php';
+?>

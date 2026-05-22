@@ -12,6 +12,7 @@ get('/parks', 'views/page-parks.php');
 get('/coasters', 'views/page-coasters.php');
 get('/login', 'views/page-login.php');
 get('/sign-up', 'views/page-sign-up.php');
+get('/account', 'views/page-account.php');
 
 // Admin views
 get('/admin/configure-coasters', 'views/page-admin-configure-coasters.php');
@@ -31,6 +32,9 @@ post('/api-filter-parks', 'apis/api-filter-parks.php');
 post('/api-create-review', 'apis/components/review/api-create-review.php');
 post('/api-delete-review', 'apis/components/review/api-delete-review.php');
 post('/api-request-delete-review', 'apis/components/review/api-request-delete-review.php');
+
+// Account apis
+post('/api-request-update-avatar', 'apis/components/account/api-request-update-avatar.php');
 
 
 // Admin apis
