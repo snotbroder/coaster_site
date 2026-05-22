@@ -36,31 +36,43 @@ $user = $stmt->fetch();
         </div>
     </aside>
     <section class=" px-6 md:col-span-3 md:col-end-5">
-        <h3>Profile</h3>
-        <form mix-post="" class="default grid! grid-cols-2!">
-            <div>
+        <section class="mb-10">
+            <h3 class="mb-2">Profile</h3>
+            <form mix-post="" class="default grid! grid-cols-2!">
                 <div>
-                    <label for="">Username</label>
-                    <input type="text" id="user_username" name="user_username" value="<?php _($_SESSION["user_username"]) ?>">
+                    <div>
+                        <label for="">Username</label>
+                        <input type="text" id="user_username" name="user_username" value="<?php _($_SESSION["user_username"]) ?>">
+                    </div>
+                    <div>
+                        <label for="">Country</label>
+                        <input type="password" id="" name="">
+                    </div>
                 </div>
                 <div>
-                    <label for="">Country</label>
-                    <input type="password" id="" name="">
-                </div>
-            </div>
-            <div>
-                <div>
-                    <label for="">Favourite park</label>
-                    <input type="text" id="" name="">
-                </div>
+                    <div>
+                        <label for="">Favourite park</label>
+                        <input type="text" id="" name="">
+                    </div>
 
-            </div>
-            <span>
-                <button class="btn-primary small">Save changes</button>
-                <button class="btn-secondary small">Cancel</button>
-            </span>
-        </form>
+                </div>
+                <span>
+                    <button class="btn-primary small">Save changes</button>
+                    <button class="btn-secondary small">Cancel</button>
+                </span>
+            </form>
+        </section>
+        <section>
+            <h3 class="mb-2">Danger zone</h3>
+            <article class="w-full flex flex-col gap-6 bg-(--system-failure)/40 border-2 border-(--system-failure)/60 rounded-md p-8">
+                <p>When you delete your account, your reviews will be removed from the website.</p>
+                <p class="small">If you have questions regarding your data, feel free to <a class="hyperlink-mini" href="#">contact us</a>.</p>
+                <button class="btn-primary w-fit">Delete profile</button>
+            </article>
+        </section>
     </section>
+
+
 </section>
 
 

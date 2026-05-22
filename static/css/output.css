@@ -343,6 +343,9 @@
   .mb-8 {
     margin-bottom: calc(var(--spacing) * 8);
   }
+  .mb-10 {
+    margin-bottom: calc(var(--spacing) * 10);
+  }
   .block {
     display: block;
   }
@@ -634,6 +637,12 @@
   .border-\(--system-failure\) {
     border-color: var(--system-failure);
   }
+  .border-\(--system-failure\)\/60 {
+    border-color: var(--system-failure);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--system-failure) 60%, transparent);
+    }
+  }
   .border-\(--system-success\) {
     border-color: var(--system-success);
   }
@@ -663,6 +672,12 @@
   }
   .bg-\(--system-failure\)\! {
     background-color: var(--system-failure) !important;
+  }
+  .bg-\(--system-failure\)\/40 {
+    background-color: var(--system-failure);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--system-failure) 40%, transparent);
+    }
   }
   .bg-\(--system-failure\)\/60 {
     background-color: var(--system-failure);
