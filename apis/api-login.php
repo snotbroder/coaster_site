@@ -5,16 +5,23 @@ try {
     require_once ROOT . "/config/db.php";
 
     //Get data from form
-    $user_email = $_POST["user_email"] ?? "";
+    $user_login = $_POST["user_login"] ?? "";
     $user_password = $_POST["user_password"] ?? "";
 
     //Validate
-    $user_email = _validate_user_email();
     $user_password = _validate_user_password();
 
-    //fetch data from db
-    $stmt = $_db->prepare("SELECT * FROM users WHERE user_email = :email");
-    $stmt->execute([":email" => $user_email]);
+    if (filter_var($user_login, FILTER_VALIDATE_EMAIL)) {
+        $_POST["user_email"] = $user_login;
+        $user_email = _validate_user_email();
+        $stmt = $_db->prepare("SELECT * FROM users WHERE user_email = :login");
+    } else {
+        $_POST["user_username"] = $user_login;
+        $user_username = _validate_user_username();
+        $stmt = $_db->prepare("SELECT * FROM users WHERE user_username = :login");
+    }
+    //fetch data from with credentials
+    $stmt->execute([":login" => $user_login]);
     $user = $stmt->fetch();
 
     // If user isnt found, display error toast
@@ -30,8 +37,9 @@ try {
     }
 
     // Check if user is deactivated
-    $stmt = $_db->prepare("SELECT 1 FROM users WHERE user_email = :email AND user_deleted_at > 0");
-    $stmt->execute([":email" => $user_email]);
+    $user_pk = $user["user_pk"];
+    $stmt = $_db->prepare("SELECT 1 FROM users WHERE user_pk = :user_pk AND user_deleted_at > 0");
+    $stmt->execute([":user_pk" => $user_pk]);
     if ($stmt->fetch()) {
         http_response_code(409);
         $message = "User inactive, contact moderator";
@@ -44,6 +52,7 @@ try {
     }
 
     // Initialize session, store user email
+    $_SESSION["user_username"] = $user["user_username"];
     $_SESSION["user_email"] = $user["user_email"];
     $_SESSION["user_avatar_path"] = $user["user_avatar_path"];
 

@@ -52,7 +52,9 @@ $total_reviews = $_db->query("SELECT COUNT(*) FROM reviews WHERE review_coaster_
 </section>
 
 <dialog id="review-dialog" class="anim-slide-up">
+
     <h4>Reviewing <?php _($coaster["coaster_title"]) ?> at <?php _($park_title) ?></h4>
+    <div class="fixed top-12 right-2 z-100" id="toast-container"></div>
     <div class="mt-6 mb-4">
         <p class="xsmall mb-2">Logged in as</p>
         <div class="w-5  h-auto flex gap-3 items-center">
@@ -60,9 +62,8 @@ $total_reviews = $_db->query("SELECT COUNT(*) FROM reviews WHERE review_coaster_
             <p class="small text-(--light-indigo)!"><?php _($_SESSION["user_email"]); ?></p>
         </div>
     </div>
-    <form mix-post="/api-create-review?coaster=<?php _($coaster["coaster_pk"]) ?>" class="default review-container my-4">
-
-        <textarea class="review-body" name="review_body" id="" placeholder="Write a review"></textarea>
+    <form mix-post="/api-create-review?coaster=<?php _($coaster["coaster_pk"]) ?>" class="default review-container my-8">
+        <p>Review <span class="text-sm text-(--light-indigo)">(<?php _(review_body_min . "-" . review_body_max . " chars.")  ?>)</span></p>
         <div class="">
             <select name="review_rating" id="">
                 <option value="5">&#x2605;&#x2605;&#x2605;&#x2605;&#x2605; (5)</option>
@@ -73,6 +74,9 @@ $total_reviews = $_db->query("SELECT COUNT(*) FROM reviews WHERE review_coaster_
 
             </select>
         </div>
+        <textarea class="review-body" name="review_body" id="" placeholder="Write a review"></textarea>
+
+
         <span class="flex flex-col md:flex-row gap-4">
             <button class="btn-primary">Post review</button>
             <button type="button" class="btn-secondary" commandfor="review-dialog" command="close">Cancel</button>

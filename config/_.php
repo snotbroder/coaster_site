@@ -34,6 +34,22 @@ function _validate_search()
     return $search;
 }
 
+// ##############################
+define("user_username_min", 2);
+define("user_username_max", 20);
+function _validate_user_username()
+{
+
+    $user_username = $_POST["user_username"] ?? "";
+    $user_username = trim($user_username);
+    if (strlen($user_username) < user_username_min) {
+        throw new Exception("Username min " . user_username_min . " characters", 400);
+    }
+    if (strlen($user_username) > user_username_max) {
+        throw new Exception("Username max " . user_username_max . " characters", 400);
+    }
+    return $user_username;
+}
 
 // ##############################
 define("user_email_min", 5);

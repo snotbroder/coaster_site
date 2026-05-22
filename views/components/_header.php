@@ -44,9 +44,9 @@
                         <details class="relative">
                             <summary class="small text-(--light-indigo)! cursor-pointer list-none flex gap-2 place-items-center z-100">
 
-                                <?php _($_SESSION["user_email"]) ?>
+                                <?php _($_SESSION["user_username"]) ?>
                                 <div class="w-6">
-                                    <img class="object-fit rounded-full" src="<?php _($_SESSION["user_avatar_path"] ?? "/static/assets/avatars/profile_avatar_default.jpg") ?>" alt="Profile image">
+                                    <img class="object-fit rounded-full" src="/static/assets/avatars/<?php _($_SESSION["user_avatar_path"] ?? "profile_avatar_default.jpg") ?>" alt="Profile image">
                                 </div>
                             </summary>
                             <div class="absolute right-0 top-full mt-1 z-100 min-w-48 flex flex-col gap-4 rounded-md border border-(--darkened-eggshell) bg-(--eggshell) p-4 shadow-lg">
@@ -88,14 +88,21 @@
             <div class="pt-3 pb-1 border-t border-(--darkened-eggshell)">
                 <?php if ($_SESSION["user_email"] ?? false) : ?>
                     <div class="flex gap-4 justify-between items-center flex-wrap">
-                        <p class="text-(--light-indigo)!">
-                            Hello
-                            <a href="/profile" class="hyperlink"><?php _($_SESSION["user_email"]) ?></a>!
-                        </p>
+                        <a href="/account" class="text-(--light-indigo)! cursor-pointer list-none flex gap-2 place-items-center z-100">
+                            <div class="w-6">
+                                <img class="object-fit rounded-full" src="/static/assets/avatars/<?php _($_SESSION["user_avatar_path"] ?? "profile_avatar_default.jpg") ?>" alt="Profile image">
+                            </div>
+                            <?php _($_SESSION["user_username"]) ?>
+                        </a>
                         <form mix-post="api-logout">
-                            <button class="btn-secondary">Logout</button>
+                            <button class="btn-primary">Logout</button>
                         </form>
                     </div>
+                    <ul class="my-4 mt-8 flex flex-col gap-4">
+                        <li><a class="hyperlink" href="/account">Account</a></li>
+                        <li><a class="hyperlink" href="/">My reviews</a></li>
+                        <li><a class="hyperlink" href="/">Contact us</a></li>
+                    </ul>
                 <?php else : ?>
                     <?php if ($active == "login") : ?>
                         <a href="/sign-up" class="btn-primary">Sign Up</a>
@@ -114,5 +121,3 @@
     </script>
     <main>
         <?php require_once __DIR__ . "/__breadcrumb.php"; ?>
-
-        <div class="fixed top-12 right-2 z-100" id="toast-container"></div>

@@ -18,7 +18,7 @@ $user = $stmt->fetch();
 <section class="my-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
     <aside class="w-full flex flex-col gap-8 bg-(--pure-eggshell) p-6 rounded-md shadow-md">
         <div class="w-28 m-auto">
-            <img class="object-fit rounded-full w-full" src="<?php _($user["user_avatar_path"] ?? "/static/assets/avatars/profile_avatar_default.jpg") ?>" alt="Profile image">
+            <img class="object-fit rounded-full w-full" src="/static/assets/avatars/<?php _($_SESSION["user_avatar_path"] ?? "profile_avatar_default.jpg") ?>" alt="Profile image">
         </div>
         <span class="flex flex-col gap-1">
             <form id="update_avatar_container" mix-post="/api-request-update-avatar">
@@ -26,10 +26,10 @@ $user = $stmt->fetch();
                 <button class="btn-primary">Update avatar</button>
 
             </form>
-            <button class="btn-secondary w-full!">Remove</button>
+
         </span>
         <div class="flex flex-col gap-4">
-            <p><?php _($user["user_email"]) ?></p>
+            <p><?php _($_SESSION["user_email"]) ?></p>
             <p class="small">Created <?php timeago($user["user_created_at"]) ?></p>
             <p class="small text-(--light-indigo)!">32 reviews</p>
 
@@ -41,11 +41,11 @@ $user = $stmt->fetch();
             <div>
                 <div>
                     <label for="">Username</label>
-                    <input type="text" id="" name="">
+                    <input type="text" id="user_username" name="user_username" value="<?php _($_SESSION["user_username"]) ?>">
                 </div>
                 <div>
-                    <label for="user_password">Country</label>
-                    <input type="password" id="user_password" name="user_password">
+                    <label for="">Country</label>
+                    <input type="password" id="" name="">
                 </div>
             </div>
             <div>

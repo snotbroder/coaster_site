@@ -20,9 +20,10 @@ require_once __DIR__ . '/components/_header.php';
     </aside>
     <form mix-post="/api-login" method="post" class="default utility-form">
         <div>
-            <label for="user_email">Email</label>
-            <input type="email" id="user_email" name="user_email" required>
+            <label for="user_login">Username or email</label>
+            <input type="text" id="user_login" name="user_login" required>
         </div>
+
         <div>
             <label for="user_password">Password</label>
             <input type="password" id="user_password" name="user_password" required>
