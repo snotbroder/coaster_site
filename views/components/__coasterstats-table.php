@@ -6,6 +6,11 @@ $sql = "SELECT park_country FROM parks WHERE park_pk = :park_pk";
 $stmt = $_db->prepare($sql);
 $stmt->execute([":park_pk" => $coaster["coaster_park_fk"]]);
 $coaster_country = $stmt->fetchColumn();
+
+//Get average rating of coaster
+$stmt = $_db->prepare("SELECT AVG(review_rating) FROM reviews WHERE review_coaster_fk = :pk AND review_deleted_at = 0");
+$stmt->execute([":pk" => $_GET["coaster"]]);
+$reviews_rating_average = $stmt->fetchColumn();
 ?>
 
 
@@ -14,6 +19,15 @@ $coaster_country = $stmt->fetchColumn();
         <h4>Coaster stats</h4>
     </div>
     <table class="stats w-full row-1 md:col-1 lg:col-span-1 lg:col-start-1">
+        <?php if ($reviews_rating_average != 0): ?>
+            <tr>
+                <td>User rating</td>
+                <td>
+                    <?php require ROOT . "/views/components/___rating-stars.php"; ?>
+                    (<?php _(round($reviews_rating_average, 2)) ?>)
+                </td>
+            </tr>
+        <?php endif; ?>
         <tr>
             <td>Model</td>
             <td><?php _($coaster["coaster_model"]) ?></td>

@@ -43,7 +43,7 @@ $review_user = $stmt->fetch();
                 </div>
             </div>
             <div class="flex gap-3 items-center">
-                <span class="text-(--light-indigo) flex gap-2 items-center">
+                <span class="text-(--light-indigo) flex gap-1 items-center">
                     <?php require ROOT . "/views/components/___rating-stars.php" ?>
                     <p class="small"> <?php _($review["review_rating"]) ?> / 5</p>
                 </span>

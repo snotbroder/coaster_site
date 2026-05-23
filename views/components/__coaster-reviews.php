@@ -19,6 +19,9 @@ $reviews = $stmt->fetchAll();
 //Get total of rows in relevant reviews
 $total_reviews = $_db->query("SELECT COUNT(*) FROM reviews WHERE review_coaster_fk = " . $_db->quote($coaster_pk) . "AND review_deleted_at = 0")->fetchColumn();
 
+
+
+
 ?>
 <div id="toast_container" class="fixed top-0 left-0"></div>
 <section class="my-12 md:my-0">
