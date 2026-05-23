@@ -27,15 +27,19 @@ try {
         ":review_created_at" => time(),
     ]);
     // If everyting goes smooth, redirect to coaster page
+    $message = "Review created";
 ?>
     <browser mix-redirect="/coasters?coaster=<?php _($coaster_pk) ?>"></browser>
+    <browser mix-update="#toast-container-header">
+        <?php require_once ROOT . "/views/components/__toast_success.php" ?>
+    </browser>
 <?php
 } catch (Exception $e) {
     http_response_code($e->getCode());
     $message = $e->getMessage();
     // Display error toast with message
 ?>
-    <browser mix-update="#toast-container">
+    <browser mix-update="#toast-container-header">
         <?php require_once ROOT . "/views/components/__toast_error.php" ?>
     </browser>
 <?php

@@ -18,7 +18,6 @@ $review_user = $stmt->fetch();
                     <p class="small text-(--light-indigo)!"><?php _($review_user["user_username"]); ?></p>
                 </div>
                 <div class="flex gap-2 items-center">
-
                     <div class="relative z-50">
                         <input type="checkbox" id="review_dropdown_<?php _($review['review_pk']) ?>" class="hidden peer">
                         <label for="review_dropdown_<?php _($review["review_pk"]) ?>" class="cursor-pointer">
@@ -26,10 +25,10 @@ $review_user = $stmt->fetch();
                         </label>
                         <div class="hidden peer-checked:flex absolute right-0 top-full mt-1 z-100 min-w-36 flex-col gap-2 rounded-md border border-(--darkened-eggshell) bg-(--pure-eggshell) p-2 px-4 shadow-lg">
                             <?php if ($review_user_fk === $_SESSION["user_pk"]): ?>
-                                <form action="">
+                                <form mix-post="/api-request-update-review?review_pk=<?php _($review["review_pk"]) ?>">
                                     <button class="btn-utility">Edit</button>
                                 </form>
-                                <form id="review_delete_btn_<?php _($review['review_pk']) ?>" mix-post="/api-request-delete-review?review_pk=<?php _($review['review_pk']) ?>">
+                                <form id="review_delete_btn_<?php _($review["review_pk"]) ?>" mix-post="/api-request-delete-review?review_pk=<?php _($review["review_pk"]) ?>">
                                     <button class="btn-utility text-(--system-failure)!">Delete</button>
                                 </form>
                             <?php else: ?>
@@ -42,14 +41,16 @@ $review_user = $stmt->fetch();
                     </div>
                 </div>
             </div>
-            <div class="flex gap-3 items-center">
-                <span class="text-(--light-indigo) flex gap-1 items-center">
-                    <?php require ROOT . "/views/components/___rating-stars.php" ?>
-                    <p class="small"> <?php _($review["review_rating"]) ?> / 5</p>
-                </span>
-                <p class="xsmall text-(--light-indigo)!"><?php timeago($review["review_created_at"]) ?></p>
-            </div>
+            <article id="review_content_<?php _($review["review_pk"]) ?>">
+                <div class="flex gap-3 items-center">
+                    <span class="text-(--light-indigo) flex gap-1 items-center">
+                        <?php require ROOT . "/views/components/___rating-stars.php" ?>
+                        <p class="small"> <?php _($review["review_rating"]) ?> / 5</p>
+                    </span>
+                    <p class="xsmall text-(--light-indigo)!"><?php timeago($review["review_created_at"]) ?></p>
+                </div>
+                <p><?php _($review["review_body"]) ?></p>
+            </article>
         </div>
-        <p><?php _($review["review_body"]) ?></p>
     </article>
 </article>

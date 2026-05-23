@@ -32,8 +32,12 @@ post('/api-filter-parks', 'apis/api-filter-parks.php');
 // Review apis
 post('/api-create-review', 'apis/components/review/api-create-review.php');
 post('/api-delete-review', 'apis/components/review/api-delete-review.php');
+post('/api-update-review', 'apis/components/review/api-update-review.php');
 post('/api-request-delete-review', 'apis/components/review/api-request-delete-review.php');
+post('/api-request-update-review', 'apis/components/review/api-request-update-review.php');
 post('/api-report-review', 'apis/components/review/api-report-review.php');
+
+get('/api-cancel-update-review', 'apis/components/review/api-cancel-update-review.php');
 
 // Account apis
 post('/api-request-update-avatar', 'apis/components/account/api-request-update-avatar.php');
