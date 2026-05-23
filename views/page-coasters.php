@@ -30,7 +30,7 @@ if (!$coaster) {
         </aside>
 
         <section id="coasters_container" class="col-start-2 col-span-2">
-            <div id="coasters_search_results" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 slide-in">
+            <div id="coasters_search_results" class="grid grid-cols-1 sm:grid-cols-2 gap-4 slide-in">
                 <?php
                 foreach ($coasters as $coaster) {
                     require ROOT . '/views/components/__coaster-card.php';

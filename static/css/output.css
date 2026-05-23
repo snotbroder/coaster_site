@@ -187,6 +187,9 @@
   }
 }
 @layer utilities {
+  .\@container {
+    container-type: inline-size;
+  }
   .absolute {
     position: absolute;
   }
@@ -484,6 +487,9 @@
   .grid-cols-2\! {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
   .flex-col {
     flex-direction: column;
   }
@@ -619,12 +625,26 @@
     border-top-style: var(--tw-border-style);
     border-top-width: 2px;
   }
+  .border-r {
+    border-right-style: var(--tw-border-style);
+    border-right-width: 1px;
+  }
   .border-b {
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 1px;
   }
+  .border-l {
+    border-left-style: var(--tw-border-style);
+    border-left-width: 1px;
+  }
+  .border-\(--darkened-eggsgell\) {
+    border-color: var(--darkened-eggsgell);
+  }
   .border-\(--darkened-eggshell\) {
     border-color: var(--darkened-eggshell);
+  }
+  .border-\(--darkened-eggsshell\) {
+    border-color: var(--darkened-eggsshell);
   }
   .border-\(--light-indigo\) {
     border-color: var(--light-indigo);
@@ -776,6 +796,9 @@
   .pt-1\.5 {
     padding-top: calc(var(--spacing) * 1.5);
   }
+  .pt-2 {
+    padding-top: calc(var(--spacing) * 2);
+  }
   .pt-3 {
     padding-top: calc(var(--spacing) * 3);
   }
@@ -784,6 +807,9 @@
   }
   .pr-1\! {
     padding-right: calc(var(--spacing) * 1) !important;
+  }
+  .pr-2 {
+    padding-right: calc(var(--spacing) * 2);
   }
   .pr-2\! {
     padding-right: calc(var(--spacing) * 2) !important;
@@ -890,6 +916,9 @@
   .text-\(--darkened-eggshell\) {
     color: var(--darkened-eggshell);
   }
+  .text-\(--darkened-eggshell\)\! {
+    color: var(--darkened-eggshell) !important;
+  }
   .text-\(--darkened-indigo\) {
     color: var(--darkened-indigo);
   }
@@ -907,6 +936,9 @@
   }
   .text-\(--pure-eggshell\) {
     color: var(--pure-eggshell);
+  }
+  .text-\(--pure-eggshell\)\! {
+    color: var(--pure-eggshell) !important;
   }
   .text-\(--pure-indigo\) {
     color: var(--pure-indigo);
@@ -1447,6 +1479,46 @@
   .lg\:pb-5\.5 {
     @media (width >= 64rem) {
       padding-bottom: calc(var(--spacing) * 5.5);
+    }
+  }
+  .\@2xs\:flex {
+    @container (width >= 18rem) {
+      display: flex;
+    }
+  }
+  .\@xs\:block {
+    @container (width >= 20rem) {
+      display: block;
+    }
+  }
+  .\@xs\:flex {
+    @container (width >= 20rem) {
+      display: flex;
+    }
+  }
+  .\@xs\:grid {
+    @container (width >= 20rem) {
+      display: grid;
+    }
+  }
+  .\@sm\:block {
+    @container (width >= 24rem) {
+      display: block;
+    }
+  }
+  .\@sm\:flex {
+    @container (width >= 24rem) {
+      display: flex;
+    }
+  }
+  .\@md\:block {
+    @container (width >= 28rem) {
+      display: block;
+    }
+  }
+  .\@md\:flex {
+    @container (width >= 28rem) {
+      display: flex;
     }
   }
 }

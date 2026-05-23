@@ -13,7 +13,7 @@ $total_coasters = $_db->query("SELECT COUNT(*) FROM coasters")->fetchColumn();
 
 ?>
 <browser mix-update="#coasters_container">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 slide-in">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 slide-in">
         <?php
         foreach ($coasters as $coaster) {
             require ROOT . "/views/components/__coaster-card.php";
