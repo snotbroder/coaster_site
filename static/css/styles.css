@@ -308,11 +308,11 @@ form.default {
       content: "";
       margin: 0 1rem;
       position: relative;
-      top: 1.5px;
-      width: 14px;
-      height: 14px;
+      top: 0.25rem;
+      width: 18px;
+      height: 18px;
       display: inline-block;
-      mask-image: url(../assets/icons/chevron-right-solid.svg);
+      mask-image: url(../assets/icons/chevron-right.svg);
       mask-repeat: no-repeat;
       mask-size: contain;
       background-color: var(--light-indigo);

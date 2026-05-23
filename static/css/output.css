@@ -7,10 +7,7 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-red-400: oklch(70.4% 0.191 22.216);
     --color-amber-300: oklch(87.9% 0.169 91.605);
-    --color-yellow-400: oklch(85.2% 0.199 91.936);
-    --color-blue-400: oklch(70.7% 0.165 254.624);
     --color-gray-400: oklch(70.7% 0.022 261.325);
     --color-black: #000;
     --spacing: 0.25rem;
@@ -1653,11 +1650,11 @@ form.default {
       content: "";
       margin: 0 1rem;
       position: relative;
-      top: 1.5px;
-      width: 14px;
-      height: 14px;
+      top: 0.25rem;
+      width: 18px;
+      height: 18px;
       display: inline-block;
-      mask-image: url(../assets/icons/chevron-right-solid.svg);
+      mask-image: url(../assets/icons/chevron-right.svg);
       mask-repeat: no-repeat;
       mask-size: contain;
       background-color: var(--light-indigo);

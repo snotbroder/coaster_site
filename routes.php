@@ -15,9 +15,10 @@ get('/sign-up', 'views/page-sign-up.php');
 get('/account', 'views/page-account.php');
 get('/my-reviews', 'views/page-my-reviews.php');
 
-// Admin views
-get('/admin/configure-coasters', 'views/page-admin-configure-coasters.php');
-get('/admin/configure-parks', 'views/page-admin-configure-parks.php');
+// System views
+get('/system/system-panel', 'views/system/page-system-index.php');
+get('/system/configure-coasters', 'views/system/page-system-configure-coasters.php');
+get('/system/configure-parks', 'views/system/page-system-configure-parks.php');
 
 // Apis
 post('/api-login', 'apis/api-login.php');

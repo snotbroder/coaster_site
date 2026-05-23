@@ -14,7 +14,7 @@ $review_user = $stmt->fetch();
         <div class="flex flex-col gap-1 md:gap-2">
             <div class="flex justify-between">
                 <div class="w-5 h-auto flex gap-3 items-center">
-                    <img class="object-fit rounded-full" src="/static/assets/avatars/<?php _($_SESSION["user_avatar_path"] ?? "/static/assets/avatars/profile_avatar_default.jpg") ?>" alt="Profile image">
+                    <img class="object-fit rounded-full" src="/static/assets/avatars/<?php _($review_user["user_avatar_path"] ?? "/static/assets/avatars/profile_avatar_default.jpg") ?>" alt="Profile image">
                     <p class="small text-(--light-indigo)!"><?php _($review_user["user_username"]); ?></p>
                 </div>
                 <div class="flex gap-2 items-center">

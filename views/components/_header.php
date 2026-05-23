@@ -55,7 +55,7 @@
                             <div class="hidden peer-checked:flex absolute right-0 top-full mt-1 z-100 min-w-48 flex-col gap-4 rounded-md border border-(--darkened-eggshell) bg-(--pure-eggshell) p-4 shadow-lg">
                                 <?php if ($_SESSION["user_authority"] == 1): ?>
                                     <div class="border-b border-(--darkened-eggshell) py-4">
-                                        <a class="btn-secondary" href="/admin/panel">Admin panel</a>
+                                        <a class="btn-secondary" href="/system/system-panel">System panel</a>
                                     </div>
                                 <?php endif; ?>
                                 <a href="/account" class="hyperlink">Account</a>
@@ -109,7 +109,7 @@
                     </div>
                     <?php if ($_SESSION["user_authority"] == 1): ?>
                         <div class="border-y border-(--darkened-eggshell) py-4 my-6">
-                            <a class="btn-secondary" href="/admin/panel">Admin panel</a>
+                            <a class="btn-secondary" href="/system/system-panel">System panel</a>
                         </div>
                     <?php endif; ?>
                     <ul class="my-4 mt-8 flex flex-col gap-4">
@@ -130,9 +130,6 @@
         </div>
     </header>
 
-    <script>
-
-    </script>
     <main>
         <?php require_once __DIR__ . "/__breadcrumb.php"; ?>
         <div class="fixed top-12 right-2 z-100" id="toast-container-header"></div>

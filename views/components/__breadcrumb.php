@@ -26,7 +26,7 @@ if ($active == "index") {
     }
 ?>
     <nav class="my-2 md:my-4 ">
-        <ul class="flex flex-row gap-3 breadcrumb-list">
+        <ul class="flex flex-row breadcrumb-list">
             <li class="breadcrumb"><a href="/">Home</a></li>
             <li class="breadcrumb"><a href="/<?php _($active); ?>"><?php _($breadcrumb_1); ?></a></li>
             <?php if ($current_subpage): ?>
