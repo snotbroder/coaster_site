@@ -16,7 +16,7 @@ switch ($review["review_rating"]) {
         break;
 
     case 3:
-        echo ("<span class='text-(--pure-star)'>&#x2605; &#x2605; &#x2605;</span> &#x2605; &#x2605;");
+        echo ("<span class='text-(--pure-star)'>&#x2605; &#x2605; &#x2605; </span> &#x2605; &#x2605;");
         break;
 
     case 4:

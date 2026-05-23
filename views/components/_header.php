@@ -59,7 +59,7 @@
                                     </div>
                                 <?php endif; ?>
                                 <a href="/account" class="hyperlink">Account</a>
-                                <a href="/account#reviews" class="hyperlink">My reviews</a>
+                                <a href="/my-reviews" class="hyperlink">My reviews</a>
                                 <a href="/contact" class="hyperlink">Contact us</a>
                                 <form mix-post="api-logout ">
                                     <button class="btn-primary w-full">Logout</button>
@@ -114,7 +114,7 @@
                     <?php endif; ?>
                     <ul class="my-4 mt-8 flex flex-col gap-4">
                         <li><a class="hyperlink" href="/account">Account</a></li>
-                        <li><a class="hyperlink" href="/">My reviews</a></li>
+                        <li><a class="hyperlink" href="/my-reviews">My reviews</a></li>
                         <li><a class="hyperlink" href="/">Contact us</a></li>
                     </ul>
                 <?php else : ?>

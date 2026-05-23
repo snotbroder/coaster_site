@@ -5,9 +5,10 @@ require_once ROOT . "/config/db.php";
 if ($active == "index") {
     // Do nothinhg
 } else {
-    $breadcrumb_1 = ucfirst($active);
 
+    $breadcrumb_1 = ucfirst($active);
     $current_subpage = $_GET["park"] ?? $_GET["coaster"] ?? NULL;
+
 
     if (isset($_GET["park"])) {
         $sql = "SELECT park_title FROM parks WHERE :park_slug = park_slug";

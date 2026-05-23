@@ -13,6 +13,7 @@ get('/coasters', 'views/page-coasters.php');
 get('/login', 'views/page-login.php');
 get('/sign-up', 'views/page-sign-up.php');
 get('/account', 'views/page-account.php');
+get('/my-reviews', 'views/page-my-reviews.php');
 
 // Admin views
 get('/admin/configure-coasters', 'views/page-admin-configure-coasters.php');
