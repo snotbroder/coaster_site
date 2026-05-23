@@ -23,7 +23,7 @@ $reviews_rating_average = $stmt->fetchColumn();
             <tr>
                 <td>User rating</td>
                 <td>
-                    <?php require ROOT . "/views/components/___rating-stars.php"; ?>
+                    <?php $rating = $reviews_rating_average; require ROOT . "/views/components/___rating-stars.php"; ?>
                     (<?php _(round($reviews_rating_average, 2)) ?>)
                 </td>
             </tr>

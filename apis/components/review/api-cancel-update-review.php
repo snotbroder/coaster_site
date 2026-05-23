@@ -9,7 +9,7 @@ $review = $stmt->fetch();
 <browser mix-update="#review_content_<?php _($review["review_pk"]) ?>">
     <div class="flex gap-3 items-center">
         <span class="text-(--light-indigo) flex gap-1 items-center">
-            <?php require_once ROOT . "/views/components/___rating-stars.php" ?>
+            <?php $rating = $review["review_rating"]; require_once ROOT . "/views/components/___rating-stars.php" ?>
             <p class="small"><?php _($review["review_rating"]) ?> / 5</p>
         </span>
         <p class="xsmall text-(--light-indigo)!"><?php timeago($review["review_created_at"]) ?></p>

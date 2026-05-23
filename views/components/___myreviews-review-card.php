@@ -21,7 +21,7 @@ $truncated = (strlen($string) > 50) ? substr($string, 0, 50) . '...' : $string;
                 <span class="text-(--light-indigo) flex items-center md:items-end md:flex-col gap-1">
                     <p class="small text-right"><?php _($review["review_rating"]) ?> / 5</p>
                     <span>
-                        <?php require ROOT . "/views/components/___rating-stars.php" ?>
+                        <?php $rating = $review["review_rating"]; require ROOT . "/views/components/___rating-stars.php" ?>
                     </span>
                 </span>
                 <p class="xsmall text-(--light-indigo)!"><?php timeago($review["review_created_at"]) ?></p>
