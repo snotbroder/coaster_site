@@ -24,7 +24,7 @@ $review_user = $stmt->fetch();
                             <span aria-label="button" class="btn-utility text-xl pl-3.5! py-1! rounded-full!">&#x2807;</span>
                         </label>
                         <div class="hidden peer-checked:flex absolute right-0 top-full mt-1 z-100 min-w-36 flex-col gap-2 rounded-md border border-(--darkened-eggshell) bg-(--pure-eggshell) p-2 px-4 shadow-lg">
-                            <?php if ($review_user_fk === $_SESSION["user_pk"]): ?>
+                            <?php if ($review_user_fk === $_SESSION["user_pk"] || $_SESSION["user_authority"] > 0) : ?>
                                 <form mix-post="/api-request-update-review?review_pk=<?php _($review["review_pk"]) ?>">
                                     <button class="btn-utility">Edit</button>
                                 </form>
@@ -44,7 +44,8 @@ $review_user = $stmt->fetch();
             <article id="review_content_<?php _($review["review_pk"]) ?>">
                 <div class="flex gap-3 items-center">
                     <span class="text-(--light-indigo) flex gap-1 items-center">
-                        <?php $rating = $review["review_rating"]; require ROOT . "/views/components/___rating-stars.php" ?>
+                        <?php $rating = $review["review_rating"];
+                        require ROOT . "/views/components/___rating-stars.php" ?>
                         <p class="small"> <?php _($review["review_rating"]) ?> / 5</p>
                     </span>
                     <p class="xsmall text-(--light-indigo)!"><?php timeago($review["review_created_at"]) ?></p>

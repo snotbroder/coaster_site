@@ -63,32 +63,64 @@ $coasters = $stmt->fetchAll();
 ?>
 
 <section class="border-t-2 border-(--darkened-eggshell) flex flex-col gap-8 my-10 py-5 md:grid md:grid-cols-3 relative top-0">
-    <aside class="grid grid-cols-2 gap-6 md:flex md:flex-col md:sticky md:top-20 md:self-start anim-slide-up">
-        <div class="h-full md:h-48 w-auto">
-            <img class="rounded-sm w-full h-full object-cover" src="<?= _($park["park_image_path"]) ?>" alt="Park">
+    <aside class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:flex md:flex-col md:sticky md:top-12 md:self-start anim-slide-up">
+
+        <div class="h-full md:h-48 w-auto relative">
+            <img class="w-full h-full object-cover rounded-md" src="<?php _($park["park_image_path"]) ?>" alt="Park entrance">
+            <span class="absolute top-2 right-2 rounded-sm py-1.5 px-2 bg-(--pure-eggshell) text-(--light-indigo) text-sm"><?= round($park["park_lon"], 4) ?>&#176; N, <?= round($park["park_lat"], 4) ?>&#176; E</span>
         </div>
+
         <div class="flex flex-col gap-6">
             <div>
-                <h1 class="hyphens-auto wrap-anywhere"><?= _($park["park_title"]) ?> </h1>
-                <p class="m-0!">Established 1974</p>
-            </div>
-            <div class="flex flex-col gap-2 md:gap-4">
-                <span>
-                    <p class="small">
-                        <?php if ($park["park_is_operational"] == "1"): ?>
-                    <div class="bg-(--system-success)/60 border-2 border-(--system-success) w-fit px-4 rounded-2xl">
-                        In operation
+                <h1 class="hyphens-auto wrap-anywhere"><?= _($park["park_title"]) ?></h1>
+                <span class="flex gap-1 items-center w-full">
+                    <div class="w-4 pb-0.5">
+                        <img class="w-fit object-cover rounded-md" src="/static/assets/icons/location.svg" alt="location icon">
                     </div>
-                <?php else: ?>
-                    <div class="bg-(--system-failure)/60 border-2 border-(--system-failure) w-fit px-4 rounded-2xl">
-                        Not in operation
-                    </div>
-                <?php endif; ?>
-                </p>
+                    <p class="small text-(--light-indigo)! my-1!"><?php _($park["park_city"]) ?>, <?php _($park["park_country"]) ?></p>
                 </span>
-                <p><?php _($park["park_city"]) ?>, <?php _($park["park_country"]) ?></p>
+            </div>
+            <a href="<?= _($park["park_website"]) ?>" target="_blank" class="btn-primary w-fit">Visit website</a>
+            <div class="flex flex-col gap-2 md:gap-4">
+                <table class="stats w-full row-1 rounded-md md:col-1 lg:col-span-1 lg:col-start-1">
+                    <tr>
+                        <td>Status</td>
+                        <td>
+                            <p class="small">
+                                <?php if ($park["park_is_operational"] == "1"): ?>
+                            <div class="bg-(--system-success)/60 border-2 border-(--system-success) w-fit px-4 rounded-2xl">
+                                In operation
+                            </div>
+                        <?php else: ?>
+                            <div class="bg-(--system-failure)/60 border-2 border-(--system-failure) w-fit px-4 rounded-2xl">
+                                Not in operation
+                            </div>
+                        <?php endif; ?>
+                        </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Established</td>
+                        <td><?php _($park["park_year"]) ?></td>
+                    </tr>
+                    <tr>
+                        <td>Country</td>
+                        <td class="flex gap-2 items-center">
+                            <?php _($park["park_country"]) ?>
+                            <div class="w-4">
+                                <?php $coaster["coaster_park_fk"] = $park["park_pk"];
+                                require_once ROOT . "/views/components/___flag.php" ?>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Coasters</td>
+                        <td>0</td>
+                    </tr>
 
-                <a href="<?= _($park["park_website"]) ?>" target="_blank" class="hyperlink">Visit website</a>
+                </table>
+
+
             </div>
         </div>
     </aside>
@@ -116,7 +148,8 @@ $coasters = $stmt->fetchAll();
             foreach ($coasters as $coaster) {
                 require ROOT . "/views/components/__coaster-card.php";
             }
-            ?></section>
+            ?>
+        </section>
     </section>
 </section>
 <?php
