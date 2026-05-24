@@ -36,7 +36,7 @@ $total_reviews = $_db->query("SELECT COUNT(*) FROM reviews WHERE review_coaster_
         <?php
         } else {
         ?>
-            <button command="show-modal" commandfor="review-dialog" class="btn-primary">Write a review!</button>
+            <button command="show-modal" commandfor="review-dialog" class="btn-primary flex gap-2">Write a review<img class="w-4.5" src="/static/assets/icons/add-eggshell.svg" alt="plus icon"></button>
         <?php
         }
         ?>

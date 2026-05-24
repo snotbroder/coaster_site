@@ -256,6 +256,9 @@
   .row-end-1 {
     grid-row-end: 1;
   }
+  .m-0\! {
+    margin: calc(var(--spacing) * 0) !important;
+  }
   .m-auto {
     margin: auto;
   }
@@ -382,6 +385,9 @@
   .w-4 {
     width: calc(var(--spacing) * 4);
   }
+  .w-4\.5 {
+    width: calc(var(--spacing) * 4.5);
+  }
   .w-5 {
     width: calc(var(--spacing) * 5);
   }
@@ -399,6 +405,9 @@
   }
   .w-fit {
     width: fit-content;
+  }
+  .w-fit\! {
+    width: fit-content !important;
   }
   .w-full {
     width: 100%;
@@ -602,6 +611,9 @@
   .bg-\(--pure-indigo\) {
     background-color: var(--pure-indigo);
   }
+  .bg-\(--pure-seagreen\)\! {
+    background-color: var(--pure-seagreen) !important;
+  }
   .bg-\(--system-failure\) {
     background-color: var(--system-failure);
   }
@@ -665,8 +677,20 @@
   .p-8 {
     padding: calc(var(--spacing) * 8);
   }
+  .px-0 {
+    padding-inline: calc(var(--spacing) * 0);
+  }
+  .px-0\! {
+    padding-inline: calc(var(--spacing) * 0) !important;
+  }
+  .px-1\! {
+    padding-inline: calc(var(--spacing) * 1) !important;
+  }
   .px-2 {
     padding-inline: calc(var(--spacing) * 2);
+  }
+  .px-2\! {
+    padding-inline: calc(var(--spacing) * 2) !important;
   }
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
@@ -801,6 +825,12 @@
   }
   .text-\(--pure-indigo\)\! {
     color: var(--pure-indigo) !important;
+  }
+  .text-\(--pure-seagreen\) {
+    color: var(--pure-seagreen);
+  }
+  .text-\(--pure-seagreen\)\! {
+    color: var(--pure-seagreen) !important;
   }
   .text-\(--pure-star\) {
     color: var(--pure-star);
@@ -1730,10 +1760,14 @@ form.default {
     &::before {
       content: "";
       position: relative;
-      top: 4px;
+      display: block;
+      top: 4.5px;
       width: 12px;
       height: 12px;
-      background-image: url(../assets/icons/magnifying-glass-solid.svg);
+      background-image: url(../assets/icons/magnifying-glass.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.6;
     }
   }
   form input {

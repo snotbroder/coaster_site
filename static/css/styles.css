@@ -399,11 +399,14 @@ form.default {
     &::before {
       content: "";
       position: relative;
-      top: 4px;
+      display: block;
+      top: 4.5px;
       width: 12px;
       height: 12px;
-      background-image: url(../assets/icons/magnifying-glass-solid.svg);
-      /* position the icon inside */
+      background-image: url(../assets/icons/magnifying-glass.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.6;
     }
   }
 
