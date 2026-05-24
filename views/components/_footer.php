@@ -42,7 +42,7 @@
         </div>
     </section>
     <p class="small mb-4">Coastercodex.dk &#x00A9; - <?php _(date("Y")) ?></p>
-    <p class="xsmall">This is a school project - I do not own any copyright or any other property rights regarding imagery, names or bodytext.</p>
+    <p class="xsmall">This is a school project - I do not own any copyright or any other intellectual property rights regarding imagery, names or copy. Icons from <a class="underline hover:text-(--pure-seagreen)" href="https://www.svgrepo.com/collection/solar-broken-line-icons/">SVGrepo</a>.</p>
     <p class="xsmall">I will not be held liable for anything LMAOO.</p>
 
 </footer>

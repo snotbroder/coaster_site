@@ -973,6 +973,27 @@
       }
     }
   }
+  .hover\:text-\(--pure-seagrass\) {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--pure-seagrass);
+      }
+    }
+  }
+  .hover\:text-\(--pure-seagreen\) {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--pure-seagreen);
+      }
+    }
+  }
+  .hover\:underline {
+    &:hover {
+      @media (hover: hover) {
+        text-decoration-line: underline;
+      }
+    }
+  }
   .sm\:grid {
     @media (width >= 40rem) {
       display: grid;
