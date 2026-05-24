@@ -16,7 +16,7 @@ get('/account', 'views/page-account.php');
 get('/my-reviews', 'views/page-my-reviews.php');
 
 // System views
-get('/system/system-panel', 'views/system/page-system-index.php');
+get('/system', 'views/system/page-system-index.php');
 get('/system/configure-coasters', 'views/system/page-system-configure-coasters.php');
 get('/system/configure-parks', 'views/system/page-system-configure-parks.php');
 

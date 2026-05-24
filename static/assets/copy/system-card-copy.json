@@ -1,0 +1,30 @@
+{
+  "card-1": {
+    "title": "Configure users",
+    "body": "See active users, configure status, monitor their posted content.",
+    "icon": "/admin-user.svg",
+    "cta-path": "",
+    "cta": "Go to page"
+  },
+  "card-2": {
+    "title": "Configure coasters",
+    "body": "Add or remove coasters data from system.",
+    "icon": "/coaster.svg",
+    "cta-path": "/system/configure-coasters",
+    "cta": "Go to page"
+  },
+  "card-3": {
+    "title": "Configure parks",
+    "body": "Add or remove parks data from system.",
+    "icon": "/park.svg",
+    "cta-path": "/system/configure-parks",
+    "cta": "Go to page"
+  },
+  "card-4": {
+    "title": "User reports",
+    "body": "See user's flagged content",
+    "icon": "/flag.svg",
+    "cta-path": "",
+    "cta": "Go to page"
+  }
+}

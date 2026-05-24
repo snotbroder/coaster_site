@@ -55,7 +55,7 @@
                             <div class="hidden peer-checked:flex absolute right-0 top-full mt-1 z-100 min-w-48 flex-col gap-4 rounded-md border border-(--darkened-eggshell) bg-(--pure-eggshell) p-4 shadow-lg">
                                 <?php if ($_SESSION["user_authority"] == 1): ?>
                                     <div class="border-b border-(--darkened-eggshell) py-4">
-                                        <a class="btn-secondary flex gap-2 justify-between px-2! w-full!" href="/system/system-panel"><span>System panel</span><img class="w-4" src="/static/assets/icons/admin-user.svg" alt="admin user icon"></a>
+                                        <a class="btn-secondary flex gap-2 justify-between px-2! w-full!" href="/system"><span>System panel</span><img class="w-4" src="/static/assets/icons/admin-user.svg" alt="admin user icon"></a>
                                     </div>
                                 <?php endif; ?>
                                 <a class="hyperlink flex gap-4" href="/account"><img class="w-5" src="/static/assets/icons/account.svg" alt="account icon"><span>Account</span></a>
@@ -109,7 +109,7 @@
                     </div>
                     <?php if ($_SESSION["user_authority"] == 1): ?>
                         <div class="border-y border-(--darkened-eggshell) py-4 my-6">
-                            <a class="btn-secondary flex gap-2" href="/system/system-panel"><span>System panel</span><img class="w-4" src="/static/assets/icons/admin-user.svg" alt="admin user icon"></a>
+                            <a class="btn-secondary flex gap-2" href="/system"><span>System panel</span><img class="w-4" src="/static/assets/icons/admin-user.svg" alt="admin user icon"></a>
                         </div>
                     <?php endif; ?>
                     <ul class="my-4 mt-8 flex flex-col gap-4">

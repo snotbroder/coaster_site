@@ -18,21 +18,16 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
     <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
 </head>
-<?php require_once ROOT . "/config/_.php"; ?>
+<?php require ROOT . "/config/_.php"; ?>
 
 <body>
     <header class="w-full shadow-md bg-(--darkened-eggshell)">
         <nav class="flex justify-between flex-wrap items-center">
-            <div class="flex gap-2 items-center">
-                <a href="/"><img class="logo" src="../../static/assets/logo.svg" alt="Logo"></a>
-                <h3 class="text-(--light-indigo)!">System panel</h3>
+            <div>
+                <a class="flex gap-2 items-center" href="/system"><img class="logo" src="../../static/assets/logo.svg" alt="Logo">
+                    <h3 class="text-(--light-indigo)!">System panel</h3>
+                </a>
             </div>
-            <!-- Desktop nav links -->
-            <ul class="hidden md:flex flex-row gap-1 justify-between md:col-2 lg:col-3">
-                <!-- <li><a href="/parks" class="head-link <?= $active == 'parks' ? 'header-link-active' : '' ?>">Parks</a></li>
-                <li><a href="/coasters" class="head-link <?= $active == 'coasters' ? 'header-link-active' : '' ?>">Coasters</a></li>
-                <li><a href="/map" class="head-link <?= $active == 'map' ? 'header-link-active' : '' ?>">Map</a></li> -->
-            </ul>
 
             <!-- Desktop auth -->
             <ul class="flex md:justify-end md:col-3 lg:col-5">
@@ -75,4 +70,9 @@
         </nav>
 
     </header>
+    <?php
+
+
+
+    ?>
     <main>
