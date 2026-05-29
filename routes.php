@@ -22,6 +22,7 @@ get('/system/configure-parks', 'views/system/page-system-configure-parks.php');
 
 // Apis
 post('/api-login', 'apis/api-login.php');
+post('/api-forgot-password', 'apis/api-forgot-password.php');
 post('/api-logout', 'apis/api-logout.php');
 post('/api-sign-up', 'apis/api-sign-up.php');
 post('/api-index-search-coaster', 'apis/components/api-index-search-coaster.php');
