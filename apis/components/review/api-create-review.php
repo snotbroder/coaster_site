@@ -1,6 +1,5 @@
 <?php
 try {
-    // session is already started
     require_once ROOT . "/config/_.php";
     require_once ROOT . "/config/db.php";
 

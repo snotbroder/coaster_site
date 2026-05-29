@@ -5,8 +5,17 @@
 // Get user data based on review_user_fk
 $review_user_fk = $review["review_user_fk"];
 $stmt = $_db->prepare("SELECT * FROM users WHERE user_pk = :review_user_fk");
-$stmt->execute([":review_user_fk" => $review_user_fk ?? ""]);
+$stmt->execute([":review_user_fk" => $review_user_fk]);
 $review_user = $stmt->fetch();
+
+//Check logged in user's likes
+$stmt = $_db->prepare("SELECT like_review_fk FROM likes WHERE like_user_fk = :user_pk AND like_review_fk = :review_pk");
+$stmt->execute([
+    ":user_pk" => $_SESSION["user_pk"] ?? "", //If theres no user logged in, it needs to fallback to nothing, else i get a warning
+    ":review_pk" => $review["review_pk"]
+]);
+$user_liked_review = $stmt->fetchColumn();
+
 ?>
 <article id="review_<?php _($review['review_pk']) ?>" class="transition-all duration-300 ease-in-out">
     <!-- Two articles, one for mixhtml to remove upon delete, the other for styling -->
@@ -50,7 +59,20 @@ $review_user = $stmt->fetch();
                     </span>
                     <p class="xsmall text-(--light-indigo)!"><?php timeago($review["review_created_at"]) ?></p>
                 </div>
-                <p><?php _($review["review_body"]) ?></p>
+                <p class="my-2"><?php _($review["review_body"]) ?></p>
+                <div class="pt-4 border-t border-(--darkened-eggshell)">
+                    <div id="review_like_btn_<?php _($review["review_pk"]) ?>">
+                        <?php if ($user_liked_review == $review["review_pk"]): ?>
+
+                            <?php
+                            $review_pk = $review["review_pk"];
+                            require ROOT . "/views/components/___unlike-btn.php" ?>
+                        <?php else: ?>
+                            <?php require ROOT . "/views/components/___like-btn.php" ?>
+
+                        <?php endif; ?>
+                    </div>
+                </div>
             </article>
         </div>
     </article>

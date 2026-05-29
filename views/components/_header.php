@@ -13,6 +13,8 @@
     <script src="/static/js/mixhtml.js" defer></script>
     <script src="/static/js/script.js" defer></script>
 
+    <link rel="shortcut icon" href="/static/assets/favicon.png" type="image/x-icon" />
+
     <!-- LEaflet map -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
