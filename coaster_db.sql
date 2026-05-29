@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mariadb
--- Generation Time: May 22, 2026 at 09:09 AM
+-- Generation Time: May 29, 2026 at 10:29 AM
 -- Server version: 10.6.20-MariaDB-ubu2004
 -- PHP Version: 8.2.27
 
@@ -92,6 +92,7 @@ INSERT INTO `coasters` (`coaster_pk`, `coaster_park_fk`, `coaster_title`, `coast
 ('5df6a920b40241f692c5b6277f3edefb', 'd42cbe63a7654bba96a7b0bea106f4b4', 'Crazy Mine', 'Wilde Maus Classic', 'Maurer Rides GmbH', 1997, 15.00, 370.00, 45, 2.70, '01:32', 0, 'https://images.coasterpedia.net/thumb/c/c9/Crazy_Mine_%28Hansa_Park%29_2010_01.jpg/800px-Crazy_Mine_%28Hansa_Park%29_2010_01.jpg.webp', 1, 'Crazy Mine is a steel wild mouse roller coaster located at Hansa-Park in Sieksdorf, Schleswig-Holstein, Germany. The ride was manufactured by Maurer Rides.\r\n\r\nCrazy Mine is a standard Wilde Maus Classic model from Maurer.', '54.076331', '10.780924', 1778688280, 0),
 ('64b843de44874d7fa7dd0aa3392a8cfd', 'f07a7ebb0f6d42b6b61741dc16b426fd', 'Crazy Bats', 'Custom MK-900', 'Vekoma', 1988, 11.70, 1303.00, 47, 3.90, '04:00', 0, 'https://i.redd.it/cn3ity5kqn631.jpg', 1, 'Crazy Bats (formerly known as Space Center and Temple of the Night Hawk) is a steel enclosed roller coaster located in Phantasialand in Brühl, North Rhine-Westphalia, Germany. It is the first Custom MK-900 installation from Vekoma and was the longest enclosed coaster in the world until Guardians of the Galaxy: Cosmic Rewind opened in 2022.', '50.800639', '6.877917', 1779133221, 0),
 ('66279e4742b948138ea39c526dc5cc04', '9b0511db4f0a43c3b12848d5c42a060b', 'Helix', 'Launch Coaster', 'Maurer Rides GmbH', 2014, 41.00, 1381.00, 100, 4.30, '02:10', 7, 'https://images.ctfassets.net/nwbqij9m1jag/5tfbNB5LfmQuXPjsI023xB/c2517afe28c37b38113265303f4363cf/Strawberry_Sweden_Gothenburg_Accommodation_Hotel_family_holiday_attraction_liseberg_theme-park_helix_ride-Original-Landscape_Str', 1, 'Helix is a steel launched terrain roller coaster located at Liseberg in Gothenburg, Västra Götaland, Sweden. It was manufactured by Mack Rides and opened in 2014. In October 2012, Liseberg announced that they would be adding a new attraction for the 2014 season. The park hired Mack Rides to build a multi-launch roller coaster with a terrain layout. It would be codenamed Projekt Helix.', '57.695539', '11.990455', 1779131797, 0),
+('66693d1c43754e88879b3913ca2027a4', 'd42cbe63a7654bba96a7b0bea106f4b4', 'Cornwall Coaster', 'Family Coaster ', 'Gerstlauer Amusement Rides GmbH', 2026, 18.00, 570.00, 50, 2.30, '02:00', 0, 'https://www.hansapark.de/files/bilder/Der_Park/Attraktionen/Fahrattraktionen/Cornwall%20Coaster/Cornwall-Coaster-Visualisierung-Landschaft.jpg', 1, 'Hansa Park\'s newest addition for the 2026 season. Located in the parks Beautiful Britain themed area. The coaster launches a total of 7 times - riding backwards 3 times.', '54.07543788287226', '10.779629332706884', 1779538688, 0),
 ('6733ef46ebaf46d2962cc8d1c208487e', 'c142f569cb55470b93ecf368b49d54d5', 'Euro Mir', 'Spinning Coaster', 'Mack Rides', 1997, 28.30, 980.00, 80, 4.00, '5', 0, 'https://upload.wikimedia.org/wikipedia/commons/2/24/Euro-Mir_in_Europa-Park_Rust.JPG', 1, 'Euro-Mir is a Mack Rides spinning roller coaster located at Europa-Park in Rust, Baden Wuerttemberg, Germany. The ride opened on 12 June 1997. It is also the first Spinning Coaster installation from Mack Rides.\r\n\r\nEuro Mir opened on 12 June 1997. It was the first spinning coaster from manufacturing firm Mack Rides. The theming for the ride was done by P&P Projects.\r\n\r\nOn 25 March 2026, the park announced that the ride would close in 2026 and be replaced with a new roller coaster.', '48.264914', '7.71963', 1778539805, 0),
 ('68074c9d556d416299323719cf46805b', '9e20abe41ec644db87d70f79a93b5360', 'Desert Race', 'Accelerator Coaster', 'Intamin', 2007, 19.00, 650.00, 102, 5.00, '00:49', 0, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiVUUAKrQ-u23O1ld_7cAJ3H5fkjNc8iLM9w&s', 1, 'Desert Race is an Intamin launched roller coaster located at Heide Park in Soltau, Lower Saxony, Germany. The train launches to 102 km/h in 2.4 seconds.', '53.02177', '9.88087', 1778687095, 0),
 ('6a5582204bce4bc2816dd8bfa7631a4f', '35594d87cef94afdb3315d87f15ce60d', 'Fønix', 'Wildcat', 'Vekoma', 2022, 40.00, 905.00, 95, 4.10, '01:20', 3, 'https://blokhus.dk/wp-content/uploads/2022/10/Z1A7556-1280x853.jpg', 1, 'Fønix (Danish for Phoenix) is a steel roller coaster currently located at Fårup Sommerland in Blokhus, Nordjylland, Denmark. The ride was manufactured by Vekoma and opened on 9 April 2022. Fønix is the first Wildcat model from Vekoma.', '57.27145148936769', '9.665336642463961', 1778175575, 0),
@@ -130,9 +131,9 @@ INSERT INTO `coasters` (`coaster_pk`, `coaster_park_fk`, `coaster_title`, `coast
 ('9baff3f9c6784ebf93d3ec602a2ec694', 'f07a7ebb0f6d42b6b61741dc16b426fd', 'Black Mamba', 'Inverted Coater', 'Bolliger & Mabillard', 2006, 26.00, 768.00, 80, 4.00, '02:20', 4, 'https://pictures.captaincoaster.com/1440x1440/e8865fbe-dd88-4a12-a3e9-d2cc8487aeb6.jpg', 1, 'Black Mamba is a steel inverted roller coaster located in Phantasialand in Brühl, North Rhine-Westphalia, Germany. It was manufactured by Bolliger & Mabillard and opened in 2006. Like many modern Bolliger & Mabillard coasters, the track is filled with sand to absorb rattling and to reduce noise. On 23 May 2006, Black Mamba opened exclusively to ticket holders following an auction of 132 tickets to raise money for charity. It opened to the general public on the following day', '50.799079', '6.880585', 1779132923, 0),
 ('a3ad4b13ea074b6cae46643b572dc7dd', '06ce4975b2db4c709c5492d0146b8fc3', 'Untamed', 'Hybrid I-Box Track', 'Rocky Mountain Construction', 2019, 36.50, 1085.00, 92, 5.60, '01:46', 5, 'https://upload.wikimedia.org/wikipedia/commons/1/1d/Walibi_Holland_Untamed_first_drop.jpg', 1, 'Untamed is a steel hybrid roller coaster located at Walibi Holland in Biddinghuizen, Flevoland, Netherlands. It is an I-Box Track conversion of the existing Robin Hood wooden roller coaster manufactured by Rocky Mountain Construction which opened on 1 July 2019. On 6 February 2018, Walibi Holland announced on their Facebook page that Robin Hood was to be refurbished into a new experience for 2019.', '52.44263', '5.76154', 1779135911, 0),
 ('a506df33664e4588bb3e69eabab1499b', '7cac88c695524ffb9a9382f2ef1cfdb6', 'Avengers Assemble: Flight Force', 'LSM Coaster', 'Vekoma', 2002, 24.40, 996.00, 92, 5.00, '01:10', 3, 'https://pictures.captaincoaster.com/1440x1440/ea024444-6e57-45f9-967f-0d9f90c56e0e.jpg', 1, 'Avengers Assemble: Flight Force is a steel launched enclosed roller coaster located at Disney Adventure World in Marne la Vallée, Île-de-France, France. The ride opened on 16 March 2002 as Rock \'n\' Roller Coaster and was themed to rock band Aerosmith. It closed on 1 September 2019 for a complete retheme, and reopened with its new Marvel theming on 20 July 2022 at the same time as the new Avengers Campus.', '48.865074', '2.779736', 1779136934, 0),
-('a51b8165eb8d4aea9de96ca19c86536d', '15e1b1eb4f7d4196b790b37a994baa36', 'Joris en de Draak (Water)', 'Wooden Twin', 'Great Coasters International', 2010, 22.10, 787.90, 75, 3.60, '01:50', 0, 'https://www.efteling.com/en/-/media/images/nieuw-park/park/attractions/joris-en-de-draak/1024x576-joris-en-de-draak-2.jpg', 1, 'Joris en de Draak is a wooden racing roller coaster located at Efteling in Kaatsheuvel, North Brabant, Netherlands. It replaced the Pegasus and opened in 2010. Pegasus closed in 2009 due to high maintenance costs. Efteling originally had a motorbike coaster in mind as the replacement for Pegasus. Joravision was hired to theme the ride, they came up with a dragon theme, where the coaster would fight an enormous dragon, using lots of special effects.', '51.6468303970', '5.05248375824', 1778177407, 0),
-('a91e51bbc73c497fa2f4082a973ca677', '26e4ca9faeb3489eb814188be88a0b28', 'Frida', 'Junior Coaster ', 'Vekoma', 2019, 13.00, 247.00, 45, 2.30, '01:20', 0, 'https://pictures.captaincoaster.com/1440x1440/9cb71e2e-a7fb-4ef5-adfb-9c31fe3dc522.jpg', 1, 'Frida is a steel roller coaster located at Energylandia in Zator, Małopolskie, Poland. It runs with a single train with 8 cars. In each car, riders are arranged 2 across in a single row, for a total of 16 riders per train.\r\n\r\n', '50.001835', '19.400906', 1779215276, 0);
+('a51b8165eb8d4aea9de96ca19c86536d', '15e1b1eb4f7d4196b790b37a994baa36', 'Joris en de Draak (Water)', 'Wooden Twin', 'Great Coasters International', 2010, 22.10, 787.90, 75, 3.60, '01:50', 0, 'https://www.efteling.com/en/-/media/images/nieuw-park/park/attractions/joris-en-de-draak/1024x576-joris-en-de-draak-2.jpg', 1, 'Joris en de Draak is a wooden racing roller coaster located at Efteling in Kaatsheuvel, North Brabant, Netherlands. It replaced the Pegasus and opened in 2010. Pegasus closed in 2009 due to high maintenance costs. Efteling originally had a motorbike coaster in mind as the replacement for Pegasus. Joravision was hired to theme the ride, they came up with a dragon theme, where the coaster would fight an enormous dragon, using lots of special effects.', '51.6468303970', '5.05248375824', 1778177407, 0);
 INSERT INTO `coasters` (`coaster_pk`, `coaster_park_fk`, `coaster_title`, `coaster_model`, `coaster_manufacturer`, `coaster_year`, `coaster_height`, `coaster_length`, `coaster_top_speed`, `coaster_gforce`, `coaster_duration`, `coaster_inversion_count`, `coaster_image_path`, `coaster_is_operational`, `coaster_description`, `coaster_lon`, `coaster_lat`, `coaster_created_at`, `coaster_deleted_at`) VALUES
+('a91e51bbc73c497fa2f4082a973ca677', '26e4ca9faeb3489eb814188be88a0b28', 'Frida', 'Junior Coaster ', 'Vekoma', 2019, 13.00, 247.00, 45, 2.30, '01:20', 0, 'https://pictures.captaincoaster.com/1440x1440/9cb71e2e-a7fb-4ef5-adfb-9c31fe3dc522.jpg', 1, 'Frida is a steel roller coaster located at Energylandia in Zator, Małopolskie, Poland. It runs with a single train with 8 cars. In each car, riders are arranged 2 across in a single row, for a total of 16 riders per train.\r\n\r\n', '50.001835', '19.400906', 1779215276, 0),
 ('ab5f5410a722474cbca6900bdd4d0965', '15e1b1eb4f7d4196b790b37a994baa36', 'Pegasus', 'Wooden Coaster', 'Intamin', 1991, 15.00, 492.30, 55, 3.50, '01:43', 0, 'https://preview.redd.it/does-anyone-know-the-name-of-this-train-type-pegasus-pre-v0-y2vgt7wohx0f1.jpg?width=1200&format=pjpg&auto=webp&s=1568f09c8cbe29f78c73bea4af39499e003b9211', 0, 'Pegasus was an Intamin wooden roller coaster located at Efteling in Kaatsheuvel, North Brabant, Netherlands. It was replaced by Joris en de Draak in 2010. Pegasus opened on 1 July 1991. The ride closed on 19 June 2009.', '51.646661', '5.052356', 1778178252, 0),
 ('ab999b0ce5004ad7a1b4f5e71e8a0970', '9e1320bf3aa5466da14a3f5da15c4cdb', 'Rutchebanen', 'Wooden', 'L.A. Thompson Scenic Railway Company', 1914, 12.00, 720.00, 60, 1.70, '02:10', 0, 'https://rcdb.com/aabnlqa', 1, 'Rutschebanen is a wooden roller coaster located at Tivoli Gardens in Copenhagen, Sjælland, Denmark. The roller coaster is the third oldest roller coaster in operation. Rutschebanen in English is \"Roller Coaster\".', '55.673242', '12.566927', 1778179741, 0),
 ('ae7f7644085940d48ea68b5cb9ec4e64', '9e1320bf3aa5466da14a3f5da15c4cdb', 'Kamelen', 'Force', 'Zierer', 2019, 6.00, 140.00, 24, 1.30, '01:20', 0, 'https://i.ytimg.com/vi/vdKL1yF8X-A/maxresdefault.jpg', 1, 'Kamelen is a steel roller coaster built by German manufacturer Zierer currently located at Tivoli Gardens in Copenhagen, Sjælland, Denmark. The coaster replaced the Karavanen.', '55.673606', '12.570945', 1778178935, 0),
@@ -165,6 +166,19 @@ INSERT INTO `coasters` (`coaster_pk`, `coaster_park_fk`, `coaster_title`, `coast
 ('efe4cf3b00c94d34acd6773cc2481813', 'c142f569cb55470b93ecf368b49d54d5', 'Wodan Timbur Coaster', 'Wooden Coaster', 'Great Coasters International', 2012, 40.00, 1050.00, 100, 3.50, '03:25', 0, 'https://upload.wikimedia.org/wikipedia/commons/1/1a/Europa-Park_-_Wodan_-_Timburcoaster_%2817%29.JPG', 1, 'Wodan Timbur coaster is a wooden roller coaster located at Europa-Park in Rust, Baden Wuerttemberg, Germany. It opened on 31 March 2012 and was built by Great Coasters International.[1]\r\n\r\nThe ride is located in the Iceland section of the park, which opened in 2009. It is the park\'s first and only wooden coaster. Plus, the attraction features a restroom halfway throughout the queue line.', '48.261239', '7.71897', 1778540746, 0),
 ('f2b0df34f96b4e6eabba31b27207fb0a', '9e20abe41ec644db87d70f79a93b5360', 'Flug der Dämonen', 'Wing Coaster', 'Bolliger & Mabillard', 2014, 40.00, 772.00, 100, 4.10, '03:00', 5, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT60ZDfn2a7JdCZA9M_zH8o43JEa5YyU3NZ4A&s', 1, 'Flug der Dämonen is a steel winged roller coaster located at Heide Park in Soltau, Lower Saxony, Germany. It is a Bolliger & Mabillard Wing Coaster installed by RCS GmbH. On 18 August 2013, details were revealed on the size of the ride and number of inversions. The ride opened on 29 March 2014.', '53.025875', '9.879648', 1778687237, 0),
 ('f49bc166263d483a889f151a10adb6e2', '26e4ca9faeb3489eb814188be88a0b28', 'Energuś Roller Coaster', 'Junior Coaster ', 'Vekoma', 2015, 13.00, 335.00, 46, 2.00, '01:30', 0, 'https://energylandia.pl/wp-content/uploads/2017/03/3-2.jpg', 1, 'Energuś Roller Coaster is a steel roller coaster located at Energylandia in Zator, Małopolskie, Poland. Energuś Roller Coaster is one of Vekoma\'s 335m Roller Skater installations. This is the largest Junior Coaster version Vekoma offers.', '50.000214', '19.41048', 1779215018, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `likes`
+--
+
+CREATE TABLE `likes` (
+  `like_user_fk` char(32) NOT NULL,
+  `like_review_fk` char(32) NOT NULL,
+  `like_created_at` int(25) UNSIGNED NOT NULL,
+  `like_deleted_at` int(25) UNSIGNED NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -230,12 +244,20 @@ CREATE TABLE `reviews` (
 --
 
 INSERT INTO `reviews` (`review_pk`, `review_user_fk`, `review_coaster_fk`, `review_body`, `review_rating`, `review_created_at`, `review_deleted_at`) VALUES
+('037bcc09c431476e93e84168870c2b2b', 'fb9315fe11fb4e888dca04fa3a707d00', '9baff3f9c6784ebf93d3ec602a2ec694', 'Very cool coaster, well integrated into the scenery with impressive headchoppers.', 4, 1779546784, 0),
+('046eb508ae7846de918e6b00891fd5b4', 'fb9315fe11fb4e888dca04fa3a707d00', '66693d1c43754e88879b3913ca2027a4', 'Newest coaster for Hansa Park! Very excited.', 5, 1779538722, 0),
+('05270497603541ccbec256282ae08d7b', 'fb9315fe11fb4e888dca04fa3a707d00', '9baff3f9c6784ebf93d3ec602a2ec694', 'This coaster made me vomit...', 1, 1779546865, 0),
+('0ae1c8b3d94a47fd8d86955456393fea', 'fb9315fe11fb4e888dca04fa3a707d00', '6d64e611bd3742e9982fa674f5512eff', 'This is not a coaster I recommend!', 2, 1779544165, 0),
 ('380463bc3e6d4ada89cf8fed3b86f356', 'fb9315fe11fb4e888dca04fa3a707d00', '3ea6717bc5f24f7aa51bf01a5d6ca9f6', 'This is a review', 1, 1779219046, 0),
+('4eac01482448467bbada543e82ab8e39', '56799dfc98764369abdf7c4e9c5870bc', '7e32163df7df4e9691484adf878cc3cb', 'This rollercoaster was too intense for me, but my sister loved it!', 3, 1779455842, 0),
 ('98d47cc40a784d4db593061bb1f79c99', 'fb9315fe11fb4e888dca04fa3a707d00', '1ff4a5b397c24a40b44f1800d2863607', 'I like this coaster!', 5, 1779198756, 0),
 ('9f79c84e1e7848cdb01355560dc73791', 'fb9315fe11fb4e888dca04fa3a707d00', '1aae279b424f45d3b50e69652f802fc6', 'This coaster is in the dark. Beware!', 1, 1779395017, 0),
 ('b78e1ffcf38c45beacedb2f12ba036f7', 'fb9315fe11fb4e888dca04fa3a707d00', '3ea6717bc5f24f7aa51bf01a5d6ca9f6', 'Nevermind, I really liked it riding it two times', 5, 1779219002, 0),
+('bd7a588a1d894f7b8dda1db993ef4059', 'fb9315fe11fb4e888dca04fa3a707d00', '68074c9d556d416299323719cf46805b', 'Coaster was a little short, but I like the speed.', 3, 1779618149, 0),
 ('c79c8f20d9ea497ab626674ccb996629', 'fb9315fe11fb4e888dca04fa3a707d00', '3ea6717bc5f24f7aa51bf01a5d6ca9f6', 'This coaster was too childish for me :(', 3, 1779218290, 0),
-('db645765c9774911b6144ca26895873b', 'fb9315fe11fb4e888dca04fa3a707d00', '7e32163df7df4e9691484adf878cc3cb', 'This coaster was a lot of fun!', 5, 1779438995, 0);
+('d4f3da3b1afd41ebaa453975866fd946', 'fb9315fe11fb4e888dca04fa3a707d00', '6d64e611bd3742e9982fa674f5512eff', 'This coaster is shaky and gave me a massive headache. Do not recommend.', 1, 1779542808, 0),
+('db645765c9774911b6144ca26895873b', 'fb9315fe11fb4e888dca04fa3a707d00', '7e32163df7df4e9691484adf878cc3cb', 'This coaster was a lot of fun!', 5, 1779438995, 0),
+('e4266e5c3eac45e79dd0d26bcc2f93de', 'fb9315fe11fb4e888dca04fa3a707d00', '3ea6717bc5f24f7aa51bf01a5d6ca9f6', 'Alpenexpress \"Enzian\" is a steel powered coaster from German firm Mack Rides currently located at Europa-Park in Rust, Baden Wuerttemberg, Germany. It replaced a coaster of the same name, Alpenexpress \"Enzian\".\r\n\r\nAlpenexpress \"Enzian\" is a steel powered coaster from German firm Mack Rides currently located at Europa-Park in Rust, Baden Wuerttemberg, Germany. It replaced a coaster of the same name, Alpenexpress \"Enzian\".', 5, 1779454507, 0);
 
 -- --------------------------------------------------------
 
@@ -249,6 +271,7 @@ CREATE TABLE `users` (
   `user_email` varchar(50) NOT NULL,
   `user_password` varchar(100) NOT NULL,
   `user_avatar_path` varchar(1000) NOT NULL,
+  `user_authority` tinyint(1) UNSIGNED NOT NULL DEFAULT 0,
   `user_created_at` int(25) UNSIGNED NOT NULL,
   `user_deleted_at` int(25) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -257,10 +280,11 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_pk`, `user_username`, `user_email`, `user_password`, `user_avatar_path`, `user_created_at`, `user_deleted_at`) VALUES
-('1cf47abab76a4c4aa1d71322b3c7248a', 'aaa', 'a@a.com', '$2y$10$YarCDucuWiJhy3lG/Yvc2eGqAhxZW6ZkzjDVRkQPOpkwxtDDOWYTi', '', 1779019322, 1),
-('56799dfc98764369abdf7c4e9c5870bc', 'bbb', 'b@b.com', '$2y$10$wAUW2JO6RNk8Xh6VtBHvrOXsVXPGbOTeR.hFw9WCRy9LnSMIJm9/m', '', 1779097188, 0),
-('fb9315fe11fb4e888dca04fa3a707d00', 'snotbroder', 'jorislolking@gmail.com', '$2y$10$.rAFo7YAJhN82Ira5ZoLse.xwp7erDvppxYqj2ATIJizekmWC3Fei', 'profile_avatar_default.jpg', 1777143249, 0);
+INSERT INTO `users` (`user_pk`, `user_username`, `user_email`, `user_password`, `user_avatar_path`, `user_authority`, `user_created_at`, `user_deleted_at`) VALUES
+('1cf47abab76a4c4aa1d71322b3c7248a', 'aaa', 'a@a.com', '$2y$10$YarCDucuWiJhy3lG/Yvc2eGqAhxZW6ZkzjDVRkQPOpkwxtDDOWYTi', 'profile_avatar_default.jpg', 0, 1779019322, 1),
+('56799dfc98764369abdf7c4e9c5870bc', 'bbb', 'b@b.com', '$2y$10$wAUW2JO6RNk8Xh6VtBHvrOXsVXPGbOTeR.hFw9WCRy9LnSMIJm9/m', 'profile_avatar_default.jpg', 0, 1779097188, 0),
+('dea1c706619d40b98a15962708734986', 'santi', 'santi@email.com', '$2y$10$0Lzj7xm.HYw9o6floOsvBevmE9Z1/EGdDK4HoP6IrTneMcCqSmXFm', 'profile_avatar_default.jpg', 0, 1779576475, 0),
+('fb9315fe11fb4e888dca04fa3a707d00', 'snotbroder', 'jorislolking@gmail.com', '$2y$10$.rAFo7YAJhN82Ira5ZoLse.xwp7erDvppxYqj2ATIJizekmWC3Fei', 'profile_avatar_default.jpg', 1, 1777143249, 0);
 
 --
 -- Triggers `users`
@@ -299,17 +323,29 @@ ALTER TABLE `coasters`
   ADD KEY `coaster_title` (`coaster_title`);
 
 --
+-- Indexes for table `likes`
+--
+ALTER TABLE `likes`
+  ADD PRIMARY KEY (`like_user_fk`,`like_review_fk`),
+  ADD KEY `like_user_fk` (`like_user_fk`,`like_review_fk`);
+
+--
 -- Indexes for table `parks`
 --
 ALTER TABLE `parks`
-  ADD PRIMARY KEY (`park_pk`);
+  ADD PRIMARY KEY (`park_pk`),
+  ADD KEY `park_pk` (`park_pk`),
+  ADD KEY `park_pk_2` (`park_pk`);
+ALTER TABLE `parks` ADD FULLTEXT KEY `park_title` (`park_title`);
 
 --
 -- Indexes for table `reviews`
 --
 ALTER TABLE `reviews`
   ADD PRIMARY KEY (`review_pk`),
-  ADD KEY `review_coaster_fk` (`review_coaster_fk`);
+  ADD KEY `review_coaster_fk` (`review_coaster_fk`),
+  ADD KEY `review_pk` (`review_pk`),
+  ADD KEY `review_user_fk` (`review_user_fk`);
 
 --
 -- Indexes for table `users`
@@ -317,7 +353,8 @@ ALTER TABLE `reviews`
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_pk`),
   ADD UNIQUE KEY `user_username` (`user_username`),
-  ADD KEY `user_email` (`user_email`);
+  ADD KEY `user_email` (`user_email`),
+  ADD KEY `user_pk` (`user_pk`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
