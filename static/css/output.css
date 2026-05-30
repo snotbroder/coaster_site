@@ -195,6 +195,9 @@
   .relative {
     position: relative;
   }
+  .static {
+    position: static;
+  }
   .sticky {
     position: sticky;
   }
@@ -309,17 +312,11 @@
   .mt-2 {
     margin-top: calc(var(--spacing) * 2);
   }
-  .mt-4 {
-    margin-top: calc(var(--spacing) * 4);
-  }
   .mt-6 {
     margin-top: calc(var(--spacing) * 6);
   }
   .mt-8 {
     margin-top: calc(var(--spacing) * 8);
-  }
-  .mt-10 {
-    margin-top: calc(var(--spacing) * 10);
   }
   .mt-24 {
     margin-top: calc(var(--spacing) * 24);
@@ -1776,7 +1773,6 @@ form.default {
   background: var(--pure-eggshell);
   padding: 1rem;
   margin: 1rem;
-  max-width: 100%;
   border-radius: 0.5rem;
   display: flex;
   gap: 10px;
@@ -1787,6 +1783,12 @@ form.default {
     margin: 0;
     flex-direction: column;
     max-width: 22rem;
+  }
+  @media (width >= 64rem) {
+    width: 50%;
+  }
+  @media (width >= 82rem) {
+    width: 100%;
   }
 }
 #map_filters {

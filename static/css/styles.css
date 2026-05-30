@@ -407,7 +407,7 @@ form.default {
   background: var(--pure-eggshell);
   padding: 1rem;
   margin: 1rem;
-  max-width: 100%;
+  /* max-width: 100%; */
   border-radius: 0.5rem;
 
   display: flex;
@@ -421,6 +421,10 @@ form.default {
     max-width: 22rem;
   }
   @media (width >= 64rem) {
+    width: 50%;
+  }
+  @media (width >= 82rem) {
+    width: 100%;
   }
 }
 #map_filters {

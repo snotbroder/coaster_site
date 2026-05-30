@@ -1,5 +1,5 @@
 <?php
-require_once ROOT . "/config/db.php";
+require_once ROOT . "/config/d.php";
 
 $country_code = $_POST["filter_country_code"] ?? "";
 $operational_only = isset($_POST["filter_is_operational"]) && $_POST["filter_is_operational"] === "on";
