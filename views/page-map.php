@@ -127,9 +127,6 @@ $coasters = $stmt->fetchAll();
     const parks = <?= json_encode($parks) ?>;
     const coasters = <?= json_encode($coasters) ?>;
 
-    coasters.forEach(addCoasterMarker);
-    markers.addTo(map);
-
     // filtering
     async function addFilters() {
         const formData = new FormData(filterForm);
@@ -157,5 +154,24 @@ $coasters = $stmt->fetchAll();
         clearTimeout(searchTimeout);
         searchTimeout = setTimeout(addFilters, 200);
     });
+
+    // on page load, apply filters from URL if present
+    (async () => {
+        const urlParams = new URLSearchParams(window.location.search);
+
+        //claude helped getting the right syntax
+        if (urlParams.has("switch")) {
+            const radio = filterForm.querySelector(`[name="switch"][value="${urlParams.get("switch")}"]`);
+            if (radio) radio.checked = true;
+        }
+        if (urlParams.has("filter_country")) {
+            filterForm.querySelector("[name='filter_country']").value = urlParams.get("filter_country");
+        }
+        if (urlParams.has("filter_search")) {
+            filterForm.querySelector("[name='filter_search']").value = urlParams.get("filter_search");
+        }
+
+        await addFilters();
+    })();
 </script>
 <?php require_once ROOT . '/views/components/_footer.php'; ?>
