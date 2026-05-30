@@ -131,8 +131,40 @@ function timeago($timestamp): void
     echo htmlspecialchars($result);
 }
 
+
+// ############################## Help from Claude, inspired by https://www.geeksforgeeks.org/html/write-a-code-to-upload-a-file-in-php/
+define("avatar_max_bytes", 2 * 1024 * 1024); // 2MB
+function _validate_user_avatar(): array
+{
+
+    $file = $_FILES["user_avatar"] ?? null;
+
+    if (!$file || $file["error"] === UPLOAD_ERR_NO_FILE) {
+        throw new Exception("No file uploaded", 400);
+    }
+    if ($file["error"] !== UPLOAD_ERR_OK) {
+        throw new Exception("Upload failed (error " . $file["error"] . ")", 400);
+    }
+    if ($file["size"] > avatar_max_bytes) {
+        throw new Exception("File too large, max 2MB", 400);
+    }
+
+    $ext = strtolower(pathinfo($file["name"], PATHINFO_EXTENSION));
+    if (!in_array($ext, ["jpg", "jpeg", "png", "webp"])) {
+        throw new Exception("Invalid file type. Allowed: jpg, png, gif, webp", 400);
+    }
+
+    // Check actual file content, not just the extension
+    $mime = mime_content_type($file["tmp_name"]);
+    if (!in_array($mime, ["image/jpeg", "image/png", "image/gif", "image/webp"])) {
+        throw new Exception("File content does not match a supported image type", 400);
+    }
+
+    return $file;
+}
+
 // ##############################
-function _no_cache()
+function _no_cache(): void
 {
     header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
     header("Pragma: no-cache");

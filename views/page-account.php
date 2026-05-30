@@ -3,31 +3,33 @@
 $title = "Account";
 $active = "account";
 
-require_once ROOT . '/views/components/_header.php';
-if (!$_SESSION) {
-    header("Location: /");
+if (!isset($_SESSION["user_pk"])) {
+    header("Location: /login");
     exit;
 }
+
 require_once ROOT . "/config/db.php";
-$stmt = $_db->prepare("SELECT * FROM users WHERE user_email = :email");
-$stmt->execute([":email" => $_SESSION["user_email"] ?? ""]);
+$stmt = $_db->prepare("SELECT * FROM users WHERE user_pk = :user_pk");
+$stmt->execute([":user_pk" => $_SESSION["user_pk"]]);
 $user = $stmt->fetch();
 
+
+
+require_once ROOT . '/views/components/_header.php';
 ?>
 <h1>Account</h1>
 <section class="my-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
-    <aside class="w-full flex flex-col gap-8 bg-(--pure-eggshell) p-6 rounded-md shadow-md">
-        <div class="w-28 m-auto">
-            <img class="object-fit rounded-full w-full" src="/static/assets/avatars/<?php _($_SESSION["user_avatar_path"] ?? "profile_avatar_default.jpg") ?>" alt="Profile image">
+    <aside class="w-full flex flex-col gap-8 justify-between bg-(--pure-eggshell) p-6 rounded-md shadow-md">
+        <div>
+            <div id="avatar_image_container" class="w-28 mx-auto">
+                <img class="object-fit rounded-full w-full" src="/static/assets/avatars/<?php _($_SESSION["user_avatar_path"] ?? "profile_avatar_default.jpg") ?>" alt="Profile image">
+            </div>
+            <span id="avatar_options_container" class="flex flex-col gap-1 mt-8">
+                <section id="update_avatar_container" class="flex flex-col items-center">
+                    <button mix-post="/api-request-update-avatar" class="btn-primary">Update avatar</button>
+                </section>
+            </span>
         </div>
-        <span class="flex flex-col gap-1">
-            <form id="update_avatar_container" mix-post="/api-request-update-avatar">
-
-                <button class="btn-primary">Update avatar</button>
-
-            </form>
-
-        </span>
         <div class="flex flex-col gap-4">
             <p><?php _($_SESSION["user_email"]) ?></p>
             <p class="small">Created <?php timeago($user["user_created_at"]) ?></p>

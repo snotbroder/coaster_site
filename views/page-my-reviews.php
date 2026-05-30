@@ -4,8 +4,8 @@ $title = "My reviews";
 $active = "my-reviews";
 
 require_once ROOT . '/views/components/_header.php';
-if (!$_SESSION) {
-    header("Location: /");
+if (!isset($_SESSION["user_pk"])) {
+    header("Location: /login");
     exit;
 }
 require_once ROOT . "/config/db.php";
