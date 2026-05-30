@@ -151,12 +151,12 @@ function _validate_user_avatar(): array
 
     $ext = strtolower(pathinfo($file["name"], PATHINFO_EXTENSION));
     if (!in_array($ext, ["jpg", "jpeg", "png", "webp"])) {
-        throw new Exception("Invalid file type. Allowed: jpg, png, gif, webp", 400);
+        throw new Exception("Invalid file type. Allowed: jpg, jpeg, png, webp", 400);
     }
 
     // Check actual file content, not just the extension
     $mime = mime_content_type($file["tmp_name"]);
-    if (!in_array($mime, ["image/jpeg", "image/png", "image/gif", "image/webp"])) {
+    if (!in_array($mime, ["image/jpeg", "image/png", "image/jpg", "image/webp"])) {
         throw new Exception("File content does not match a supported image type", 400);
     }
 

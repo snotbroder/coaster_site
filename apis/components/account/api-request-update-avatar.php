@@ -3,7 +3,7 @@
         <span>
             <label class="btn-secondary relative w-full!">
                 Choose file
-                <input type="file" name="user_avatar" placeholder="Select file" class="hidden absolute w-full h-full" accept="image/png, image/jpeg, image/png, image/webp">
+                <input type="file" name="user_avatar" placeholder="Select file" class="hidden absolute w-full h-full" accept="image/png, image/jpeg, image/jpg, image/webp">
             </label>
         </span>
         <div class="flex justify-between gap-2">
