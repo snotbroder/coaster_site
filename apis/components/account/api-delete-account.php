@@ -1,6 +1,8 @@
 <?php
 echo "ok";
 require_once ROOT . "/config/db.php";
+require_once ROOT . "/config/_.php";
+
 
 // Just in case
 if (!isset($_SESSION["user_pk"])) {
@@ -18,5 +20,6 @@ $stmt->execute([
     ":time" => time(),
     ":user_pk" => $_SESSION["user_pk"]
 ]);
+
 // Logout, clearing and destroy session is in here 
 require_once ROOT . "/apis/api-logout.php";
