@@ -30,6 +30,9 @@ post('/api-search-park', 'apis/api-search-park.php');
 post('/api-get-park-coasters', 'apis/api-get-park-coasters.php');
 post('/api-filter-parks', 'apis/api-filter-parks.php');
 
+get('/api-map-filter', 'apis/api-map-filter.php');
+
+
 // Review apis
 post('/api-create-review', 'apis/components/review/api-create-review.php');
 post('/api-delete-review', 'apis/components/review/api-delete-review.php');
