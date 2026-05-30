@@ -134,6 +134,7 @@ function timeago($timestamp): void
 
 // ############################## Help from Claude, inspired by https://www.geeksforgeeks.org/html/write-a-code-to-upload-a-file-in-php/
 define("avatar_max_bytes", 2 * 1024 * 1024); // 2MB
+define("avatar_max_bytes_string", "2MB");
 function _validate_user_avatar(): array
 {
 
