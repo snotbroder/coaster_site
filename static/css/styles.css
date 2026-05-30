@@ -499,7 +499,7 @@ table.stats {
   }
 }
 
-/* REVIEW */
+/* DIALOG */
 
 #review-dialog {
   margin: auto;
@@ -510,6 +510,39 @@ table.stats {
   @media (min-width: 768px) {
     min-width: 628px;
     max-width: 780px;
+  }
+
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.474);
+  }
+  .review-container {
+    .review-body {
+      background-color: var(--light-eggshell);
+      border: 1px solid var(--darkened-eggshell);
+      padding: 0.5rem;
+      border-radius: 0.25rem;
+      resize: none;
+
+      min-height: 3rem;
+      height: auto;
+
+      overflow: auto;
+    }
+    select {
+      color: var(--pure-seagreen);
+    }
+  }
+}
+
+#delete-dialog {
+  margin: auto;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  border: 2px solid var(--system-failure);
+  min-width: 80%;
+  @media (min-width: 768px) {
+    min-width: 628px;
+    max-width: 720px;
   }
 
   &::backdrop {

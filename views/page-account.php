@@ -69,13 +69,31 @@ require_once ROOT . '/views/components/_header.php';
             <article class="w-full flex flex-col gap-6 bg-(--system-failure)/5 border-2 border-(--system-failure)/30 rounded-md p-8">
                 <p>When you delete your account, your reviews will be removed from the website.</p>
                 <p class="small">If you have questions regarding your data, feel free to <a class="hyperlink-mini" href="#">contact us</a>.</p>
-                <button class="btn-primary danger">Delete profile</button>
+                <button command="show-modal" commandfor="delete-dialog" class="btn-primary danger flex gap-2">Delete account<img class="w-4.5" src="/static/assets/icons/danger-triangle-indigo.svg" alt="danger icon"></button>
+                <!-- <button class="btn-primary danger">Delete profile</button> -->
             </article>
         </section>
     </section>
 
 
 </section>
+<dialog id="delete-dialog" class="anim-slide-up">
+    <div class="absolute top-7 right-7 rounded-full cursor-pointer hover:bg-(--darkened-eggshell) py-0.75 px-2">
+        <button class="cursor-pointer" commandfor="delete-dialog" command="close">&#x2715;</button>
+    </div>
+    <h3 class="mb-2 flex gap-2 text-(--system-failure)!">Delete account <img class="w-8 my-auto" src="/static/assets/icons/danger-triangle-failure.svg" alt="danger icon"></h3>
 
+    <div class="flex flex-col gap-4">
+        <h4 class="mb-4">Are you sure you want to delete your account?</h4>
+        <p>Your reviews will not be displayed on the website, and you will no longer be able to log in, nor sign up with the same email.</p>
+        <p class="small">If you have questions regarding your data, feel free to <a class="hyperlink-mini" href="#">contact us</a>.</p>
+    </div>
+    <span class="flex flex-col sm:flex-row gap-4 mt-8">
+        <button class="btn-primary danger" mix-post="/api-delete-account">Delete account</button>
+        <button type="button" class="btn-secondary" commandfor="delete-dialog" command="close">Cancel</button>
+    </span>
+
+
+</dialog>
 
 <?php require_once ROOT . "/views/components/_footer.php"; ?>

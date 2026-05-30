@@ -51,6 +51,7 @@ post('/api-unlike-review', 'apis/components/review/api-unlike-review.php');
 post('/api-request-update-avatar', 'apis/components/account/api-request-update-avatar.php');
 post('/api-update-avatar', 'apis/components/account/api-update-avatar.php');
 get('/api-cancel-update-avatar', 'apis/components/account/api-cancel-update-avatar');
+post('/api-delete-account', 'apis/components/account/api-delete-account');
 
 
 // Admin apis
