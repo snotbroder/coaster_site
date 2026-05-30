@@ -25,8 +25,8 @@ post('/api-login', 'apis/api-login.php');
 post('/api-logout', 'apis/api-logout.php');
 post('/api-sign-up', 'apis/api-sign-up.php');
 post('/api-index-search-coaster', 'apis/components/api-index-search-coaster.php');
-post('/api-search-coaster', 'apis/components/api-search-coaster');
-post('/api-search-park', 'apis/api-search-park.php');
+post('/api-search-coaster', 'apis/components/api-search-coaster.php');
+post('/api-search-park', 'apis/components/api-search-park.php');
 post('/api-get-park-coasters', 'apis/api-get-park-coasters.php');
 post('/api-filter-parks', 'apis/api-filter-parks.php');
 

@@ -2,7 +2,7 @@
 try {
     require_once ROOT . "/config/db.php";
     require_once ROOT . "/config/_.php";
-    $q = $_POST["search"] ?? "";
+    $q = _validate_search();
 
     //Get total of rows in coasters
     $total_coasters = $_db->query("SELECT COUNT(*) FROM coasters")->fetchColumn();
@@ -14,7 +14,7 @@ try {
         $stmt->execute();
         $coasters = $stmt->fetchAll();
     } else {
-        _validate_search();
+
         $sql = "SELECT * FROM coasters WHERE coaster_title LIKE :q ORDER BY coaster_title ASC LIMIT 6";
         $stmt = $_db->prepare($sql);
         $stmt->execute([":q" => "%" . $q . "%"]);

@@ -1,8 +1,8 @@
 <?php
 try {
-    require_once __DIR__ . "/../config/db.php";
-    require_once __DIR__ . "/../config/_.php";
-    $q = $_POST["search"] ?? "";
+    require_once ROOT . "/config/db.php";
+    require_once ROOT . "/config/_.php";
+    $q = _validate_search();
 
     //Get total of rows in parks
     $total_parks = $_db->query("SELECT COUNT(*) FROM parks")->fetchColumn();
@@ -14,7 +14,7 @@ try {
         $stmt->execute();
         $parks = $stmt->fetchAll();
     } else {
-        _validate_search();
+
         $sql = "SELECT * FROM parks WHERE park_title LIKE :q ORDER BY park_title ASC LIMIT 6";
         $stmt = $_db->prepare($sql);
         $stmt->execute([":q" => "%" . $q . "%"]);

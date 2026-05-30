@@ -2,8 +2,7 @@
 try {
     require_once ROOT . "/config/db.php";
     require_once ROOT . "/config/_.php";
-    $q = $_POST["search"] ?? "";
-    _validate_search();
+    $q = _validate_search();
 
     $sql = "SELECT * FROM coasters WHERE coaster_title LIKE :q ORDER BY coaster_title ASC LIMIT 3";
     $stmt = $_db->prepare($sql);
