@@ -19,7 +19,7 @@ $stmt->execute([":pk" => $park_pk]);
 $park_info = $stmt->fetch();
 
 ?>
-<browser mix-update="#map_aside">
+<browser mix-update="#aside_content">
     <?php require ROOT . "/views/components/__map-coaster_result.php"; ?>
 
 </browser>

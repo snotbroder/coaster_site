@@ -25,7 +25,7 @@ $coasters = $stmt->fetchAll();
 
 
 <section id="map_container">
-    <section class="relative flex flex-col gap-2 ">
+    <section class="relative flex flex-col gap-2 overflow-hidden">
         <aside id="map_filters" class="shadow-lg">
             <form id="filterForm" class="form-switch flex gap-2 items-center">
                 <div class="switch-field">
@@ -35,7 +35,7 @@ $coasters = $stmt->fetchAll();
                     <label for="radio-two">Parks</label>
                 </div>
                 <div class="filter-search-wrapper flex gap-1">
-                    <input name="filter_search" type="text" placeholder="Search parks, coasters">
+                    <input name="filter_search" type="text" placeholder="Search a name">
                 </div>
                 <div>
                     <!-- <label for="filter_country_code">Country</label> -->
@@ -52,8 +52,9 @@ $coasters = $stmt->fetchAll();
 
         </aside>
         <section id="map" class=""></section>
-        <aside id="map_aside" class="shadow-xl">
-            <p class="small">Click a marker to interact</p>
+        <aside id="map_aside" class="bg-(--pure-eggshell)/65">
+            <button id="aside_close">&#x2715;</button>
+            <div id="aside_content"></div>
         </aside>
     </section>
 </section>
@@ -77,6 +78,11 @@ $coasters = $stmt->fetchAll();
         maxClusterRadius: 50 // default is 100 pixels
     });
 
+    const mapAside = document.querySelector("#map_aside");
+    document.querySelector("#aside_close").addEventListener("click", () => {
+        mapAside.classList.remove("visible");
+    });
+
     // Test marker
     // var marker = L.marker([48.26612642549017, 7.72245819844865], {
     //     icon: L.divIcon({
@@ -95,7 +101,10 @@ $coasters = $stmt->fetchAll();
             }),
         });
         marker.bindTooltip(park.park_title);
-        marker.on("click", () => map.setView([park.park_lon, park.park_lat], 8));
+        marker.on("click", () => {
+            map.setView([park.park_lon, park.park_lat], 8);
+            mapAside.classList.add("visible");
+        });
 
         markers.addLayer(marker);
     }

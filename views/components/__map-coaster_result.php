@@ -8,8 +8,8 @@ $stmt = $_db->prepare($sql);
 $stmt->execute([":park_pk" =>  $park_info["park_pk"]]);
 $entries_count = $stmt->fetchColumn();
 ?>
-<div class="border-b border-b-(--darkened-eggshell) flex flex-col gap-4 py-2 pb-8 mb-6">
-    <div class="flex flex-col justify-between gap-4 lg:gap-2 md:mb-4 pb-6">
+<div class="flex flex-col gap-4 py-2 pb-8 mb-6">
+    <div class="flex flex-col justify-between gap-4 lg:gap-4 md:mb-4 pb-6">
         <h3><?php _($park_info["park_title"]) ?></h3>
         <span class="flex gap-1">
             <div class="w-4">
@@ -31,11 +31,13 @@ $entries_count = $stmt->fetchColumn();
     </div>
     <a class="btn-primary text-center!" href="/parks?park=<?php _($park_info["park_slug"]) ?>">See more</a>
 </div>
-<div class="flex gap-3 place-center">
+<div class="flex gap-3 place-center mb-4">
     <h5 class="font-semibold text-(--light-indigo)">Coasters</h5>
     <div class="w-full h-0.5 my-auto bg-(--darkened-eggshell) rounded-2xl"></div>
     <p class="small text-(--light-indigo)!"><?php _($entries_count) ?></p>
 </div>
-<?php foreach ($coasters as $coaster): ?>
-    <?php require ROOT . "/views/components/__coaster-card.php"; ?>
-<?php endforeach; ?>
+<div class="flex flex-col gap-10">
+    <?php foreach ($coasters as $coaster): ?>
+        <?php require ROOT . "/views/components/__coaster-card.php"; ?>
+    <?php endforeach; ?>
+</div>
