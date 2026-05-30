@@ -10,6 +10,14 @@ class CoasterFilterModel
         $this->params[":country"] = $filter_country;
         return $this;
     }
+
+    public function filterSearch(string $filter_search): static
+    {
+        $this->conditions[] = "coaster_title LIKE :query";
+        $this->params[":query"] = "%" . $filter_search . "%";
+        return $this;
+    }
+
     public function filterMinTopSpeed(int $speed): static
     {
         $this->conditions[] = "coaster_top_speed >= :top_speed";

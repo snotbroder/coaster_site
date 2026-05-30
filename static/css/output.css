@@ -888,6 +888,9 @@
       --tw-shadow-color: color-mix(in oklab, color-mix(in oklab, var(--color-black) 80%, transparent) var(--tw-shadow-alpha), transparent);
     }
   }
+  .filter {
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
   .transition-all {
     transition-property: all;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
@@ -1267,11 +1270,6 @@
       grid-template-columns: repeat(5, minmax(0, 1fr));
     }
   }
-  .lg\:gap-2 {
-    @media (width >= 64rem) {
-      gap: calc(var(--spacing) * 2);
-    }
-  }
   .lg\:gap-4 {
     @media (width >= 64rem) {
       gap: calc(var(--spacing) * 4);
@@ -1606,6 +1604,53 @@ form.default {
   & label:last-of-type {
     border-radius: 0 4px 4px 0;
   }
+}
+select.filter {
+  appearance: base-select;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--darkened-indigo);
+  option:checked {
+    border-radius: 0.125rem;
+    background: var(--darkened-eggshell);
+    color: var(--pure-seagreen);
+    cursor: default;
+    font-weight: 600;
+  }
+  option:hover:not(:checked) {
+    color: var(--light-seagreen);
+    background: var(--light-eggshell);
+    border-radius: 0.125rem;
+    padding-left: 0.25rem;
+    transition: all 0.2s;
+  }
+  option::checkmark {
+    content: "";
+  }
+  &::picker-icon {
+    font-size: 1rem;
+    align-content: center;
+    transition: 0.25s ease;
+    color: var(--light-indigo);
+    content: "▾";
+  }
+  &:open::picker-icon {
+    rotate: -180deg;
+  }
+}
+::picker(select) {
+  position: relative;
+  top: 0;
+  appearance: base-select;
+  scrollbar-width: none;
+  background-color: var(--pure-eggshell);
+  color: var(--pure-indigo);
+  border: 0;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  max-height: 12rem;
+  width: 12rem;
 }
 .btn-primary {
   background-color: var(--pure-indigo);
@@ -2031,6 +2076,59 @@ table.stats {
   inherits: false;
   initial-value: 0 0 #0000;
 }
+@property --tw-blur {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-brightness {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-contrast {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-grayscale {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-hue-rotate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-invert {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-opacity {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-saturate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-sepia {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-drop-shadow {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-drop-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-drop-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-drop-shadow-size {
+  syntax: "*";
+  inherits: false;
+}
 @property --tw-duration {
   syntax: "*";
   inherits: false;
@@ -2078,6 +2176,19 @@ table.stats {
       --tw-ring-offset-width: 0px;
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-blur: initial;
+      --tw-brightness: initial;
+      --tw-contrast: initial;
+      --tw-grayscale: initial;
+      --tw-hue-rotate: initial;
+      --tw-invert: initial;
+      --tw-opacity: initial;
+      --tw-saturate: initial;
+      --tw-sepia: initial;
+      --tw-drop-shadow: initial;
+      --tw-drop-shadow-color: initial;
+      --tw-drop-shadow-alpha: 100%;
+      --tw-drop-shadow-size: initial;
       --tw-duration: initial;
       --tw-ease: initial;
       --tw-scale-x: 1;

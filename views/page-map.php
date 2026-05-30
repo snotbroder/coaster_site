@@ -5,7 +5,7 @@ $active = "map";
 require_once ROOT . '/views/components/_header.php';
 require_once ROOT . "/config/db.php";
 
-// Get park data, also get country_code but only once for select element
+// Get park data, also get park_country but only once for the select element
 $sql = "SELECT * FROM parks ORDER BY park_title DESC";
 $stmt = $_db->prepare($sql);
 $stmt->execute();
@@ -38,8 +38,7 @@ $coasters = $stmt->fetchAll();
                     <input name="filter_search" type="text" placeholder="Search a name">
                 </div>
                 <div>
-                    <!-- <label for="filter_country_code">Country</label> -->
-                    <select name="filter_country" class="">
+                    <select name="filter_country" class="filter">
                         <option value="all">Country</option>
                         <?php foreach ($countries as $country):  ?>
                             <option value="<?php _($country["park_country"]) ?>">
@@ -131,43 +130,8 @@ $coasters = $stmt->fetchAll();
     coasters.forEach(addCoasterMarker);
     markers.addTo(map);
 
-    // Switch coasters/parks
-    // const filterForm = document.querySelector("#filterForm");
-    // filterForm.addEventListener("change", async (e) => {
-    //     let value = e.target.value;
-    //     console.log(value)
-    //     markers.clearLayers();
-
-    //     if (value == "coasters") {
-    //         coasters.forEach(addCoasterMarker);
-    //     }
-    //     if (value == "parks") {
-    //         parks.forEach(addParkMarker);
-    //     }
-    //     markers.addTo(map);
-    //     let markerCount = markers.getLayers().length;
-    //     console.log(markerCount)
-
-    // })
-
-
-
-    // Got help from claude
-    // document.querySelector("#map_filter form").addEventListener("change", async (e) => {
-    //     e.preventDefault();
-    //     const formData = new FormData(e.target);
-    //     history.replaceState(null, "", "?" + new URLSearchParams(formData).toString());
-    //     const res = await fetch("/api-filter-parks", {
-    //         method: "POST",
-    //         body: formData
-    //     });
-    //     const filtered = await res.json();
-    //     markers.clearLayers();
-    //     filtered.forEach(addMarker);
-    //     mix_convert();
-    // });
-
-    filterForm.addEventListener("change", async () => {
+    // filtering
+    async function addFilters() {
         const formData = new FormData(filterForm);
         const params = new URLSearchParams(formData);
 
@@ -179,11 +143,19 @@ $coasters = $stmt->fetchAll();
 
         const mode = formData.get("switch");
         if (mode == "parks") {
-            results.forEach(addParkMarker)
+            results.forEach(addParkMarker);
         } else {
-            results.forEach(addCoasterMarker)
+            results.forEach(addCoasterMarker);
         }
         markers.addTo(map);
-    })
+    }
+
+    filterForm.addEventListener("change", addFilters);
+
+    let searchTimeout;
+    filterForm.querySelector("[name='filter_search']").addEventListener("input", () => {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(addFilters, 200);
+    });
 </script>
 <?php require_once ROOT . '/views/components/_footer.php'; ?>

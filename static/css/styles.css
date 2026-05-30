@@ -220,6 +220,58 @@ form.default {
   }
 }
 
+select.filter {
+  appearance: base-select;
+  padding: 0.5rem;
+  /* background-color: var(--light-eggshell);
+  border: 1px solid var(--darkened-eggshell); */
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--darkened-indigo);
+  option:checked {
+    border-radius: 0.125rem;
+    background: var(--darkened-eggshell);
+    color: var(--pure-seagreen);
+    cursor: default;
+    font-weight: 600;
+  }
+  option:hover:not(:checked) {
+    color: var(--light-seagreen);
+    background: var(--light-eggshell);
+    border-radius: 0.125rem;
+    padding-left: 0.25rem;
+    transition: all 0.2s;
+  }
+  option::checkmark {
+    content: "";
+  }
+  &::picker-icon {
+    font-size: 1rem;
+    align-content: center;
+    transition: 0.25s ease;
+    color: var(--light-indigo);
+    content: "▾";
+  }
+  &:open::picker-icon {
+    rotate: -180deg;
+  }
+}
+/* Dropdown container */
+::picker(select) {
+  position: relative;
+  top: 0;
+
+  appearance: base-select;
+  scrollbar-width: none;
+  background-color: var(--pure-eggshell);
+  color: var(--pure-indigo);
+  border: 0;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  max-height: 12rem;
+  width: 12rem;
+}
+
 /* CTA */
 
 .btn-primary {

@@ -23,7 +23,7 @@ define("search_min", 0);
 define("search_max", 40);
 function _validate_search()
 {
-    $search = $_POST["search"];
+    $search = $_POST["search"] ?? $_GET["filter_search"] ?? ""; //I have to use POST because it wont work with mixhtml. filter_search is for page-map
     $search = trim($search);
     if (strlen($search) < search_min) {
         throw new Exception("Search must be at least " . search_min . " characters long", 400);

@@ -11,6 +11,13 @@ class ParkFilterModel
         return $this;
     }
 
+    public function filterSearch(string $filter_search): static
+    {
+        $this->conditions[] = "park_title LIKE :query";
+        $this->params[":query"] = "%" . $filter_search . "%";
+        return $this;
+    }
+
     public function fetch(PDO $db): array
     {
         $sql = "SELECT * FROM parks";
