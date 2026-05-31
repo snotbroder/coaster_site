@@ -3,7 +3,7 @@
 require_once __DIR__ . '/router.php';
 define('ROOT', __DIR__);
 
-//always check if session is alive
+//always set session alive
 session_start();
 // Views
 get('/', 'views/page-index.php');

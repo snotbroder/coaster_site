@@ -67,7 +67,7 @@ $coasters = $stmt->fetchAll();
 
         <div class="h-full md:h-48 w-auto relative">
             <img class="w-full h-full object-cover rounded-md" src="<?php _($park["park_image_path"]) ?>" alt="Park entrance">
-            <span class="absolute top-2 right-2 rounded-sm py-1.5 px-2 bg-(--pure-eggshell) text-(--light-indigo) text-sm"><?= round($park["park_lon"], 4) ?>&#176; N, <?= round($park["park_lat"], 4) ?>&#176; E</span>
+            <span class="absolute top-2 right-2 rounded-sm py-1.5 px-2 bg-(--pure-eggshell) text-(--light-indigo) text-sm"><?php _(substr($park["park_lon"], 0, 6)) ?>&#176; N, <?php _(substr($park["park_lon"], 0, 6)) ?>&#176; E</span>
         </div>
 
         <div class="flex flex-col gap-6">
