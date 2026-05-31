@@ -37,7 +37,7 @@
 
         <div class="h-full relative">
             <img class="w-full md:h-full object-cover rounded-md" src="https://images.coasterpedia.net/thumb/c/cd/Zadra_%28Energylandia%29_2023_01.jpg/800px-Zadra_%28Energylandia%29_2023_01.jpg.webp" alt="Zadra coaster">
-            <span class="absolute top-2 right-2 rounded-sm py-1.5 px-2 bg-(--pure-eggshell) text-(--light-indigo) text-sm">50.0019&#176; N, 19.4037&#176; E</span>
+            <a href="/map?filter_search=Zadra"><span class="absolute top-2 right-2 rounded-sm py-1.5 px-2 bg-(--pure-eggshell) text-(--light-indigo) text-sm hover:text-(--pure-seagreen)">50.0019&#176; N, 19.4037&#176; E</span></a>
         </div>
     </section>
 </section>
