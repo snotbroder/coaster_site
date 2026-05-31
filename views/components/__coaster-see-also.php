@@ -3,7 +3,7 @@
 /** @var array $coaster */
 
 
-$sql = "SELECT * FROM coasters WHERE coaster_manufacturer = :coaster_manufacturer AND coaster_pk != :coaster_pk LIMIT 3";
+$sql = "SELECT * FROM coasters WHERE coaster_manufacturer = :coaster_manufacturer AND coaster_pk != :coaster_pk ORDER BY RAND() LIMIT 3";
 $stmt = $_db->prepare($sql);
 $stmt->execute([
     ":coaster_manufacturer" => $coaster["coaster_manufacturer"],
