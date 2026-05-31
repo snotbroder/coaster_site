@@ -69,10 +69,13 @@ if (!$coaster) {
         <?php require_once ROOT . "/views/components/__coastermap.php" ?>
 
     </div>
-    <img class="rounded-md w-full h-48 md:h-full object-cover row-1 md:col-2 lg:col-span-2 lg:col-start-2 min-h-0"
-        src="<?php _($coaster["coaster_image_path"] ?: "/static/assets/images/coaster-placeholder.webp") ?>"
-        onerror="this.onerror=null; this.src='/static/assets/images/coaster-placeholder.webp'"
-        alt="Coaster">
+    <div class="row-1 md:col-2 lg:col-span-2 lg:col-start-2 min-h-0 relative">
+        <img class="rounded-md w-full h-48 md:h-full object-cover "
+            src="<?php _($coaster["coaster_image_path"] ?: "/static/assets/images/coaster-placeholder.webp") ?>"
+            onerror="this.onerror=null; this.src='/static/assets/images/coaster-placeholder.webp'"
+            alt="Coaster">
+        <a href="/map?switch=coasters&filter_search=<?php _($coaster["coaster_title"]) ?>&filter_country=all"><span class="absolute z-200 top-2 right-2 rounded-sm py-1.5 px-2 bg-(--pure-eggshell) text-(--light-indigo) text-sm hover:text-(--pure-seagreen)"><?php _(substr($coaster["coaster_lon"], 0, 6)) ?>&#176; N, <?php _(substr($coaster["coaster_lat"], 0, 5)) ?>&#176; E</span></a>
+    </div>
 </section>
 <section class="my-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 ">
     <div class="row-end-1 md:row-auto md:col-start-2 md:col-span-2">
