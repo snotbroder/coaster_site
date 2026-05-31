@@ -35,10 +35,10 @@ $coasters = $stmt->fetchAll();
                     <label for="radio-two">Parks</label>
                 </div>
                 <div class="filter-search-wrapper flex gap-1">
-                    <input name="filter_search" type="text" placeholder="Search a name">
+                    <input id="filter_search" name="filter_search" type="text" placeholder="Search a name">
                 </div>
                 <div>
-                    <select name="filter_country" class="filter">
+                    <select id="filter_country" name="filter_country" class="filter">
                         <option value="all">Country</option>
                         <?php foreach ($countries as $country):  ?>
                             <option value="<?php _($country["park_country"]) ?>">
@@ -158,26 +158,30 @@ $coasters = $stmt->fetchAll();
     });
 
     // on page load, apply filters from URL if present
-    const urlParams = new URLSearchParams(window.location.search);
+    async function applyUrlParams() {
+        const urlParams = new URLSearchParams(window.location.search);
 
-    const switchParam = urlParams.get("switch");
-    const countryParam = urlParams.get("filter_country");
-    const searchParam = urlParams.get("filter_search");
+        const switchParam = urlParams.get("switch");
+        const countryParam = urlParams.get("filter_country");
+        const searchParam = urlParams.get("filter_search");
 
-    if (switchParam == "coasters") {
-        document.getElementById("radio-one").checked = true;
-    } else if (switchParam == "parks") {
-        document.getElementById("radio-two").checked = true;
+        if (switchParam == "coasters") {
+            document.getElementById("radio-one").checked = true;
+        } else if (switchParam == "parks") {
+            document.getElementById("radio-two").checked = true;
+        }
+
+        if (countryParam) {
+            document.getElementById("filter_country").value = countryParam;
+        }
+
+        if (searchParam) {
+            document.getElementById("filter_search").value = searchParam;
+        }
+
+        await addFilters();
     }
 
-    if (countryParam) {
-        document.getElementById("filter_country").value = countryParam;
-    }
-
-    if (searchParam) {
-        document.getElementById("filter_search").value = searchParam;
-    }
-
-    addFilters();
+    applyUrlParams();
 </script>
 <?php require_once ROOT . '/views/components/_footer.php'; ?>
