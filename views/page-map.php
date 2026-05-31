@@ -129,9 +129,11 @@ $coasters = $stmt->fetchAll();
 
     // filtering
     async function addFilters() {
+        //take data from form
         const formData = new FormData(filterForm);
         const params = new URLSearchParams(formData);
 
+        //construct the querystring and place
         history.replaceState(null, "", "/map?" + params.toString());
         const res = await fetch("/api-map-filter?" + params.toString());
         const results = await res.json();
@@ -156,22 +158,26 @@ $coasters = $stmt->fetchAll();
     });
 
     // on page load, apply filters from URL if present
-    (async () => {
-        const urlParams = new URLSearchParams(window.location.search);
+    const urlParams = new URLSearchParams(window.location.search);
 
-        //claude helped getting the right syntax
-        if (urlParams.has("switch")) {
-            const radio = filterForm.querySelector(`[name="switch"][value="${urlParams.get("switch")}"]`);
-            if (radio) radio.checked = true;
-        }
-        if (urlParams.has("filter_country")) {
-            filterForm.querySelector("[name='filter_country']").value = urlParams.get("filter_country");
-        }
-        if (urlParams.has("filter_search")) {
-            filterForm.querySelector("[name='filter_search']").value = urlParams.get("filter_search");
-        }
+    const switchParam = urlParams.get("switch");
+    const countryParam = urlParams.get("filter_country");
+    const searchParam = urlParams.get("filter_search");
 
-        await addFilters();
-    })();
+    if (switchParam == "coasters") {
+        document.getElementById("radio-one").checked = true;
+    } else if (switchParam == "parks") {
+        document.getElementById("radio-two").checked = true;
+    }
+
+    if (countryParam) {
+        document.getElementById("filter_country").value = countryParam;
+    }
+
+    if (searchParam) {
+        document.getElementById("filter_search").value = searchParam;
+    }
+
+    addFilters();
 </script>
 <?php require_once ROOT . '/views/components/_footer.php'; ?>

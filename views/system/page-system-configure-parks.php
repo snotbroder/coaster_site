@@ -1,8 +1,18 @@
 <?php
+require_once ROOT . "/config/db.php";
+$stmt = $_db->prepare("SELECT user_authority FROM users WHERE user_pk = :user_pk");
+$stmt->execute([":user_pk" => $_SESSION["user_pk"]]);
+$user_autority = $stmt->fetchColumn();
+
+if ($user_autority <= 0) {
+    header("Location: /404");
+    exit;
+}
+
 $title = "Configure Parks";
 $active = "configure-parks";
 
-require_once ROOT . "/config/db.php";
+
 
 // Get all countries for the dropdown
 $sql_countries = "SELECT DISTINCT park_country FROM parks ORDER BY park_country ASC";

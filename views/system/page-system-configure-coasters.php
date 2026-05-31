@@ -1,4 +1,13 @@
 <?php
+require_once ROOT . "/config/db.php";
+$stmt = $_db->prepare("SELECT user_authority FROM users WHERE user_pk = :user_pk");
+$stmt->execute([":user_pk" => $_SESSION["user_pk"]]);
+$user_autority = $stmt->fetchColumn();
+
+if ($user_autority <= 0) {
+    header("Location: /404");
+    exit;
+}
 $title = "Configure Coasters";
 $active = "configure-coasters";
 
