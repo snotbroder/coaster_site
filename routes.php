@@ -28,7 +28,9 @@ post('/api-index-search-coaster', 'apis/components/api-index-search-coaster.php'
 post('/api-search-coaster', 'apis/components/api-search-coaster.php');
 post('/api-search-park', 'apis/components/api-search-park.php');
 post('/api-get-park-coasters', 'apis/api-get-park-coasters.php');
-post('/api-filter-parks', 'apis/api-filter-parks.php');
+
+// post('/api-filter-parks', 'apis/api-filter-parks.php');
+post('/api-filter-coasters', 'apis/api-filter-coasters.php');
 
 get('/api-map-filter', 'apis/api-map-filter.php');
 

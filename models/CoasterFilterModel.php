@@ -18,10 +18,10 @@ class CoasterFilterModel
         return $this;
     }
 
-    public function filterMinTopSpeed(int $speed): static
+    public function filterMinTopSpeed(int $filter_speed): static
     {
-        $this->conditions[] = "coaster_top_speed >= :top_speed";
-        $this->params[":top_speed"] = $speed;
+        $this->conditions[] = "coaster_top_speed >= :speed";
+        $this->params[":speed"] = $filter_speed;
         return $this;
     }
 
