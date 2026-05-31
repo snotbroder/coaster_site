@@ -3,7 +3,7 @@
     "title": "Configure users",
     "body": "See active users, configure status, monitor their posted content.",
     "icon": "/admin-user.svg",
-    "cta-path": "",
+    "cta-path": "/system/configure-users",
     "cta": "Go to page"
   },
   "card-2": {

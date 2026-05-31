@@ -51,7 +51,7 @@
                                 </div>
                                 <a href="/contact" class="hyperlink">Add parks</a>
                                 <a href="/my-reviews" class="hyperlink">Add coasters</a>
-                                <form mix-post="api-logout ">
+                                <form mix-post="/api-logout">
                                     <button class="btn-primary w-full">Logout</button>
                                 </form>
                             </div>
