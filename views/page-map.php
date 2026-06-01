@@ -77,6 +77,7 @@ $coasters = $stmt->fetchAll();
         maxClusterRadius: 50 // default is 100 pixels
     });
 
+    // Aside close button
     const mapAside = document.querySelector("#map_aside");
     document.querySelector("#aside_close").addEventListener("click", () => {
         mapAside.classList.remove("visible");
